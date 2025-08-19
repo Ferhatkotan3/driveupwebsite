@@ -40,10 +40,15 @@ export const ProductDetailPage = React.memo(({
     setCurrentSlide(index);
   }, []);
 
-  // Reset slide when product changes
+  // Reset slide and scroll to product content when product changes
   useEffect(() => {
     setCurrentSlide(0);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    const contentTop = document.getElementById('product-top');
+    if (contentTop) {
+      contentTop.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
   }, [product.id]);
 
   // Handle technical documentation request
@@ -65,7 +70,7 @@ export const ProductDetailPage = React.memo(({
   }, [language]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-14 sm:pt-16">
       {/* Back Button - Fixed Position for mobile */}
       <div className="fixed top-16 sm:top-18 left-4 z-40 lg:hidden">
         <Button
@@ -88,7 +93,7 @@ export const ProductDetailPage = React.memo(({
       />
 
       {/* Main Content */}
-      <section className="section-padding pt-6 sm:pt-8 md:pt-12">
+      <section id="product-top" className="pt-8 sm:pt-14" style={{ scrollMarginTop: '112px' }}>
         <div className="container-custom">
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 lg:gap-12">
             {/* Screenshots - Full width on mobile/tablet, 2/3 on desktop */}
