@@ -1,6 +1,35 @@
 import { ScreenshotData } from '../types';
-// Local placeholder image (SVG data URI) used instead of removed Figma asset import
-const exampleImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==';
+
+// Import actual images from assets/img folder
+import driveupfixer_1 from '../assets/img/driveupfixer_1.png';
+import driveupfixer_2 from '../assets/img/driveupfixer_2.png';
+import driveupfixer_3 from '../assets/img/driveupfixer_3.png';
+import driveupfixer_4 from '../assets/img/driveupfixer_4.png';
+import driveupfixer_5 from '../assets/img/driveupfixer_5.png';
+import driveupfixer_6 from '../assets/img/driveupfixer_6.png';
+import driveupfixer_7 from '../assets/img/driveupfixer_7.png';
+import driveupfixer_8 from '../assets/img/driveupfixer_8.png';
+import driveupfixer_9 from '../assets/img/driveupfixer_9.png';
+import driveupfixer_10 from '../assets/img/driveupfixer_10.png';
+import driveupfixer_11 from '../assets/img/driveupfixer_11.png';
+import driveupfixer_12 from '../assets/img/driveupfixer_12.png';
+import driveupfixer_13 from '../assets/img/driveupfixer_13.png';
+import driveupfixer_14 from '../assets/img/driveupfixer_14.png';
+import driveupfixer_15 from '../assets/img/driveupfixer_15.png';
+import driveupfixer_16 from '../assets/img/driveupfixer_16.png';
+import driveupfixer_17 from '../assets/img/driveupfixer_17.png';
+import driveupfixer_18 from '../assets/img/driveupfixer_18.png';
+import driveupfixer_19 from '../assets/img/driveupfixer_19.png';
+import driveupfixer_20 from '../assets/img/driveupfixer_20.png';
+import driveupfixer_21 from '../assets/img/driveupfixer_21.png';
+import driveupfixer_22 from '../assets/img/driveupfixer_22.png';
+import driveupfixer_23 from '../assets/img/driveupfixer_23.png';
+import driveupfixer_24 from '../assets/img/driveupfixer_24.png';
+import driveupfixer_25 from '../assets/img/driveupfixer_25.png';
+import driveupfixer_26 from '../assets/img/driveupfixer_26.png';
+import driveupfixer_27 from '../assets/img/driveupfixer_27.png';
+import driveupfixer_28 from '../assets/img/driveupfixer_28.png';
+import driveupfixer_29 from '../assets/img/driveupfixer_29.png';
 
 export const staticScreenshotData: ScreenshotData[] = [
   {
@@ -13,7 +42,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Kullanıcı dostu arayüz ile tüm işlemlere hızlı erişim sağlayan ana kontrol paneli',
       en: 'Main control panel providing quick access to all operations with user-friendly interface'
     },
-    image: exampleImage,
+    image: driveupfixer_1,
     features: {
       tr: [
         'Gerçek zamanlı veri görüntüleme',
@@ -39,7 +68,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'iOS ve Android platformları için optimize edilmiş mobil ana ekran deneyimi',
       en: 'Mobile home screen experience optimized for iOS and Android platforms'
     },
-    image: exampleImage,
+    image: driveupfixer_2,
     features: {
       tr: [
         'Dokunmatik optimize navigasyon',
@@ -65,7 +94,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Detaylı raporlama ve veri analizi araçları ile performans takibi',
       en: 'Performance tracking with detailed reporting and data analysis tools'
     },
-    image: exampleImage,
+    image: driveupfixer_3,
     features: {
       tr: [
         'İnteraktif grafikler ve çizelgeler',
@@ -91,7 +120,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Kullanıcı hesapları, roller ve izinlerin yönetimi için kapsamlı araçlar',
       en: 'Comprehensive tools for managing user accounts, roles and permissions'
     },
-    image: exampleImage,
+    image: driveupfixer_4,
     features: {
       tr: [
         'Rol bazlı erişim kontrolü',
@@ -117,7 +146,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Uygulama ayarları ve konfigürasyon seçenekleri yönetim paneli',
       en: 'Application settings and configuration options management panel'
     },
-    image: exampleImage,
+    image: driveupfixer_5,
     features: {
       tr: [
         'Genel sistem konfigürasyonu',
@@ -143,7 +172,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Sistem bildirimleri ve mesajların merkezi yönetim arayüzü',
       en: 'Central management interface for system notifications and messages'
     },
-    image: exampleImage,
+    image: driveupfixer_6,
     features: {
       tr: [
         'Gerçek zamanlı bildirimler',
@@ -169,7 +198,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Güçlü arama algoritmaları ile hızlı ve doğru sonuçlar',
       en: 'Fast and accurate results with powerful search algorithms'
     },
-    image: exampleImage,
+    image: driveupfixer_7,
     features: {
       tr: [
         'Akıllı arama önerileri',
@@ -195,7 +224,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Etkinlik planlama ve randevu yönetimi için entegre takvim sistemi',
       en: 'Integrated calendar system for event planning and appointment management'
     },
-    image: exampleImage,
+    image: driveupfixer_8,
     features: {
       tr: [
         'Çoklu takvim görünümü',
@@ -221,7 +250,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Popüler uygulamalar ve servislerle sorunsuz entegrasyon yönetimi',
       en: 'Seamless integration management with popular applications and services'
     },
-    image: exampleImage,
+    image: driveupfixer_9,
     features: {
       tr: [
         'API bağlantı yönetimi',
@@ -247,7 +276,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Kapsamlı güvenlik kontrolleri ve tehdit yönetimi araçları',
       en: 'Comprehensive security controls and threat management tools'
     },
-    image: exampleImage,
+    image: driveupfixer_10,
     features: {
       tr: [
         'Güvenlik duvarı yönetimi',
@@ -273,7 +302,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Otomatik yedekleme ve veri kurtarma seçenekleri yönetimi',
       en: 'Automatic backup and data recovery options management'
     },
-    image: exampleImage,
+    image: driveupfixer_11,
     features: {
       tr: [
         'Otomatik yedekleme planları',
@@ -299,7 +328,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Sistem performansı ve kaynak kullanımının detaylı takibi',
       en: 'Detailed tracking of system performance and resource usage'
     },
-    image: exampleImage,
+    image: driveupfixer_12,
     features: {
       tr: [
         'Gerçek zamanlı performans metrikleri',
@@ -325,7 +354,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Müşteri iletişimi ve mesajlaşma araçlarının merkezi yönetimi',
       en: 'Central management of customer communication and messaging tools'
     },
-    image: exampleImage,
+    image: driveupfixer_13,
     features: {
       tr: [
         'Çoklu kanal mesajlaşma',
@@ -351,7 +380,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Özelleştirilebilir iş akışları ve süreç otomasyonu araçları',
       en: 'Customizable workflows and process automation tools'
     },
-    image: exampleImage,
+    image: driveupfixer_14,
     features: {
       tr: [
         'Sürükle-bırak akış tasarımı',
@@ -377,7 +406,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Stok takibi ve envanter kontrolü için kapsamlı yönetim sistemi',
       en: 'Comprehensive management system for stock tracking and inventory control'
     },
-    image: exampleImage,
+    image: driveupfixer_15,
     features: {
       tr: [
         'Gerçek zamanlı stok durumu',
@@ -403,7 +432,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Gelir, gider ve bütçe yönetimi için finansal araçlar',
       en: 'Financial tools for revenue, expense and budget management'
     },
-    image: exampleImage,
+    image: driveupfixer_16,
     features: {
       tr: [
         'Gelir-gider takibi',
@@ -429,7 +458,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Müşteri bilgileri ve ilişki yönetimi için CRM araçları',
       en: 'CRM tools for customer information and relationship management'
     },
-    image: exampleImage,
+    image: driveupfixer_17,
     features: {
       tr: [
         'Müşteri profil yönetimi',
@@ -455,7 +484,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Proje planlama, takip ve ekip işbirliği araçları',
       en: 'Project planning, tracking and team collaboration tools'
     },
-    image: exampleImage,
+    image: driveupfixer_18,
     features: {
       tr: [
         'Gantt chart görünümü',
@@ -481,7 +510,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Dosya depolama, paylaşım ve versiyon kontrolü sistemi',
       en: 'File storage, sharing and version control system'
     },
-    image: exampleImage,
+    image: driveupfixer_19,
     features: {
       tr: [
         'Bulut tabanlı depolama',
@@ -507,7 +536,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'GPS takip ve coğrafi lokasyon yönetimi araçları',
       en: 'GPS tracking and geographic location management tools'
     },
-    image: exampleImage,
+    image: driveupfixer_20,
     features: {
       tr: [
         'Gerçek zamanlı GPS takip',
@@ -533,7 +562,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'İş süreçlerinin otomatikleştirilmesi ve kural tanımlama',
       en: 'Automation of business processes and rule definition'
     },
-    image: exampleImage,
+    image: driveupfixer_21,
     features: {
       tr: [
         'Koşullu otomasyon kuralları',
@@ -559,7 +588,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Hizmet kalitesi takibi ve sürekli iyileştirme araçları',
       en: 'Service quality tracking and continuous improvement tools'
     },
-    image: exampleImage,
+    image: driveupfixer_22,
     features: {
       tr: [
         'Kalite metrikleri dashboard\'ı',
@@ -585,7 +614,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Müşteri destek talepleri ve ticket yönetim sistemi',
       en: 'Customer support requests and ticket management system'
     },
-    image: exampleImage,
+    image: driveupfixer_23,
     features: {
       tr: [
         'Ticket oluşturma ve takip',
@@ -611,7 +640,7 @@ export const staticScreenshotData: ScreenshotData[] = [
       tr: 'Kullanıcı eğitimleri ve öğrenme yönetim sistemi',
       en: 'User training and learning management system'
     },
-    image: exampleImage,
+    image: driveupfixer_24,
     features: {
       tr: [
         'İnteraktif eğitim videoları',
@@ -624,6 +653,136 @@ export const staticScreenshotData: ScreenshotData[] = [
         'Quizzes and tests',
         'Progress tracking',
         'Certificate management'
+      ]
+    }
+  },
+  {
+    id: 'advanced-analytics',
+    title: {
+      tr: 'Gelişmiş Analitik',
+      en: 'Advanced Analytics'
+    },
+    description: {
+      tr: 'Makine öğrenmesi ve yapay zeka destekli veri analizi araçları',
+      en: 'Machine learning and AI-powered data analysis tools'
+    },
+    image: driveupfixer_25,
+    features: {
+      tr: [
+        'Tahminsel analitik',
+        'Anomali tespiti',
+        'Otomatik raporlama',
+        'Veri görselleştirme'
+      ],
+      en: [
+        'Predictive analytics',
+        'Anomaly detection',
+        'Automated reporting',
+        'Data visualization'
+      ]
+    }
+  },
+  {
+    id: 'mobile-dashboard',
+    title: {
+      tr: 'Mobil Dashboard',
+      en: 'Mobile Dashboard'
+    },
+    description: {
+      tr: 'Mobil cihazlar için optimize edilmiş dashboard görünümü',
+      en: 'Dashboard view optimized for mobile devices'
+    },
+    image: driveupfixer_26,
+    features: {
+      tr: [
+        'Responsive tasarım',
+        'Dokunmatik navigasyon',
+        'Hızlı erişim',
+        'Offline mod'
+      ],
+      en: [
+        'Responsive design',
+        'Touch navigation',
+        'Quick access',
+        'Offline mode'
+      ]
+    }
+  },
+  {
+    id: 'reporting-tools',
+    title: {
+      tr: 'Raporlama Araçları',
+      en: 'Reporting Tools'
+    },
+    description: {
+      tr: 'Kapsamlı raporlama ve analiz araçları koleksiyonu',
+      en: 'Comprehensive collection of reporting and analysis tools'
+    },
+    image: driveupfixer_27,
+    features: {
+      tr: [
+        'Özelleştirilebilir raporlar',
+        'Veri filtreleme',
+        'Export seçenekleri',
+        'Zamanlı raporlar'
+      ],
+      en: [
+        'Customizable reports',
+        'Data filtering',
+        'Export options',
+        'Scheduled reports'
+      ]
+    }
+  },
+  {
+    id: 'system-overview',
+    title: {
+      tr: 'Sistem Genel Bakış',
+      en: 'System Overview'
+    },
+    description: {
+      tr: 'Tüm sistem bileşenlerinin genel durumu ve performans metrikleri',
+      en: 'Overall status and performance metrics of all system components'
+    },
+    image: driveupfixer_28,
+    features: {
+      tr: [
+        'Sistem durumu',
+        'Performans metrikleri',
+        'Kaynak kullanımı',
+        'Aktivite logları'
+      ],
+      en: [
+        'System status',
+        'Performance metrics',
+        'Resource usage',
+        'Activity logs'
+      ]
+    }
+  },
+  {
+    id: 'user-interface',
+    title: {
+      tr: 'Kullanıcı Arayüzü',
+      en: 'User Interface'
+    },
+    description: {
+      tr: 'Modern ve kullanıcı dostu arayüz tasarımı ve bileşenleri',
+      en: 'Modern and user-friendly interface design and components'
+    },
+    image: driveupfixer_29,
+    features: {
+      tr: [
+        'Modern tasarım',
+        'Responsive layout',
+        'Erişilebilirlik',
+        'Tema desteği'
+      ],
+      en: [
+        'Modern design',
+        'Responsive layout',
+        'Accessibility',
+        'Theme support'
       ]
     }
   }
