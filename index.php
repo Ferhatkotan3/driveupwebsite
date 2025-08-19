@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 // Bootstrap application
 require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/classes/Database.php';
 require_once __DIR__ . '/classes/Security.php';
 require_once __DIR__ . '/classes/Session.php';
 require_once __DIR__ . '/classes/Content.php';
