@@ -154,7 +154,7 @@ export const content: ContentType = {
         description: 'Kurumsal ölçekte güvenilirlik, güvenlik ve performans sağlayan modern, ölçeklenebilir mimari üzerine inşa edilmiştir.',
         features: [
           {
-            title: 'Bulut-Natif',
+            title: 'Bulut Tabanlı',
             description: 'AWS üzerinde otomatik ölçeklendirme, yük dengeleme ve küresel CDN dağıtımı ile mikroservis mimarisi.'
           },
           {
