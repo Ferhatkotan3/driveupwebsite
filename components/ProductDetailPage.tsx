@@ -43,6 +43,7 @@ export const ProductDetailPage = React.memo(({
   // Reset slide when product changes
   useEffect(() => {
     setCurrentSlide(0);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, [product.id]);
 
   // Handle technical documentation request
