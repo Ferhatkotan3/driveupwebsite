@@ -8,6 +8,13 @@ import { Language, ScreenshotData } from '../types';
 import { toast } from "sonner";
 import { Dialog, DialogContent } from "./ui/dialog";
 
+// Import all product screenshot constants
+import { staticScreenshotData } from '../constants/screenshots';
+import { driveupManagerScreenshotData } from '../constants/driveupManagerScreenshots';
+import { driveupDeskScreenshotData } from '../constants/driveupDeskScreenshots';
+import { driveUpProScreenshotData } from '../constants/driveUpProScreenshots';
+import { driveUpGoScreenshotData } from '../constants/driveUpGoScreenshots';
+
 interface ProductDetailPageProps {
   product: any;
   screenshots: ScreenshotData[];
@@ -30,6 +37,27 @@ export const ProductDetailPage = React.memo(({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
+  // Get product-specific screenshots based on product ID
+  const getProductScreenshots = useCallback(() => {
+    switch (product.id) {
+      case 'driveupfixer':
+        return staticScreenshotData;
+      case 'driveupmanager':
+        return driveupManagerScreenshotData;
+      case 'driveupdesk':
+        return driveupDeskScreenshotData;
+      case 'driveuppro':
+        return driveUpProScreenshotData;
+      case 'driveupgo':
+        return driveUpGoScreenshotData;
+      default:
+        return staticScreenshotData; // fallback to main screenshots
+    }
+  }, [product.id]);
+
+  // Get current product screenshots
+  const currentProductScreenshots = getProductScreenshots();
+
   // Thumbnail referansları: aktif olanı otomatik ortalamak için
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -37,12 +65,12 @@ export const ProductDetailPage = React.memo(({
   const closeLightbox = useCallback(() => setIsLightboxOpen(false), []);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev >= screenshots.length - 1 ? 0 : prev + 1));
-  }, [screenshots.length]);
+    setCurrentSlide(prev => (prev >= currentProductScreenshots.length - 1 ? 0 : prev + 1));
+  }, [currentProductScreenshots.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev <= 0 ? screenshots.length - 1 : prev - 1));
-  }, [screenshots.length]);
+    setCurrentSlide(prev => (prev <= 0 ? currentProductScreenshots.length - 1 : prev - 1));
+  }, [currentProductScreenshots.length]);
 
   const handleSlideChange = useCallback((index: number) => {
     setCurrentSlide(index);
@@ -57,7 +85,7 @@ export const ProductDetailPage = React.memo(({
     } else {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
-  }, [product.id]);
+  }, [product.id, currentProductScreenshots.length]);
   // Lightbox açıkken klavye kısayolları
   useEffect(() => {
     if (!isLightboxOpen) return;
@@ -69,6 +97,13 @@ export const ProductDetailPage = React.memo(({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isLightboxOpen, nextSlide, prevSlide, closeLightbox]);
+
+  // Update currentSlide when product changes to prevent out-of-bounds errors
+  useEffect(() => {
+    if (currentSlide >= currentProductScreenshots.length) {
+      setCurrentSlide(0);
+    }
+  }, [currentProductScreenshots.length, currentSlide]);
 
   // Lightbox açıkken body scroll kilidi
   useEffect(() => {
@@ -117,7 +152,7 @@ export const ProductDetailPage = React.memo(({
         inline: "center"
       });
     }
-  }, [isLightboxOpen, currentSlide]);
+  }, [isLightboxOpen, currentSlide, currentProductScreenshots.length]);
 
   // Teknik doküman isteği
   const handleTechnicalDocsRequest = useCallback(() => {
@@ -183,7 +218,7 @@ export const ProductDetailPage = React.memo(({
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground">
-                    {currentSlide + 1} / {screenshots.length}
+                    {currentSlide + 1} / {currentProductScreenshots.length}
                   </div>
                 </div>
 
@@ -191,7 +226,7 @@ export const ProductDetailPage = React.memo(({
                 <div onClick={openLightbox} className="cursor-zoom-in">
                   <ScreenshotDisplay
                     currentSlide={currentSlide}
-                    screenshots={screenshots}
+                    screenshots={currentProductScreenshots}
                     onPrevious={(e?: any) => {
                       if (e?.stopPropagation) e.stopPropagation();
                       prevSlide();
@@ -205,7 +240,7 @@ export const ProductDetailPage = React.memo(({
 
                 <ScreenshotNavigation
                   currentSlide={currentSlide}
-                  totalSlides={screenshots.length}
+                  totalSlides={currentProductScreenshots.length}
                   onSlideChange={handleSlideChange}
                 />
               </div>
@@ -328,8 +363,8 @@ export const ProductDetailPage = React.memo(({
               onTouchEnd={onTouchEnd}
             >
               <img
-                src={getShotSrc(screenshots[currentSlide])}
-                alt={getShotAlt(screenshots[currentSlide], currentSlide)}
+                src={getShotSrc(currentProductScreenshots[currentSlide])}
+                alt={getShotAlt(currentProductScreenshots[currentSlide], currentSlide)}
                 className="max-h-[72vh] sm:max-h-[82vh] max-w-full object-contain rounded-md sm:rounded-lg"
                 draggable={false}
               />
@@ -337,7 +372,7 @@ export const ProductDetailPage = React.memo(({
 
             {/* Sayaç */}
             <div className="px-3 sm:px-4 pb-2 sm:pb-3 text-center text-white/80 text-xs sm:text-sm">
-              {currentSlide + 1} / {screenshots.length}
+              {currentSlide + 1} / {currentProductScreenshots.length}
             </div>
 
             {/* Thumbnails: mobilde yatay scroll, sm ve üstünde grid.
@@ -347,7 +382,7 @@ export const ProductDetailPage = React.memo(({
                 flex gap-2 overflow-x-auto no-scrollbar
                 sm:grid sm:grid-cols-8 sm:gap-2 sm:overflow-x-visible
               ">
-                {screenshots.map((shot, idx) => {
+                {currentProductScreenshots.map((shot, idx) => {
                   const src = getShotSrc(shot);
                   const alt = getShotAlt(shot, idx);
                   return (

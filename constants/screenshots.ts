@@ -1,35 +1,35 @@
 import { ScreenshotData } from '../types';
 
-// Import actual images from assets/img folder
-import driveupfixer_1 from '../assets/img/driveupfixer_1.png';
-import driveupfixer_2 from '../assets/img/driveupfixer_2.png';
-import driveupfixer_3 from '../assets/img/driveupfixer_3.png';
-import driveupfixer_4 from '../assets/img/driveupfixer_4.png';
-import driveupfixer_5 from '../assets/img/driveupfixer_5.png';
-import driveupfixer_6 from '../assets/img/driveupfixer_6.png';
-import driveupfixer_7 from '../assets/img/driveupfixer_7.png';
-import driveupfixer_8 from '../assets/img/driveupfixer_8.png';
-import driveupfixer_9 from '../assets/img/driveupfixer_9.png';
-import driveupfixer_10 from '../assets/img/driveupfixer_10.png';
-import driveupfixer_11 from '../assets/img/driveupfixer_11.png';
-import driveupfixer_12 from '../assets/img/driveupfixer_12.png';
-import driveupfixer_13 from '../assets/img/driveupfixer_13.png';
-import driveupfixer_14 from '../assets/img/driveupfixer_14.png';
-import driveupfixer_15 from '../assets/img/driveupfixer_15.png';
-import driveupfixer_16 from '../assets/img/driveupfixer_16.png';
-import driveupfixer_17 from '../assets/img/driveupfixer_17.png';
-import driveupfixer_18 from '../assets/img/driveupfixer_18.png';
-import driveupfixer_19 from '../assets/img/driveupfixer_19.png';
-import driveupfixer_20 from '../assets/img/driveupfixer_20.png';
-import driveupfixer_21 from '../assets/img/driveupfixer_21.png';
-import driveupfixer_22 from '../assets/img/driveupfixer_22.png';
-import driveupfixer_23 from '../assets/img/driveupfixer_23.png';
-import driveupfixer_24 from '../assets/img/driveupfixer_24.png';
-import driveupfixer_25 from '../assets/img/driveupfixer_25.png';
-import driveupfixer_26 from '../assets/img/driveupfixer_26.png';
-import driveupfixer_27 from '../assets/img/driveupfixer_27.png';
-import driveupfixer_28 from '../assets/img/driveupfixer_28.png';
-import driveupfixer_29 from '../assets/img/driveupfixer_29.png';
+// Import actual images from assets/img/Driveupfixer folder
+import driveupfixer_1 from '../assets/img/Driveupfixer/driveupfixer_1.png';
+import driveupfixer_2 from '../assets/img/Driveupfixer/driveupfixer_2.png';
+import driveupfixer_3 from '../assets/img/Driveupfixer/driveupfixer_3.png';
+import driveupfixer_4 from '../assets/img/Driveupfixer/driveupfixer_4.png';
+import driveupfixer_5 from '../assets/img/Driveupfixer/driveupfixer_5.png';
+import driveupfixer_6 from '../assets/img/Driveupfixer/driveupfixer_6.png';
+import driveupfixer_7 from '../assets/img/Driveupfixer/driveupfixer_7.png';
+import driveupfixer_8 from '../assets/img/Driveupfixer/driveupfixer_8.png';
+import driveupfixer_9 from '../assets/img/Driveupfixer/driveupfixer_9.png';
+import driveupfixer_10 from '../assets/img/Driveupfixer/driveupfixer_10.png';
+import driveupfixer_11 from '../assets/img/Driveupfixer/driveupfixer_11.png';
+import driveupfixer_12 from '../assets/img/Driveupfixer/driveupfixer_12.png';
+import driveupfixer_13 from '../assets/img/Driveupfixer/driveupfixer_13.png';
+import driveupfixer_14 from '../assets/img/Driveupfixer/driveupfixer_14.png';
+import driveupfixer_15 from '../assets/img/Driveupfixer/driveupfixer_15.png';
+import driveupfixer_16 from '../assets/img/Driveupfixer/driveupfixer_16.png';
+import driveupfixer_17 from '../assets/img/Driveupfixer/driveupfixer_17.png';
+import driveupfixer_18 from '../assets/img/Driveupfixer/driveupfixer_18.png';
+import driveupfixer_19 from '../assets/img/Driveupfixer/driveupfixer_19.png';
+import driveupfixer_20 from '../assets/img/Driveupfixer/driveupfixer_20.png';
+import driveupfixer_21 from '../assets/img/Driveupfixer/driveupfixer_21.png';
+import driveupfixer_22 from '../assets/img/Driveupfixer/driveupfixer_22.png';
+import driveupfixer_23 from '../assets/img/Driveupfixer/driveupfixer_23.png';
+import driveupfixer_24 from '../assets/img/Driveupfixer/driveupfixer_24.png';
+import driveupfixer_25 from '../assets/img/Driveupfixer/driveupfixer_25.png';
+import driveupfixer_26 from '../assets/img/Driveupfixer/driveupfixer_26.png';
+import driveupfixer_27 from '../assets/img/Driveupfixer/driveupfixer_27.png';
+import driveupfixer_28 from '../assets/img/Driveupfixer/driveupfixer_28.png';
+import driveupfixer_29 from '../assets/img/Driveupfixer/driveupfixer_29.png';
 
 export const staticScreenshotData: ScreenshotData[] = [
   {
