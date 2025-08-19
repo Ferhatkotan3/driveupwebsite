@@ -296,7 +296,7 @@ export const ProductDetailPage = React.memo(({
         <DialogOverlay className="bg-white/70 backdrop-blur-md" />
         <DialogContent
           className="
-            bg-transparent border-0 shadow-none p-0
+            bg-white border-0 shadow-none p-0
             w-screen max-w-none h-[100dvh]
             sm:h-auto sm:w-[92vw] sm:max-w-6xl
             [&>button]:hidden
