@@ -48,7 +48,6 @@ export const ProductDetailPage = React.memo(({
     setCurrentSlide(index);
   }, []);
 
-<<<<<<< HEAD
   // Reset slide and scroll to product content when product changes
   useEffect(() => {
     setCurrentSlide(0);
@@ -59,13 +58,6 @@ export const ProductDetailPage = React.memo(({
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
   }, [product.id]);
-=======
-  // Ürün değişince başa dön
-  useEffect(() => {
-    setCurrentSlide(0);
-  }, [product?.id]);
->>>>>>> 9782188d7568376d5205694421a66f583fc3debc
-
   // Lightbox açıkken klavye kısayolları
   useEffect(() => {
     if (!isLightboxOpen) return;
