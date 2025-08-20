@@ -15,6 +15,7 @@ import { driveupDeskScreenshotData } from '../constants/driveupDeskScreenshots';
 import { driveUpProScreenshotData } from '../constants/driveUpProScreenshots';
 import { driveUpGoScreenshotData } from '../constants/driveUpGoScreenshots';
 
+
 interface ProductDetailPageProps {
   product: any;
   language: Language;
@@ -60,6 +61,7 @@ export const ProductDetailPage = React.memo(({
   }, []);
 
   // ---- Navigation ----
+
   const openLightbox = useCallback(() => setIsLightboxOpen(true), []);
   const closeLightbox = useCallback(() => setIsLightboxOpen(false), []);
 
@@ -133,6 +135,7 @@ export const ProductDetailPage = React.memo(({
   }, [isLightboxOpen, currentSlide]);
 
   // ---- Toast ----
+
   const handleTechnicalDocsRequest = useCallback(() => {
     const message = language === 'tr'
       ? 'Teknik dokümanlar için info@driveuptr.com adresinden talep ediniz.'
@@ -189,6 +192,7 @@ export const ProductDetailPage = React.memo(({
                       <h1 className="text-xl sm:text-2xl font-bold">
                         <span className="text-foreground font-bold">Drive</span>
                         <span style={{ color: PURPLE }} className="font-bold">UP</span>
+
                         {product.title.replace('DriveUp', '')}
                       </h1>
                       <p className="text-muted-foreground text-sm">{product.subtitle}</p>
@@ -206,6 +210,7 @@ export const ProductDetailPage = React.memo(({
                     screenshots={currentProductScreenshots}
                     onPrevious={(e?: any) => { if (e?.stopPropagation) e.stopPropagation(); prevSlide(); }}
                     onNext={(e?: any) => { if (e?.stopPropagation) e.stopPropagation(); nextSlide(); }}
+
                   />
                 </div>
 
@@ -299,6 +304,7 @@ export const ProductDetailPage = React.memo(({
             sm:h-auto sm:w-[92vw] sm:max-w-6xl
             [&>button]:hidden
           "
+
         >
           <div
             className="relative w-full h-full"
@@ -316,6 +322,7 @@ export const ProductDetailPage = React.memo(({
                          bg-white text-[rgb(74,0,255)] shadow-md hover:bg-gray-100"
               aria-label="Close"
               title="Kapat"
+
             >
               ✕
             </button>
@@ -344,6 +351,7 @@ export const ProductDetailPage = React.memo(({
             <div
               className="flex items-center justify-center px-2 sm:px-4"
               style={{ height: 'calc(100dvh - 120px)' }} // top controls + dots payı
+
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
             >
@@ -351,6 +359,7 @@ export const ProductDetailPage = React.memo(({
                 src={getShotSrc(currentProductScreenshots[currentSlide])}
                 alt={getShotAlt(currentProductScreenshots[currentSlide], currentSlide)}
                 className="max-h-full max-w-[95vw] sm:max-w-full object-contain rounded-md sm:rounded-lg"
+
                 draggable={false}
               />
             </div>
@@ -381,6 +390,7 @@ export const ProductDetailPage = React.memo(({
                     />
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
