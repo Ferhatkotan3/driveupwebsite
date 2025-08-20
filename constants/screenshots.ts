@@ -1,6 +1,6 @@
 import { ScreenshotData } from '../types';
 
-// Import actual images from assets/img/Driveupfixer folder
+// Import Driveupfixer images from assets/img/Driveupfixer folder
 import driveupfixer_1 from '../assets/img/Driveupfixer/driveupfixer_1.png';
 import driveupfixer_2 from '../assets/img/Driveupfixer/driveupfixer_2.png';
 import driveupfixer_3 from '../assets/img/Driveupfixer/driveupfixer_3.png';

@@ -5,7 +5,7 @@ import { InvestorForm } from '../components/forms/InvestorForm';
 import { HomePage } from '../components/HomePage';
 import { ProductDetailPage } from '../components/ProductDetailPage';
 import { content } from '../constants/content';
-import { staticScreenshotData } from '../constants/screenshots';
+
 import { Language, Page } from '../types';
 import { Toaster } from "../components/ui/sonner";
 import { toast } from "sonner";
@@ -208,7 +208,6 @@ export default function App() {
         ) : (
           <ProductDetailPage 
             product={selectedProduct}
-            screenshots={staticScreenshotData}
             language={language}
             allProducts={t.platforms}
             onProductChange={navigateToProduct}

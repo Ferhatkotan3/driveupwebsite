@@ -12,48 +12,48 @@ export const driveupDeskScreenshotData: ScreenshotData[] = [
       en: 'DriveupDesk Main Interface'
     },
     description: {
-      tr: 'Masaüstü uygulaması ana ekranı ve temel navigasyon',
-      en: 'Desktop application main screen and basic navigation'
+      tr: 'Masaüstü uygulaması ana arayüzü ve kontrol paneli',
+      en: 'Desktop application main interface and control panel'
     },
     image: driveup_desk_1,
     features: {
       tr: [
-        'Ana dashboard görünümü',
-        'Hızlı erişim menüsü',
-        'Sistem durumu göstergeleri',
-        'Kullanıcı profil yönetimi'
+        'Masaüstü optimizasyonu',
+        'Geniş ekran desteği',
+        'Hızlı erişim menüleri',
+        'Profesyonel görünüm'
       ],
       en: [
-        'Main dashboard view',
-        'Quick access menu',
-        'System status indicators',
-        'User profile management'
+        'Desktop optimization',
+        'Wide screen support',
+        'Quick access menus',
+        'Professional appearance'
       ]
     }
   },
   {
-    id: 'desk-settings-panel',
+    id: 'desk-settings',
     title: {
-      tr: 'DriveupDesk Ayarlar Paneli',
-      en: 'DriveupDesk Settings Panel'
+      tr: 'DriveupDesk Ayarlar',
+      en: 'DriveupDesk Settings'
     },
     description: {
-      tr: 'Uygulama ayarları ve konfigürasyon seçenekleri',
-      en: 'Application settings and configuration options'
+      tr: 'Masaüstü uygulaması ayarları ve konfigürasyon',
+      en: 'Desktop application settings and configuration'
     },
     image: driveup_desk_2,
     features: {
       tr: [
-        'Genel ayarlar',
-        'Görünüm tercihleri',
-        'Bildirim ayarları',
-        'Güvenlik konfigürasyonu'
+        'Gelişmiş ayarlar',
+        'Tema seçenekleri',
+        'Klavye kısayolları',
+        'Sistem entegrasyonu'
       ],
       en: [
-        'General settings',
-        'Display preferences',
-        'Notification settings',
-        'Security configuration'
+        'Advanced settings',
+        'Theme options',
+        'Keyboard shortcuts',
+        'System integration'
       ]
     }
   }

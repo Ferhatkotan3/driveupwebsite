@@ -27,100 +27,74 @@ export const driveUpProScreenshotData: ScreenshotData[] = [
       en: 'DriveUpPro Main Dashboard'
     },
     description: {
-      tr: 'Profesyonel sürücü uygulaması ana kontrol paneli',
-      en: 'Professional driver application main control panel'
+      tr: 'Profesyonel sürücüler için gelişmiş ana kontrol paneli',
+      en: 'Advanced main control panel for professional drivers'
     },
     image: driveup_pro_1,
     features: {
       tr: [
         'Sürüş istatistikleri',
-        'Günlük hedefler',
+        'Performans metrikleri',
         'Hızlı eylemler',
-        'Bildirim merkezi'
+        'Gerçek zamanlı veriler'
       ],
       en: [
         'Driving statistics',
-        'Daily goals',
+        'Performance metrics',
         'Quick actions',
-        'Notification center'
+        'Real-time data'
       ]
     }
   },
   {
     id: 'pro-navigation',
     title: {
-      tr: 'Pro Navigasyon',
-      en: 'Pro Navigation'
+      tr: 'Gelişmiş Navigasyon',
+      en: 'Advanced Navigation'
     },
     description: {
-      tr: 'Gelişmiş navigasyon ve rota planlama özellikleri',
-      en: 'Advanced navigation and route planning features'
+      tr: 'Akıllı rota planlama ve trafik analizi',
+      en: 'Smart route planning and traffic analysis'
     },
     image: driveup_pro_2,
     features: {
       tr: [
         'Gerçek zamanlı trafik',
         'Alternatif rotalar',
-        'Sesli navigasyon',
-        'Favori lokasyonlar'
+        'Tahminli varış süresi',
+        'Sesli navigasyon'
       ],
       en: [
         'Real-time traffic',
         'Alternative routes',
-        'Voice navigation',
-        'Favorite locations'
+        'Estimated arrival time',
+        'Voice navigation'
       ]
     }
   },
   {
-    id: 'pro-vehicle-info',
+    id: 'pro-safety',
     title: {
-      tr: 'Araç Bilgileri',
-      en: 'Vehicle Information'
+      tr: 'Güvenlik Merkezi',
+      en: 'Safety Center'
     },
     description: {
-      tr: 'Detaylı araç bilgileri ve durum takibi',
-      en: 'Detailed vehicle information and status tracking'
+      tr: 'Güvenlik protokolleri ve uyarı sistemi',
+      en: 'Safety protocols and warning system'
     },
     image: driveup_pro_5,
     features: {
       tr: [
-        'Araç detayları',
-        'Bakım bilgileri',
-        'Yakıt durumu',
-        'Kilometre takibi'
-      ],
-      en: [
-        'Vehicle details',
-        'Maintenance info',
-        'Fuel status',
-        'Mileage tracking'
-      ]
-    }
-  },
-  {
-    id: 'pro-safety-features',
-    title: {
-      tr: 'Güvenlik Özellikleri',
-      en: 'Safety Features'
-    },
-    description: {
-      tr: 'Sürüş güvenliği ve güvenlik uyarıları',
-      en: 'Driving safety and security alerts'
-    },
-    image: driveup_pro_6,
-    features: {
-      tr: [
         'Güvenlik uyarıları',
-        'Sürüş analizi',
-        'Hız takibi',
-        'Fren mesafesi hesaplama'
+        'Sürüş davranış analizi',
+        'Acil durum butonları',
+        'Güvenlik raporları'
       ],
       en: [
         'Safety alerts',
-        'Driving analysis',
-        'Speed monitoring',
-        'Braking distance calculation'
+        'Driving behavior analysis',
+        'Emergency buttons',
+        'Safety reports'
       ]
     }
   },
@@ -131,322 +105,192 @@ export const driveUpProScreenshotData: ScreenshotData[] = [
       en: 'Communication Tools'
     },
     description: {
-      tr: 'Ekip iletişimi ve mesajlaşma özellikleri',
-      en: 'Team communication and messaging features'
+      tr: 'Müşteri ve merkez ile iletişim araçları',
+      en: 'Communication tools with customers and center'
+    },
+    image: driveup_pro_6,
+    features: {
+      tr: [
+        'Müşteri mesajlaşması',
+        'Merkez iletişimi',
+        'Sesli aramalar',
+        'Mesaj şablonları'
+      ],
+      en: [
+        'Customer messaging',
+        'Center communication',
+        'Voice calls',
+        'Message templates'
+      ]
+    }
+  },
+  {
+    id: 'pro-payments',
+    title: {
+      tr: 'Ödeme Yönetimi',
+      en: 'Payment Management'
+    },
+    description: {
+      tr: 'Ödeme işlemleri ve finansal takip',
+      en: 'Payment transactions and financial tracking'
     },
     image: driveup_pro_7,
     features: {
       tr: [
-        'Ekip mesajlaşması',
-        'Sesli mesajlar',
-        'Durum güncellemeleri',
-        'Acil durum bildirimleri'
+        'Ödeme geçmişi',
+        'Komisyon hesaplama',
+        'Transfer işlemleri',
+        'Finansal raporlar'
       ],
       en: [
-        'Team messaging',
-        'Voice messages',
-        'Status updates',
-        'Emergency notifications'
+        'Payment history',
+        'Commission calculation',
+        'Transfer operations',
+        'Financial reports'
       ]
     }
   },
   {
-    id: 'pro-trip-management',
+    id: 'pro-schedule',
     title: {
-      tr: 'Sefer Yönetimi',
-      en: 'Trip Management'
+      tr: 'Program Yönetimi',
+      en: 'Schedule Management'
     },
     description: {
-      tr: 'Sefer planlama ve takip sistemi',
-      en: 'Trip planning and tracking system'
+      tr: 'Sürüş programları ve randevu yönetimi',
+      en: 'Driving schedules and appointment management'
     },
     image: driveup_pro_8,
     features: {
       tr: [
-        'Sefer planlama',
-        'Zaman takibi',
-        'Maliyet hesaplama',
-        'Sefer raporları'
+        'Günlük program',
+        'Randevu takibi',
+        'Mola planlaması',
+        'Çalışma saatleri'
       ],
       en: [
-        'Trip planning',
-        'Time tracking',
-        'Cost calculation',
-        'Trip reports'
+        'Daily schedule',
+        'Appointment tracking',
+        'Break planning',
+        'Working hours'
       ]
     }
   },
   {
-    id: 'pro-analytics',
+    id: 'pro-vehicle',
     title: {
-      tr: 'Pro Analitik',
-      en: 'Pro Analytics'
+      tr: 'Araç Yönetimi',
+      en: 'Vehicle Management'
     },
     description: {
-      tr: 'Detaylı sürüş analizi ve performans metrikleri',
-      en: 'Detailed driving analysis and performance metrics'
+      tr: 'Araç bilgileri ve bakım takibi',
+      en: 'Vehicle information and maintenance tracking'
     },
     image: driveup_pro_9,
     features: {
       tr: [
-        'Sürüş performansı',
-        'Yakıt verimliliği',
-        'Güvenlik skorları',
-        'Trend analizi'
+        'Araç detayları',
+        'Bakım hatırlatmaları',
+        'Yakıt durumu',
+        'Araç durumu'
       ],
       en: [
-        'Driving performance',
-        'Fuel efficiency',
-        'Safety scores',
-        'Trend analysis'
+        'Vehicle details',
+        'Maintenance reminders',
+        'Fuel status',
+        'Vehicle condition'
       ]
     }
   },
   {
-    id: 'pro-settings',
+    id: 'pro-customer',
     title: {
-      tr: 'Pro Ayarlar',
-      en: 'Pro Settings'
+      tr: 'Müşteri Yönetimi',
+      en: 'Customer Management'
     },
     description: {
-      tr: 'Gelişmiş uygulama ayarları ve tercihler',
-      en: 'Advanced application settings and preferences'
+      tr: 'Müşteri bilgileri ve geçmiş',
+      en: 'Customer information and history'
     },
     image: driveup_pro_10,
     features: {
       tr: [
-        'Kullanıcı tercihleri',
-        'Bildirim ayarları',
-        'Güvenlik konfigürasyonu',
-        'Veri yönetimi'
+        'Müşteri profilleri',
+        'Sürüş geçmişi',
+        'Tercihler',
+        'Değerlendirmeler'
       ],
       en: [
-        'User preferences',
-        'Notification settings',
-        'Security configuration',
-        'Data management'
+        'Customer profiles',
+        'Ride history',
+        'Preferences',
+        'Reviews'
       ]
     }
   },
   {
-    id: 'pro-notifications',
+    id: 'pro-earnings',
     title: {
-      tr: 'Pro Bildirimler',
-      en: 'Pro Notifications'
+      tr: 'Kazanç Takibi',
+      en: 'Earnings Tracking'
     },
     description: {
-      tr: 'Akıllı bildirim sistemi ve uyarılar',
-      en: 'Smart notification system and alerts'
+      tr: 'Günlük, haftalık ve aylık kazanç analizi',
+      en: 'Daily, weekly and monthly earnings analysis'
     },
     image: driveup_pro_11,
     features: {
       tr: [
-        'Akıllı uyarılar',
-        'Bildirim filtreleme',
-        'Öncelik seviyeleri',
-        'Bildirim geçmişi'
+        'Günlük kazançlar',
+        'Trend analizi',
+        'Hedef takibi',
+        'Grafik görünümü'
       ],
       en: [
-        'Smart alerts',
-        'Notification filtering',
-        'Priority levels',
-        'Notification history'
+        'Daily earnings',
+        'Trend analysis',
+        'Goal tracking',
+        'Graph view'
       ]
     }
   },
   {
-    id: 'pro-reports',
+    id: 'pro-ratings',
     title: {
-      tr: 'Pro Raporlar',
-      en: 'Pro Reports'
+      tr: 'Değerlendirme Sistemi',
+      en: 'Rating System'
     },
     description: {
-      tr: 'Kapsamlı raporlama ve analiz araçları',
-      en: 'Comprehensive reporting and analysis tools'
+      tr: 'Müşteri değerlendirmeleri ve geri bildirimler',
+      en: 'Customer ratings and feedback'
     },
     image: driveup_pro_12,
     features: {
       tr: [
-        'Detaylı raporlar',
-        'Veri görselleştirme',
-        'Export seçenekleri',
-        'Zamanlı raporlar'
+        'Müşteri puanları',
+        'Geri bildirimler',
+        'İyileştirme önerileri',
+        'Başarı rozetleri'
       ],
       en: [
-        'Detailed reports',
-        'Data visualization',
-        'Export options',
-        'Scheduled reports'
-      ]
-    }
-  },
-  {
-    id: 'pro-calendar',
-    title: {
-      tr: 'Pro Takvim',
-      en: 'Pro Calendar'
-    },
-    description: {
-      tr: 'Sefer planlama ve randevu yönetimi',
-      en: 'Trip planning and appointment management'
-    },
-    image: driveup_pro_13,
-    features: {
-      tr: [
-        'Sefer takvimi',
-        'Randevu yönetimi',
-        'Hatırlatmalar',
-        'Senkronizasyon'
-      ],
-      en: [
-        'Trip calendar',
-        'Appointment management',
-        'Reminders',
-        'Synchronization'
-      ]
-    }
-  },
-  {
-    id: 'pro-maps',
-    title: {
-      tr: 'Pro Haritalar',
-      en: 'Pro Maps'
-    },
-    description: {
-      tr: 'Gelişmiş harita görünümleri ve özellikler',
-      en: 'Advanced map views and features'
-    },
-    image: driveup_pro_14,
-    features: {
-      tr: [
-        'Çoklu harita türleri',
-        'Offline haritalar',
-        '3D görünüm',
-        'Özel işaretleyiciler'
-      ],
-      en: [
-        'Multiple map types',
-        'Offline maps',
-        '3D view',
-        'Custom markers'
-      ]
-    }
-  },
-  {
-    id: 'pro-weather',
-    title: {
-      tr: 'Pro Hava Durumu',
-      en: 'Pro Weather'
-    },
-    description: {
-      tr: 'Hava durumu bilgileri ve sürüş koşulları',
-      en: 'Weather information and driving conditions'
-    },
-    image: driveup_pro_15,
-    features: {
-      tr: [
-        'Gerçek zamanlı hava',
-        'Sürüş koşulları',
-        'Hava uyarıları',
-        'Rota etkileri'
-      ],
-      en: [
-        'Real-time weather',
-        'Driving conditions',
-        'Weather alerts',
-        'Route impacts'
-      ]
-    }
-  },
-  {
-    id: 'pro-traffic',
-    title: {
-      tr: 'Pro Trafik',
-      en: 'Pro Traffic'
-    },
-    description: {
-      tr: 'Gelişmiş trafik analizi ve rota optimizasyonu',
-      en: 'Advanced traffic analysis and route optimization'
-    },
-    image: driveup_pro_16,
-    features: {
-      tr: [
-        'Gerçek zamanlı trafik',
-        'Trafik tahminleri',
-        'Rota optimizasyonu',
-        'Alternatif yollar'
-      ],
-      en: [
-        'Real-time traffic',
-        'Traffic predictions',
-        'Route optimization',
-        'Alternative routes'
-      ]
-    }
-  },
-  {
-    id: 'pro-parking',
-    title: {
-      tr: 'Pro Park Yeri',
-      en: 'Pro Parking'
-    },
-    description: {
-      tr: 'Park yeri bulma ve rezervasyon sistemi',
-      en: 'Parking spot finder and reservation system'
-    },
-    image: driveup_pro_17,
-    features: {
-      tr: [
-        'Park yeri arama',
-        'Rezervasyon sistemi',
-        'Fiyat karşılaştırması',
-        'Navigasyon entegrasyonu'
-      ],
-      en: [
-        'Parking spot search',
-        'Reservation system',
-        'Price comparison',
-        'Navigation integration'
-      ]
-    }
-  },
-  {
-    id: 'pro-fuel',
-    title: {
-      tr: 'Pro Yakıt',
-      en: 'Pro Fuel'
-    },
-    description: {
-      tr: 'Yakıt istasyonu bulma ve fiyat takibi',
-      en: 'Fuel station finder and price tracking'
-    },
-    image: driveup_pro_18,
-    features: {
-      tr: [
-        'Yakıt istasyonu arama',
-        'Fiyat karşılaştırması',
-        'Yakıt tüketimi takibi',
-        'Maliyet hesaplama'
-      ],
-      en: [
-        'Fuel station search',
-        'Price comparison',
-        'Fuel consumption tracking',
-        'Cost calculation'
+        'Customer scores',
+        'Feedback',
+        'Improvement suggestions',
+        'Achievement badges'
       ]
     }
   },
   {
     id: 'pro-support',
     title: {
-      tr: 'Pro Destek',
-      en: 'Pro Support'
+      tr: 'Destek Sistemi',
+      en: 'Support System'
     },
     description: {
-      tr: 'Kullanıcı desteği ve yardım sistemi',
-      en: 'User support and help system'
+      tr: 'Teknik destek ve yardım araçları',
+      en: 'Technical support and help tools'
     },
-    image: driveup_pro_19,
+    image: driveup_pro_13,
     features: {
       tr: [
         'Canlı destek',
@@ -459,6 +303,162 @@ export const driveUpProScreenshotData: ScreenshotData[] = [
         'Help documentation',
         'Video tutorials',
         'Ticket system'
+      ]
+    }
+  },
+  {
+    id: 'pro-settings',
+    title: {
+      tr: 'Ayarlar ve Tercihler',
+      en: 'Settings & Preferences'
+    },
+    description: {
+      tr: 'Uygulama ayarları ve kişisel tercihler',
+      en: 'App settings and personal preferences'
+    },
+    image: driveup_pro_14,
+    features: {
+      tr: [
+        'Profil ayarları',
+        'Bildirim tercihleri',
+        'Güvenlik ayarları',
+        'Dil seçenekleri'
+      ],
+      en: [
+        'Profile settings',
+        'Notification preferences',
+        'Security settings',
+        'Language options'
+      ]
+    }
+  },
+  {
+    id: 'pro-notifications',
+    title: {
+      tr: 'Bildirim Merkezi',
+      en: 'Notification Center'
+    },
+    description: {
+      tr: 'Önemli bildirimler ve uyarılar',
+      en: 'Important notifications and alerts'
+    },
+    image: driveup_pro_15,
+    features: {
+      tr: [
+        'Sistem bildirimleri',
+        'Müşteri mesajları',
+        'Güvenlik uyarıları',
+        'Bildirim geçmişi'
+      ],
+      en: [
+        'System notifications',
+        'Customer messages',
+        'Security alerts',
+        'Notification history'
+      ]
+    }
+  },
+  {
+    id: 'pro-map',
+    title: {
+      tr: 'Harita Görünümü',
+      en: 'Map View'
+    },
+    description: {
+      tr: 'Gelişmiş harita ve konum özellikleri',
+      en: 'Advanced map and location features'
+    },
+    image: driveup_pro_16,
+    features: {
+      tr: [
+        '3D harita görünümü',
+        'Uydu görüntüleri',
+        'Trafik katmanları',
+        'Konum işaretleme'
+      ],
+      en: [
+        '3D map view',
+        'Satellite images',
+        'Traffic layers',
+        'Location marking'
+      ]
+    }
+  },
+  {
+    id: 'pro-analytics',
+    title: {
+      tr: 'Performans Analizi',
+      en: 'Performance Analytics'
+    },
+    description: {
+      tr: 'Detaylı performans metrikleri ve analiz',
+      en: 'Detailed performance metrics and analysis'
+    },
+    image: driveup_pro_17,
+    features: {
+      tr: [
+        'Performans grafikleri',
+        'Karşılaştırma analizi',
+        'Hedef takibi',
+        'İyileştirme önerileri'
+      ],
+      en: [
+        'Performance charts',
+        'Comparison analysis',
+        'Goal tracking',
+        'Improvement suggestions'
+      ]
+    }
+  },
+  {
+    id: 'pro-backup',
+    title: {
+      tr: 'Yedekleme ve Senkronizasyon',
+      en: 'Backup & Sync'
+    },
+    description: {
+      tr: 'Veri yedekleme ve cihazlar arası senkronizasyon',
+      en: 'Data backup and cross-device synchronization'
+    },
+    image: driveup_pro_18,
+    features: {
+      tr: [
+        'Otomatik yedekleme',
+        'Bulut senkronizasyonu',
+        'Veri geri yükleme',
+        'Çoklu cihaz desteği'
+      ],
+      en: [
+        'Automatic backup',
+        'Cloud synchronization',
+        'Data restore',
+        'Multi-device support'
+      ]
+    }
+  },
+  {
+    id: 'pro-help',
+    title: {
+      tr: 'Yardım ve Eğitim',
+      en: 'Help & Training'
+    },
+    description: {
+      tr: 'Kullanıcı yardımı ve eğitim materyalleri',
+      en: 'User help and training materials'
+    },
+    image: driveup_pro_19,
+    features: {
+      tr: [
+        'Video eğitimler',
+        'Kullanım kılavuzu',
+        'SSS',
+        'İletişim bilgileri'
+      ],
+      en: [
+        'Video tutorials',
+        'User manual',
+        'FAQ',
+        'Contact information'
       ]
     }
   }

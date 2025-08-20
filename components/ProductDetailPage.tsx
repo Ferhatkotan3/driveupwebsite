@@ -17,7 +17,6 @@ import { driveUpGoScreenshotData } from '../constants/driveUpGoScreenshots';
 
 interface ProductDetailPageProps {
   product: any;
-  screenshots: ScreenshotData[];
   language: Language;
   allProducts: any[];
   onProductChange: (product: any) => void;
@@ -27,7 +26,6 @@ interface ProductDetailPageProps {
 
 export const ProductDetailPage = React.memo(({ 
   product, 
-  screenshots,
   language,
   allProducts,
   onProductChange,

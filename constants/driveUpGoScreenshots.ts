@@ -22,105 +22,313 @@ import driveup_go_18 from '../assets/img/DriveUpGo/Driveup_go_18.png';
 
 export const driveUpGoScreenshotData: ScreenshotData[] = [
   {
-    id: 'go-main-screen',
+    id: 'go-dashboard',
     title: {
-      tr: 'DriveUpGo Ana Ekran',
-      en: 'DriveUpGo Main Screen'
+      tr: 'DriveUpGo Ana Dashboard',
+      en: 'DriveUpGo Main Dashboard'
     },
     description: {
-      tr: 'Basit ve kullanıcı dostu ana ekran tasarımı',
-      en: 'Simple and user-friendly main screen design'
+      tr: 'Basit ve kullanıcı dostu ana ekran',
+      en: 'Simple and user-friendly main screen'
     },
     image: driveup_go_1,
     features: {
       tr: [
-        'Hızlı başlangıç',
-        'Ana navigasyon',
-        'Durum göstergeleri',
-        'Hızlı eylemler'
+        'Hızlı erişim',
+        'Basit navigasyon',
+        'Temel bilgiler',
+        'Kolay kullanım'
       ],
       en: [
-        'Quick start',
-        'Main navigation',
-        'Status indicators',
-        'Quick actions'
+        'Quick access',
+        'Simple navigation',
+        'Basic information',
+        'Easy to use'
       ]
     }
   },
   {
     id: 'go-navigation',
     title: {
-      tr: 'Go Navigasyon',
-      en: 'Go Navigation'
+      tr: 'Temel Navigasyon',
+      en: 'Basic Navigation'
     },
     description: {
-      tr: 'Temel navigasyon ve rota bulma özellikleri',
-      en: 'Basic navigation and route finding features'
+      tr: 'Basit rota planlama ve yönlendirme',
+      en: 'Simple route planning and guidance'
     },
     image: driveup_go_2,
     features: {
       tr: [
-        'Basit navigasyon',
-        'Rota bulma',
-        'Sesli yönlendirme',
-        'Tahmini süre'
+        'Temel harita',
+        'Rota gösterimi',
+        'Basit yönlendirme',
+        'Hızlı hesaplama'
       ],
       en: [
-        'Simple navigation',
-        'Route finding',
-        'Voice guidance',
-        'Estimated time'
+        'Basic map',
+        'Route display',
+        'Simple guidance',
+        'Quick calculation'
       ]
     }
   },
   {
-    id: 'go-simple-interface',
+    id: 'go-tracking',
     title: {
-      tr: 'Basit Arayüz',
-      en: 'Simple Interface'
+      tr: 'Basit Takip',
+      en: 'Basic Tracking'
     },
     description: {
-      tr: 'Minimalist ve kolay kullanım odaklı tasarım',
-      en: 'Minimalist and ease-of-use focused design'
+      tr: 'Temel sürüş bilgileri ve kayıt',
+      en: 'Basic driving information and records'
     },
     image: driveup_go_3,
     features: {
       tr: [
-        'Minimalist tasarım',
-        'Kolay navigasyon',
-        'Büyük butonlar',
-        'Net görünüm'
+        'Sürüş süresi',
+        'Mesafe bilgisi',
+        'Basit istatistikler',
+        'Kayıt tutma'
       ],
       en: [
-        'Minimalist design',
-        'Easy navigation',
-        'Large buttons',
-        'Clear view'
+        'Driving time',
+        'Distance information',
+        'Basic statistics',
+        'Record keeping'
       ]
     }
   },
   {
-    id: 'go-quick-actions',
+    id: 'go-safety',
     title: {
-      tr: 'Hızlı Eylemler',
-      en: 'Quick Actions'
+      tr: 'Temel Güvenlik',
+      en: 'Basic Safety'
     },
     description: {
-      tr: 'Sık kullanılan işlevlere hızlı erişim',
-      en: 'Quick access to frequently used functions'
+      tr: 'Basit güvenlik özellikleri ve uyarılar',
+      en: 'Basic safety features and warnings'
     },
     image: driveup_go_4,
     features: {
       tr: [
-        'Favori lokasyonlar',
-        'Son rotalar',
-        'Hızlı arama',
+        'Hız uyarıları',
+        'Basit güvenlik',
+        'Acil durum',
+        'Temel koruma'
+      ],
+      en: [
+        'Speed warnings',
+        'Basic safety',
+        'Emergency',
+        'Basic protection'
+      ]
+    }
+  },
+  {
+    id: 'go-communication',
+    title: {
+      tr: 'Basit İletişim',
+      en: 'Basic Communication'
+    },
+    description: {
+      tr: 'Temel iletişim araçları',
+      en: 'Basic communication tools'
+    },
+    image: driveup_go_5,
+    features: {
+      tr: [
+        'Basit mesajlaşma',
+        'Temel arama',
+        'Hızlı iletişim',
         'Kolay erişim'
       ],
       en: [
-        'Favorite locations',
-        'Recent routes',
-        'Quick search',
+        'Simple messaging',
+        'Basic calling',
+        'Quick communication',
+        'Easy access'
+      ]
+    }
+  },
+  {
+    id: 'go-payments',
+    title: {
+      tr: 'Basit Ödemeler',
+      en: 'Basic Payments'
+    },
+    description: {
+      tr: 'Temel ödeme işlemleri',
+      en: 'Basic payment operations'
+    },
+    image: driveup_go_6,
+    features: {
+      tr: [
+        'Ödeme geçmişi',
+        'Basit hesaplama',
+        'Temel raporlar',
+        'Kolay takip'
+      ],
+      en: [
+        'Payment history',
+        'Simple calculation',
+        'Basic reports',
+        'Easy tracking'
+      ]
+    }
+  },
+  {
+    id: 'go-schedule',
+    title: {
+      tr: 'Basit Program',
+      en: 'Basic Schedule'
+    },
+    description: {
+      tr: 'Temel program yönetimi',
+      en: 'Basic schedule management'
+    },
+    image: driveup_go_7,
+    features: {
+      tr: [
+        'Günlük program',
+        'Basit takvim',
+        'Hatırlatmalar',
+        'Kolay planlama'
+      ],
+      en: [
+        'Daily schedule',
+        'Simple calendar',
+        'Reminders',
+        'Easy planning'
+      ]
+    }
+  },
+  {
+    id: 'go-vehicle',
+    title: {
+      tr: 'Basit Araç Bilgileri',
+      en: 'Basic Vehicle Info'
+    },
+    description: {
+      tr: 'Temel araç bilgileri ve durum',
+      en: 'Basic vehicle information and status'
+    },
+    image: driveup_go_8,
+    features: {
+      tr: [
+        'Araç detayları',
+        'Basit durum',
+        'Temel bilgiler',
+        'Kolay görünüm'
+      ],
+      en: [
+        'Vehicle details',
+        'Basic status',
+        'Basic information',
+        'Easy view'
+      ]
+    }
+  },
+  {
+    id: 'go-customer',
+    title: {
+      tr: 'Basit Müşteri',
+      en: 'Basic Customer'
+    },
+    description: {
+      tr: 'Temel müşteri bilgileri',
+      en: 'Basic customer information'
+    },
+    image: driveup_go_9,
+    features: {
+      tr: [
+        'Müşteri profili',
+        'Basit geçmiş',
+        'Temel tercihler',
+        'Kolay erişim'
+      ],
+      en: [
+        'Customer profile',
+        'Basic history',
+        'Basic preferences',
+        'Easy access'
+      ]
+    }
+  },
+  {
+    id: 'go-earnings',
+    title: {
+      tr: 'Basit Kazanç',
+      en: 'Basic Earnings'
+    },
+    description: {
+      tr: 'Temel kazanç takibi',
+      en: 'Basic earnings tracking'
+    },
+    image: driveup_go_10,
+    features: {
+      tr: [
+        'Günlük kazanç',
+        'Basit grafik',
+        'Temel analiz',
+        'Kolay takip'
+      ],
+      en: [
+        'Daily earnings',
+        'Simple chart',
+        'Basic analysis',
+        'Easy tracking'
+      ]
+    }
+  },
+  {
+    id: 'go-ratings',
+    title: {
+      tr: 'Basit Değerlendirme',
+      en: 'Basic Ratings'
+    },
+    description: {
+      tr: 'Temel müşteri değerlendirmeleri',
+      en: 'Basic customer ratings'
+    },
+    image: driveup_go_11,
+    features: {
+      tr: [
+        'Müşteri puanları',
+        'Basit geri bildirim',
+        'Temel öneriler',
+        'Kolay görünüm'
+      ],
+      en: [
+        'Customer scores',
+        'Basic feedback',
+        'Basic suggestions',
+        'Easy view'
+      ]
+    }
+  },
+  {
+    id: 'go-support',
+    title: {
+      tr: 'Basit Destek',
+      en: 'Basic Support'
+    },
+    description: {
+      tr: 'Temel destek araçları',
+      en: 'Basic support tools'
+    },
+    image: driveup_go_12,
+    features: {
+      tr: [
+        'Yardım menüsü',
+        'Basit dokümantasyon',
+        'Temel eğitim',
+        'Kolay erişim'
+      ],
+      en: [
+        'Help menu',
+        'Basic documentation',
+        'Basic training',
         'Easy access'
       ]
     }
@@ -128,364 +336,156 @@ export const driveUpGoScreenshotData: ScreenshotData[] = [
   {
     id: 'go-settings',
     title: {
-      tr: 'Go Ayarlar',
-      en: 'Go Settings'
+      tr: 'Basit Ayarlar',
+      en: 'Basic Settings'
     },
     description: {
-      tr: 'Temel uygulama ayarları ve tercihler',
-      en: 'Basic application settings and preferences'
+      tr: 'Temel uygulama ayarları',
+      en: 'Basic app settings'
     },
-    image: driveup_go_5,
+    image: driveup_go_13,
     features: {
       tr: [
-        'Temel ayarlar',
-        'Görünüm tercihleri',
-        'Bildirim ayarları',
-        'Dil seçenekleri'
+        'Profil ayarları',
+        'Basit tercihler',
+        'Temel güvenlik',
+        'Kolay yapılandırma'
       ],
       en: [
-        'Basic settings',
-        'Display preferences',
-        'Notification settings',
-        'Language options'
-      ]
-    }
-  },
-  {
-    id: 'go-help',
-    title: {
-      tr: 'Go Yardım',
-      en: 'Go Help'
-    },
-    description: {
-      tr: 'Kullanıcı yardımı ve destek sistemi',
-      en: 'User help and support system'
-    },
-    image: driveup_go_6,
-    features: {
-      tr: [
-        'Yardım menüsü',
-        'Sık sorulan sorular',
-        'İletişim bilgileri',
-        'Basit rehber'
-      ],
-      en: [
-        'Help menu',
-        'Frequently asked questions',
-        'Contact information',
-        'Simple guide'
-      ]
-    }
-  },
-  {
-    id: 'go-profile',
-    title: {
-      tr: 'Go Profil',
-      en: 'Go Profile'
-    },
-    description: {
-      tr: 'Kullanıcı profil yönetimi ve ayarları',
-      en: 'User profile management and settings'
-    },
-    image: driveup_go_7,
-    features: {
-      tr: [
-        'Profil bilgileri',
-        'Kişisel ayarlar',
-        'Hesap yönetimi',
-        'Güvenlik ayarları'
-      ],
-      en: [
-        'Profile information',
-        'Personal settings',
-        'Account management',
-        'Security settings'
+        'Profile settings',
+        'Basic preferences',
+        'Basic security',
+        'Easy configuration'
       ]
     }
   },
   {
     id: 'go-notifications',
     title: {
-      tr: 'Go Bildirimler',
-      en: 'Go Notifications'
+      tr: 'Basit Bildirimler',
+      en: 'Basic Notifications'
     },
     description: {
-      tr: 'Basit bildirim sistemi ve uyarılar',
-      en: 'Simple notification system and alerts'
-    },
-    image: driveup_go_8,
-    features: {
-      tr: [
-        'Temel bildirimler',
-        'Uyarı mesajları',
-        'Bildirim ayarları',
-        'Bildirim geçmişi'
-      ],
-      en: [
-        'Basic notifications',
-        'Alert messages',
-        'Notification settings',
-        'Notification history'
-      ]
-    }
-  },
-  {
-    id: 'go-maps',
-    title: {
-      tr: 'Go Haritalar',
-      en: 'Go Maps'
-    },
-    description: {
-      tr: 'Temel harita görünümü ve navigasyon',
-      en: 'Basic map view and navigation'
-    },
-    image: driveup_go_9,
-    features: {
-      tr: [
-        'Temel harita görünümü',
-        'Konum arama',
-        'Basit navigasyon',
-        'Rota gösterimi'
-      ],
-      en: [
-        'Basic map view',
-        'Location search',
-        'Simple navigation',
-        'Route display'
-      ]
-    }
-  },
-  {
-    id: 'go-search',
-    title: {
-      tr: 'Go Arama',
-      en: 'Go Search'
-    },
-    description: {
-      tr: 'Basit arama ve lokasyon bulma',
-      en: 'Simple search and location finding'
-    },
-    image: driveup_go_10,
-    features: {
-      tr: [
-        'Basit arama',
-        'Lokasyon bulma',
-        'Arama geçmişi',
-        'Favori lokasyonlar'
-      ],
-      en: [
-        'Simple search',
-        'Location finding',
-        'Search history',
-        'Favorite locations'
-      ]
-    }
-  },
-  {
-    id: 'go-favorites',
-    title: {
-      tr: 'Go Favoriler',
-      en: 'Go Favorites'
-    },
-    description: {
-      tr: 'Favori lokasyonlar ve hızlı erişim',
-      en: 'Favorite locations and quick access'
-    },
-    image: driveup_go_11,
-    features: {
-      tr: [
-        'Favori lokasyonlar',
-        'Hızlı erişim',
-        'Kategori yönetimi',
-        'Kolay düzenleme'
-      ],
-      en: [
-        'Favorite locations',
-        'Quick access',
-        'Category management',
-        'Easy editing'
-      ]
-    }
-  },
-  {
-    id: 'go-recent',
-    title: {
-      tr: 'Go Son Kullanılan',
-      en: 'Go Recent'
-    },
-    description: {
-      tr: 'Son kullanılan lokasyonlar ve rotalar',
-      en: 'Recently used locations and routes'
-    },
-    image: driveup_go_12,
-    features: {
-      tr: [
-        'Son lokasyonlar',
-        'Son rotalar',
-        'Hızlı erişim',
-        'Geçmiş takibi'
-      ],
-      en: [
-        'Recent locations',
-        'Recent routes',
-        'Quick access',
-        'History tracking'
-      ]
-    }
-  },
-  {
-    id: 'go-about',
-    title: {
-      tr: 'Go Hakkında',
-      en: 'Go About'
-    },
-    description: {
-      tr: 'Uygulama bilgileri ve versiyon detayları',
-      en: 'Application information and version details'
-    },
-    image: driveup_go_13,
-    features: {
-      tr: [
-        'Uygulama bilgileri',
-        'Versiyon detayları',
-        'Lisans bilgileri',
-        'Geliştirici bilgileri'
-      ],
-      en: [
-        'Application information',
-        'Version details',
-        'License information',
-        'Developer information'
-      ]
-    }
-  },
-  {
-    id: 'go-privacy',
-    title: {
-      tr: 'Go Gizlilik',
-      en: 'Go Privacy'
-    },
-    description: {
-      tr: 'Gizlilik ayarları ve veri yönetimi',
-      en: 'Privacy settings and data management'
+      tr: 'Temel bildirim sistemi',
+      en: 'Basic notification system'
     },
     image: driveup_go_14,
     features: {
       tr: [
-        'Gizlilik ayarları',
-        'Veri kullanımı',
-        'Konum izinleri',
-        'Veri silme'
+        'Sistem bildirimleri',
+        'Basit uyarılar',
+        'Temel mesajlar',
+        'Kolay yönetim'
       ],
       en: [
-        'Privacy settings',
-        'Data usage',
-        'Location permissions',
-        'Data deletion'
+        'System notifications',
+        'Basic alerts',
+        'Basic messages',
+        'Easy management'
       ]
     }
   },
   {
-    id: 'go-legal',
+    id: 'go-map',
     title: {
-      tr: 'Go Yasal',
-      en: 'Go Legal'
+      tr: 'Basit Harita',
+      en: 'Basic Map'
     },
     description: {
-      tr: 'Yasal bilgiler ve kullanım şartları',
-      en: 'Legal information and terms of use'
+      tr: 'Temel harita görünümü',
+      en: 'Basic map view'
     },
     image: driveup_go_15,
     features: {
       tr: [
-        'Kullanım şartları',
-        'Gizlilik politikası',
-        'Lisans anlaşması',
-        'Yasal uyarılar'
+        'Temel harita',
+        'Basit görünüm',
+        'Temel katmanlar',
+        'Kolay kullanım'
       ],
       en: [
-        'Terms of use',
-        'Privacy policy',
-        'License agreement',
-        'Legal notices'
+        'Basic map',
+        'Simple view',
+        'Basic layers',
+        'Easy to use'
       ]
     }
   },
   {
-    id: 'go-contact',
+    id: 'go-analytics',
     title: {
-      tr: 'Go İletişim',
-      en: 'Go Contact'
+      tr: 'Basit Analitik',
+      en: 'Basic Analytics'
     },
     description: {
-      tr: 'İletişim bilgileri ve destek kanalları',
-      en: 'Contact information and support channels'
+      tr: 'Temel performans metrikleri',
+      en: 'Basic performance metrics'
     },
     image: driveup_go_16,
     features: {
       tr: [
-        'İletişim bilgileri',
-        'Destek kanalları',
-        'Geri bildirim',
-        'Sosyal medya'
+        'Temel grafikler',
+        'Basit analiz',
+        'Temel karşılaştırma',
+        'Kolay görünüm'
       ],
       en: [
-        'Contact information',
-        'Support channels',
-        'Feedback',
-        'Social media'
+        'Basic charts',
+        'Simple analysis',
+        'Basic comparison',
+        'Easy view'
       ]
     }
   },
   {
-    id: 'go-updates',
+    id: 'go-backup',
     title: {
-      tr: 'Go Güncellemeler',
-      en: 'Go Updates'
+      tr: 'Basit Yedekleme',
+      en: 'Basic Backup'
     },
     description: {
-      tr: 'Uygulama güncellemeleri ve yenilikler',
-      en: 'Application updates and new features'
+      tr: 'Temel veri yedekleme',
+      en: 'Basic data backup'
     },
     image: driveup_go_17,
     features: {
       tr: [
-        'Güncelleme kontrolü',
-        'Yenilikler',
-        'Sürüm notları',
-        'Otomatik güncelleme'
+        'Otomatik yedekleme',
+        'Basit senkronizasyon',
+        'Temel geri yükleme',
+        'Kolay yönetim'
       ],
       en: [
-        'Update check',
-        'New features',
-        'Release notes',
-        'Auto-update'
+        'Automatic backup',
+        'Basic synchronization',
+        'Basic restore',
+        'Easy management'
       ]
     }
   },
   {
-    id: 'go-feedback',
+    id: 'go-help',
     title: {
-      tr: 'Go Geri Bildirim',
-      en: 'Go Feedback'
+      tr: 'Basit Yardım',
+      en: 'Basic Help'
     },
     description: {
-      tr: 'Kullanıcı geri bildirimi ve öneriler',
-      en: 'User feedback and suggestions'
+      tr: 'Temel yardım ve eğitim',
+      en: 'Basic help and training'
     },
     image: driveup_go_18,
     features: {
       tr: [
-        'Geri bildirim formu',
-        'Öneri gönderme',
-        'Hata bildirimi',
-        'Değerlendirme'
+        'Yardım menüsü',
+        'Basit eğitim',
+        'SSS',
+        'Kolay erişim'
       ],
       en: [
-        'Feedback form',
-        'Suggestion submission',
-        'Bug reporting',
-        'Rating'
+        'Help menu',
+        'Basic training',
+        'FAQ',
+        'Easy access'
       ]
     }
   }
