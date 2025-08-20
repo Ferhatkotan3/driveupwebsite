@@ -643,7 +643,10 @@ body::after,
 @media (max-width: 768px) {
   /* Ensure dialogs don't clip select dropdowns */
   [data-slot="dialog-content"] {
-    overflow: visible !important;
+    overflow-y: auto !important;
+    overflow-x: visible !important;
+    -webkit-overflow-scrolling: touch;
+    max-height: 90vh;
   }
   
   /* Make sure select content is above dialog on mobile */

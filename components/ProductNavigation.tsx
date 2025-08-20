@@ -14,7 +14,7 @@ export const ProductNavigation = React.memo(({
   onProductChange
 }: ProductNavigationProps) => {
   return (
-    <div className="sticky top-14 sm:top-16 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <div id="product-nav" className="sticky top-14 sm:top-16 z-40 bg-background/95 backdrop-blur-md border-b border-border shadow-sm" style={{ scrollMarginTop: '64px' }}>
       <div className="container-custom">
         <div className="flex items-center gap-2 py-3 sm:py-4 overflow-x-auto scrollbar-hide">
           {products.map((product) => {

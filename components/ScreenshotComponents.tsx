@@ -2,81 +2,93 @@ import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ScreenshotData } from '../types';
-// Local placeholder image (SVG data URI) used instead of removed Figma asset import
-const exampleImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==';
 
-// Screenshot Display Component
-export const ScreenshotDisplay = React.memo(({ 
-  currentSlide, 
-  screenshots, 
-  onPrevious, 
-  onNext 
+// Local placeholder image (SVG data URI)
+const exampleImage =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Rya2Utd2lkdGg9IjMuNyI+PHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2Ii8+PHBhdGggZD0ibTE2IDU4IDE2LTE4IDMyIDMyIi8+PGNpcmNsZSBjeD0iNTMiIGN5PSIzNSIgcj0iNyIvPjwvc3ZnPgoK';
+
+// ===================== Screenshot Display =====================
+export const ScreenshotDisplay = React.memo(({
+  currentSlide,
+  screenshots,
+  onPrevious,
+  onNext
 }: {
   currentSlide: number;
   screenshots: ScreenshotData[];
-  onPrevious: () => void;
-  onNext: () => void;
+  onPrevious: (e?: any) => void;
+  onNext: (e?: any) => void;
 }) => {
-  const currentScreenshot = screenshots[currentSlide];
-  
+  const shot = screenshots[currentSlide];
+
   return (
-    <div className="relative flex-1 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-border mx-4 sm:mx-0">
-      {/* Navigation Buttons - Hidden on mobile */}
+    <div className="group relative flex-1 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-border mx-4 sm:mx-0">
+      {/* Sol ok (desktop) */}
       <button
-        onClick={onPrevious}
-        className="hidden sm:block absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-all duration-200 border border-border shadow-lg"
+        onClick={(e) => { e.stopPropagation?.(); onPrevious?.(e); }}
+        aria-label="Previous"
+        className="
+          hidden sm:flex absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-10
+          w-10 h-10 rounded-full bg-white text-[rgb(74,0,255)]
+          items-center justify-center shadow-md hover:shadow-lg hover:bg-gray-100
+          focus:outline-none focus:ring-2 focus:ring-[rgb(74,0,255)]/30
+        "
       >
-        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-      </button>
-      
-      <button
-        onClick={onNext}
-        className="hidden sm:block absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-background transition-all duration-200 border border-border shadow-lg"
-      >
-        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
 
-      {/* Screenshot Display */}
+      {/* Sağ ok (desktop) */}
+      <button
+        onClick={(e) => { e.stopPropagation?.(); onNext?.(e); }}
+        aria-label="Next"
+        className="
+          hidden sm:flex absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-10
+          w-10 h-10 rounded-full bg-white text-[rgb(74,0,255)]
+          items-center justify-center shadow-md hover:shadow-lg hover:bg-gray-100
+          focus:outline-none focus:ring-2 focus:ring-[rgb(74,0,255)]/30
+        "
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Görsel */}
       <div className="h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] xl:min-h-[600px] flex items-center justify-center">
         <ImageWithFallback
-          key={currentScreenshot?.id || currentSlide}
-          src={currentScreenshot?.image || exampleImage}
+          key={(shot as any)?.id || currentSlide}
+          src={(shot as any)?.image || (shot as any)?.src || exampleImage}
           alt={`Screenshot ${currentSlide + 1}`}
           className="max-h-full max-w-full object-contain rounded-lg sm:rounded-xl shadow-lg transition-opacity duration-200"
         />
       </div>
 
-      {/* Mobile Navigation Buttons */}
-      <div className="sm:hidden flex justify-between items-center mt-4">
+      {/* Mobil oklar */}
+      <div className="sm:hidden absolute inset-x-0 top-1/2 -translate-y-1/2 px-3 flex justify-between">
         <button
-          onClick={onPrevious}
-          className="flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg shadow-sm hover:bg-muted transition-all"
+          onClick={(e) => { e.stopPropagation?.(); onPrevious?.(e); }}
+          aria-label="Previous"
+          className="w-9 h-9 rounded-full bg-white text-[rgb(74,0,255)]
+                     flex items-center justify-center shadow-md hover:bg-gray-100"
         >
-          <ChevronLeft className="h-4 w-4" />
-          <span className="text-sm font-medium">Önceki</span>
+          <ChevronLeft className="w-5 h-5" />
         </button>
-        
-        <div className="text-sm text-muted-foreground">
-          {currentSlide + 1} / {screenshots.length}
-        </div>
-        
         <button
-          onClick={onNext}
-          className="flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg shadow-sm hover:bg-muted transition-all"
+          onClick={(e) => { e.stopPropagation?.(); onNext?.(e); }}
+          aria-label="Next"
+          className="w-9 h-9 rounded-full bg-white text-[rgb(74,0,255)]
+                     flex items-center justify-center shadow-md hover:bg-gray-100"
         >
-          <span className="text-sm font-medium">Sonraki</span>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="w-5 h-5" />
         </button>
       </div>
     </div>
   );
 });
 
-// Screenshot Navigation Component  
-export const ScreenshotNavigation = React.memo(({ 
-  currentSlide, 
-  totalSlides, 
-  onSlideChange 
+// ===================== Screenshot Navigation (Dots) =====================
+export const ScreenshotNavigation = React.memo(({
+  currentSlide,
+  totalSlides,
+  onSlideChange
 }: {
   currentSlide: number;
   totalSlides: number;
@@ -84,22 +96,25 @@ export const ScreenshotNavigation = React.memo(({
 }) => {
   return (
     <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 px-4 sm:px-0">
-      {/* Screenshot Counter - Hidden on mobile as it's shown in the display component */}
+      {/* Sayaç (desktop) */}
       <div className="hidden sm:block text-center text-sm text-muted-foreground">
         {currentSlide + 1} / {totalSlides}
       </div>
-      
-      {/* Dots Navigation */}
-      <div className="flex justify-center space-x-1 sm:space-x-2 max-w-full overflow-x-auto pb-2">
-        {Array.from({ length: totalSlides }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => onSlideChange(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 flex-shrink-0 ${
-              currentSlide === index ? 'bg-primary w-4 sm:w-6' : 'bg-muted-foreground/30'
-            }`}
-          />
-        ))}
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 max-w-full overflow-x-auto pb-2">
+        {Array.from({ length: totalSlides }).map((_, index) => {
+          const isActive = currentSlide === index;
+          return (
+            <button
+              key={index}
+              onClick={() => onSlideChange(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              className={`h-2.5 w-2.5 rounded-full flex-shrink-0 transition-colors
+                ${isActive ? 'bg-[rgb(74,0,255)]' : 'bg-gray-300 hover:bg-gray-400'}`}
+            />
+          );
+        })}
       </div>
     </div>
   );

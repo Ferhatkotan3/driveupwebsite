@@ -28,7 +28,7 @@ export const InvestorForm = React.memo(({
     experience: '',
     previousInvestments: '',
     whyThisProject: '',
-    privacyConsent: false
+    kvkkConsent: false
   });
 
   const [errors, setErrors] = useState<{[key: string]: string}>({});
@@ -66,6 +66,9 @@ export const InvestorForm = React.memo(({
       whyThisProject: 'Neden Bu Proje?',
       whyThisProjectPlaceholder: 'Bu projeye özel ilgi gösterme nedenlerinizi belirtin',
       privacyConsent: 'Gizlilik sözleşmesini okudum, kabul ediyorum.',
+      kvkkDisclosureTitle: 'KVKK Aydınlatma Metni ve Açık Rıza Beyanı',
+      kvkkDisclosureDescription: 'Bu form aracılığıyla paylaştığınız kişisel verileriniz (ad, soyad, e-posta, telefon vb.), "Driveup" tarafından, yatırımcı başvurunuzun değerlendirilmesi, sizinle iletişime geçilmesi ve ilgili yasal yükümlülüklerin yerine getirilmesi amacıyla işlenmektedir. Kişisel verileriniz, Kanun’un 5. maddesi ve diğer ilgili mevzuat hükümleri uyarınca hukuki sebeplere dayanılarak otomatik veya otomatik olmayan yollarla işlenmektedir. Kişisel verileriniz, bu amaçlar doğrultusunda iş ortakları ve yetkili kamu kurum ve kuruluşları ile paylaşılabilecektir. KVKK’nın 11. maddesi kapsamında, kişisel verilerinizin işlenip işlenmediğini öğrenme, bu verilere erişim, düzeltme, silme veya anonim hale getirme gibi haklara sahipsiniz. Bu haklarınızı kullanmak için info@driveuptr.com adresinden bizimle iletişime geçebilirsiniz.',
+      kvkkApprove: 'Yukarıdaki Aydınlatma Metnini okudum ve kişisel verilerimin işlenmesine açık rıza gösteriyorum',
       submit: 'Bilgi Talebi Gönder',
       cancel: 'İptal',
       required: 'Bu alan zorunludur',
@@ -89,6 +92,9 @@ export const InvestorForm = React.memo(({
       whyThisProject: 'Why This Project?',
       whyThisProjectPlaceholder: 'Specify your reasons for showing special interest in this project',
       privacyConsent: 'I have read and agree to the privacy agreement.',
+      kvkkDisclosureTitle: 'Privacy Disclosure and Explicit Consent',
+      kvkkDisclosureDescription: 'The personal data you share through this form (name, surname, email, phone, etc.) is processed by DriveUp for the purposes of evaluating your investor inquiry, contacting you, and fulfilling legal obligations. Your personal data may be processed automatically or non-automatically based on legal reasons under applicable law and may be shared with business partners and competent public authorities for these purposes. Under applicable data protection laws, you have rights such as access, correction, deletion, or anonymization of your personal data. You can contact us at info@driveuptr.com to exercise these rights.',
+      kvkkApprove: 'I have read the disclosure above and give my explicit consent to the processing of my personal data.',
       submit: 'Send Information Request',
       cancel: 'Cancel',
       required: 'This field is required',
@@ -115,7 +121,7 @@ export const InvestorForm = React.memo(({
     }
     if (!formData.sector.trim()) newErrors.sector = t.required;
     if (!formData.experience) newErrors.experience = t.required;
-    if (!formData.privacyConsent) newErrors.privacyConsent = t.required;
+    if (!formData.kvkkConsent) newErrors.kvkkConsent = t.required;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -135,7 +141,7 @@ export const InvestorForm = React.memo(({
         experience: '',
         previousInvestments: '',
         whyThisProject: '',
-        privacyConsent: false
+        kvkkConsent: false
       });
       setErrors({});
     }
@@ -149,6 +155,7 @@ export const InvestorForm = React.memo(({
   };
 
   const showPreviousInvestments = formData.experience && formData.experience !== 'beginner';
+  const showKvkkBlock = true;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -262,24 +269,32 @@ export const InvestorForm = React.memo(({
             />
           </div>
 
-          <div className="flex items-start space-x-2">
-            <Checkbox
-              id="privacyConsent"
-              checked={formData.privacyConsent}
-              onCheckedChange={(checked: boolean) => handleInputChange('privacyConsent', checked)}
-              className={errors.privacyConsent ? 'border-destructive' : ''}
-            />
-            <Label htmlFor="privacyConsent" className="text-sm leading-5">
-              {t.privacyConsent} *
-            </Label>
-          </div>
-          {errors.privacyConsent && <p className="text-sm text-destructive">{errors.privacyConsent}</p>}
+          {showKvkkBlock && (
+            <div className="p-3 sm:p-4 rounded-lg border border-border bg-background-secondary/50 space-y-2">
+              <h4 className="text-sm sm:text-base font-semibold">{t.kvkkDisclosureTitle}</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {t.kvkkDisclosureDescription}
+              </p>
+              <div className="flex items-start space-x-2 pt-1">
+                <Checkbox
+                  id="kvkkConsent"
+                  checked={formData.kvkkConsent}
+                  onCheckedChange={(checked: boolean) => handleInputChange('kvkkConsent', checked)}
+                  className={errors.kvkkConsent ? 'border-destructive' : ''}
+                />
+                <Label htmlFor="kvkkConsent" className="text-xs sm:text-sm leading-5">
+                  {t.kvkkApprove} *
+                </Label>
+              </div>
+              {errors.kvkkConsent && <p className="text-sm text-destructive">{errors.kvkkConsent}</p>}
+            </div>
+          )}
 
           <div className="flex gap-3 pt-4">
             <Button type="button" variant="outline" onClick={onClose} className="flex-1">
               {t.cancel}
             </Button>
-            <Button type="submit" className="flex-1 btn-primary">
+            <Button type="submit" className="flex-1 btn-primary" disabled={!formData.kvkkConsent}>
               {t.submit}
             </Button>
           </div>

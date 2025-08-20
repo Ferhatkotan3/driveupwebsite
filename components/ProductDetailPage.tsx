@@ -6,11 +6,18 @@ import { ProductNavigation } from './ProductNavigation';
 import { ScreenshotDisplay, ScreenshotNavigation } from './ScreenshotComponents';
 import { Language, ScreenshotData } from '../types';
 import { toast } from "sonner";
-import { Dialog, DialogContent } from "./ui/dialog";
+import { Dialog, DialogContent, DialogOverlay } from "./ui/dialog";
+
+// Product-specific screenshots
+import { staticScreenshotData } from '../constants/screenshots';
+import { driveupManagerScreenshotData } from '../constants/driveupManagerScreenshots';
+import { driveupDeskScreenshotData } from '../constants/driveupDeskScreenshots';
+import { driveUpProScreenshotData } from '../constants/driveUpProScreenshots';
+import { driveUpGoScreenshotData } from '../constants/driveUpGoScreenshots';
+
 
 interface ProductDetailPageProps {
   product: any;
-  screenshots: ScreenshotData[];
   language: Language;
   allProducts: any[];
   onProductChange: (product: any) => void;
@@ -20,7 +27,6 @@ interface ProductDetailPageProps {
 
 export const ProductDetailPage = React.memo(({ 
   product, 
-  screenshots, 
   language,
   allProducts,
   onProductChange,
@@ -30,96 +36,110 @@ export const ProductDetailPage = React.memo(({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  // Thumbnail referansları: aktif olanı otomatik ortalamak için
-  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  // ---- Helpers ----
+  const PURPLE = 'rgb(74,0,255)';
+
+  const getProductScreenshots = useCallback((): ScreenshotData[] => {
+    switch (product?.id) {
+      case 'driveupfixer': return staticScreenshotData;
+      case 'driveupmanager': return driveupManagerScreenshotData;
+      case 'driveupdesk': return driveupDeskScreenshotData;
+      case 'driveuppro': return driveUpProScreenshotData;
+      case 'driveupgo': return driveUpGoScreenshotData;
+      default: return staticScreenshotData;
+    }
+  }, [product?.id]);
+
+  const currentProductScreenshots = getProductScreenshots();
+
+  const getShotSrc = useCallback((shot: ScreenshotData) => {
+    return (shot as any)?.src ?? (shot as any)?.url ?? (shot as any)?.image ?? '';
+  }, []);
+  const getShotAlt = useCallback((shot: ScreenshotData, idx: number) => {
+    const raw = (shot as any)?.alt ?? (shot as any)?.title ?? (shot as any)?.caption ?? '';
+    return raw || `Screenshot ${idx + 1}`;
+  }, []);
+
+  // ---- Navigation ----
 
   const openLightbox = useCallback(() => setIsLightboxOpen(true), []);
   const closeLightbox = useCallback(() => setIsLightboxOpen(false), []);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev >= screenshots.length - 1 ? 0 : prev + 1));
-  }, [screenshots.length]);
+    setCurrentSlide(prev => (prev >= currentProductScreenshots.length - 1 ? 0 : prev + 1));
+  }, [currentProductScreenshots.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev <= 0 ? screenshots.length - 1 : prev - 1));
-  }, [screenshots.length]);
+    setCurrentSlide(prev => (prev <= 0 ? currentProductScreenshots.length - 1 : prev - 1));
+  }, [currentProductScreenshots.length]);
 
-  const handleSlideChange = useCallback((index: number) => {
-    setCurrentSlide(index);
+  const handleSlideChange = useCallback((index: number) => setCurrentSlide(index), []);
+
+  // ---- Scroll controls ----
+  // İlk yüklemede sayfayı en üste al
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
 
-  // Ürün değişince başa dön
+  // Ürün değişince slide'ı sıfırla ve ürün blok başına kaydır
   useEffect(() => {
     setCurrentSlide(0);
-  }, [product?.id]);
+    const contentTop = document.getElementById('product-top');
+    if (contentTop) {
+      contentTop.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [product?.id, currentProductScreenshots.length]);
 
-  // Lightbox açıkken klavye kısayolları
+  // Array boyutu değişirse oob engelle
+  useEffect(() => {
+    if (currentSlide >= currentProductScreenshots.length) setCurrentSlide(0);
+  }, [currentProductScreenshots.length, currentSlide]);
+
+  // ---- Keyboard in lightbox ----
   useEffect(() => {
     if (!isLightboxOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
   }, [isLightboxOpen, nextSlide, prevSlide, closeLightbox]);
 
-  // Lightbox açıkken body scroll kilidi
+  // Body scroll lock
   useEffect(() => {
-    if (isLightboxOpen) document.body.classList.add("overflow-hidden");
-    else document.body.classList.remove("overflow-hidden");
-    return () => document.body.classList.remove("overflow-hidden");
+    if (isLightboxOpen) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
+    return () => document.body.classList.remove('overflow-hidden');
   }, [isLightboxOpen]);
 
-  // Dokunmatik kaydırma
+  // ---- Touch swipe ----
   const touchRef = useRef<{ x: number | null }>({ x: null });
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchRef.current.x = e.touches[0].clientX;
-  };
+  const onTouchStart = (e: React.TouchEvent) => { touchRef.current.x = e.touches[0].clientX; };
   const onTouchEnd = (e: React.TouchEvent) => {
     if (touchRef.current.x == null) return;
     const dx = e.changedTouches[0].clientX - touchRef.current.x;
-    if (Math.abs(dx) > 40) {
-      dx < 0 ? nextSlide() : prevSlide();
-    }
+    if (Math.abs(dx) > 40) (dx < 0 ? nextSlide() : prevSlide());
     touchRef.current.x = null;
   };
 
-  // Kaynak ve alt metin yardımcıları (tip güvenli)
-  const getShotSrc = useCallback((shot: ScreenshotData) => {
-    return (shot as any)?.src
-      ?? (shot as any)?.url
-      ?? (shot as any)?.image
-      ?? '';
-  }, []);
-
-  const getShotAlt = useCallback((shot: ScreenshotData, idx: number) => {
-    const raw =
-      (shot as any)?.alt ??
-      (shot as any)?.title ??
-      (shot as any)?.caption ??
-      "";
-    return raw || `Screenshot ${idx + 1}`;
-  }, []);
-
-  // Lightbox açıldığında veya currentSlide değiştiğinde aktif thumbnail'i ortala
+  // ---- Dots auto-center (desktop) ----
+  const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
   useEffect(() => {
-    if (isLightboxOpen && thumbRefs.current[currentSlide]) {
-      thumbRefs.current[currentSlide]?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center"
-      });
+    if (isLightboxOpen && dotRefs.current[currentSlide]) {
+      dotRefs.current[currentSlide]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }, [isLightboxOpen, currentSlide]);
 
-  // Teknik doküman isteği
+  // ---- Toast ----
+
   const handleTechnicalDocsRequest = useCallback(() => {
-    const message = language === 'tr' 
+    const message = language === 'tr'
       ? 'Teknik dokümanlar için info@driveuptr.com adresinden talep ediniz.'
       : 'For technical documentation, please contact info@driveuptr.com';
-    
     toast.info(message, {
       duration: 5000,
       action: {
@@ -133,7 +153,7 @@ export const ProductDetailPage = React.memo(({
   }, [language]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-14 sm:pt-16">
       {/* Back Button - Fixed Position for mobile */}
       <div className="fixed top-16 sm:top-18 left-4 z-40 lg:hidden">
         <Button
@@ -147,7 +167,7 @@ export const ProductDetailPage = React.memo(({
         </Button>
       </div>
 
-      {/* Product Navigation Bar */}
+      {/* Product Navigation */}
       <ProductNavigation 
         products={allProducts}
         selectedProduct={product}
@@ -156,13 +176,13 @@ export const ProductDetailPage = React.memo(({
       />
 
       {/* Main Content */}
-      <section className="section-padding pt-6 sm:pt-8 md:pt-12">
+      <section id="product-top" className="pt-8 sm:pt-14" style={{ scrollMarginTop: '112px' }}>
         <div className="container-custom">
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
             {/* Screenshots */}
             <div className="xl:col-span-2">
               <div className="space-y-6 sm:space-y-8">
-                {/* Product Title and Counter */}
+                {/* Title + counter */}
                 <div className="flex items-center justify-between px-4 sm:px-0">
                   <div className="flex items-center gap-3">
                     <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-muted">
@@ -171,36 +191,32 @@ export const ProductDetailPage = React.memo(({
                     <div>
                       <h1 className="text-xl sm:text-2xl font-bold">
                         <span className="text-foreground font-bold">Drive</span>
-                        <span style={{color: '#4a00ff'}} className="font-bold">UP</span>
+                        <span style={{ color: PURPLE }} className="font-bold">UP</span>
+
                         {product.title.replace('DriveUp', '')}
                       </h1>
                       <p className="text-muted-foreground text-sm">{product.subtitle}</p>
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground">
-                    {currentSlide + 1} / {screenshots.length}
+                    {currentSlide + 1} / {currentProductScreenshots.length}
                   </div>
                 </div>
 
-                {/* Screenshot Display, tıklanınca lightbox açılır */}
+                {/* Screenshot Display (click -> lightbox) */}
                 <div onClick={openLightbox} className="cursor-zoom-in">
                   <ScreenshotDisplay
                     currentSlide={currentSlide}
-                    screenshots={screenshots}
-                    onPrevious={(e?: any) => {
-                      if (e?.stopPropagation) e.stopPropagation();
-                      prevSlide();
-                    }}
-                    onNext={(e?: any) => {
-                      if (e?.stopPropagation) e.stopPropagation();
-                      nextSlide();
-                    }}
+                    screenshots={currentProductScreenshots}
+                    onPrevious={(e?: any) => { if (e?.stopPropagation) e.stopPropagation(); prevSlide(); }}
+                    onNext={(e?: any) => { if (e?.stopPropagation) e.stopPropagation(); nextSlide(); }}
+
                   />
                 </div>
 
                 <ScreenshotNavigation
                   currentSlide={currentSlide}
-                  totalSlides={screenshots.length}
+                  totalSlides={currentProductScreenshots.length}
                   onSlideChange={handleSlideChange}
                 />
               </div>
@@ -278,94 +294,103 @@ export const ProductDetailPage = React.memo(({
         </div>
       </section>
 
-      {/* Lightbox Dialog - Responsive + auto-scroll thumbnails */}
+      {/* ---- LIGHTBOX (mobile full height, overflow-safe) ---- */}
       <Dialog open={isLightboxOpen} onOpenChange={setIsLightboxOpen}>
+        <DialogOverlay className="bg-white/70 backdrop-blur-md" />
         <DialogContent
           className="
-            bg-black border-0 shadow-2xl p-0
-            w-[98vw] max-w-[98vw] sm:w-[92vw] sm:max-w-6xl
+            bg-white border-0 shadow-none p-0
+            w-screen max-w-none h-[100dvh]
+            sm:h-auto sm:w-[92vw] sm:max-w-6xl
+            [&>button]:hidden
           "
-          onClick={closeLightbox}
+
         >
           <div
             className="relative w-full h-full"
             onClick={(e) => e.stopPropagation()}
+            style={{
+              paddingTop: 'max(8px, env(safe-area-inset-top))',
+              paddingBottom: 'max(8px, env(safe-area-inset-bottom))'
+            }}
           >
-            {/* Kapat */}
+            {/* Close (white circle + shadow + purple) */}
             <button
               onClick={closeLightbox}
-              className="absolute top-2 sm:top-3 right-2 sm:right-3 z-50 rounded-full bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 text-sm"
+              className="absolute top-2 sm:top-3 right-2 sm:right-3 z-50
+                         flex items-center justify-center w-8 h-8 rounded-full
+                         bg-white text-[rgb(74,0,255)] shadow-md hover:bg-gray-100"
               aria-label="Close"
+              title="Kapat"
+
             >
               ✕
             </button>
 
-            {/* Oklar */}
+            {/* Arrows (white circle + shadow + purple) */}
             <button
               onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-50 rounded-full bg-white/10 hover:bg-white/20 text-white p-3 sm:p-2"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-50
+                         flex items-center justify-center w-10 h-10 rounded-full
+                         bg-white text-[rgb(74,0,255)] text-2xl shadow-md hover:bg-gray-100"
               aria-label="Previous"
             >
-              ‹
+              ←
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-50 rounded-full bg-white/10 hover:bg-white/20 text-white p-3 sm:p-2"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-50
+                         flex items-center justify-center w-10 h-10 rounded-full
+                         bg-white text-[rgb(74,0,255)] text-2xl shadow-md hover:bg-gray-100"
               aria-label="Next"
             >
-              ›
+              →
             </button>
 
-            {/* Büyük görsel */}
+            {/* Image area (no overflow on mobile) */}
             <div
-              className="flex items-center justify-center min-h-[55vh] sm:min-h-[70vh] px-2 sm:px-4 py-6 sm:py-8"
+              className="flex items-center justify-center px-2 sm:px-4"
+              style={{ height: 'calc(100dvh - 120px)' }} // top controls + dots payı
+
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
             >
               <img
-                src={getShotSrc(screenshots[currentSlide])}
-                alt={getShotAlt(screenshots[currentSlide], currentSlide)}
-                className="max-h-[72vh] sm:max-h-[82vh] max-w-full object-contain rounded-md sm:rounded-lg"
+                src={getShotSrc(currentProductScreenshots[currentSlide])}
+                alt={getShotAlt(currentProductScreenshots[currentSlide], currentSlide)}
+                className="max-h-full max-w-[95vw] sm:max-w-full object-contain rounded-md sm:rounded-lg"
+
                 draggable={false}
               />
             </div>
 
-            {/* Sayaç */}
-            <div className="px-3 sm:px-4 pb-2 sm:pb-3 text-center text-white/80 text-xs sm:text-sm">
-              {currentSlide + 1} / {screenshots.length}
+            {/* Counter */}
+            <div className="px-3 sm:px-4 pb-2 sm:pb-3 text-center text-foreground/60 text-xs sm:text-sm">
+              {currentSlide + 1} / {currentProductScreenshots.length}
             </div>
 
-            {/* Thumbnails: mobilde yatay scroll, sm ve üstünde grid.
-                Aktif slayta otomatik scroll için ref atanır. */}
-            <div className="px-2 sm:px-4 pb-3 sm:pb-4">
-              <div className="
-                flex gap-2 overflow-x-auto no-scrollbar
-                sm:grid sm:grid-cols-8 sm:gap-2 sm:overflow-x-visible
-              ">
-                {screenshots.map((shot, idx) => {
-                  const src = getShotSrc(shot);
-                  const alt = getShotAlt(shot, idx);
-                  return (
+            {/* Dots: mobile hidden (to avoid crowding); show from sm and up */}
+            <div
+              className="hidden sm:block w-full px-4 pb-[max(12px,env(safe-area-inset-bottom))]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mx-auto max-w-[100vw] overflow-x-auto no-scrollbar">
+                <div className="w-max mx-auto flex items-center gap-2 px-1">
+                  {currentProductScreenshots.map((_, idx) => (
                     <button
-                      ref={(el) => (thumbRefs.current[idx] = el)}
                       key={idx}
+                      ref={(el) => (dotRefs.current[idx] = el)}
                       onClick={() => setCurrentSlide(idx)}
-                      className={`
-                        flex-shrink-0 rounded-md overflow-hidden border
-                        ${idx === currentSlide ? "border-white" : "border-white/20"}
-                        focus:outline-none focus:ring-2 focus:ring-white/40
-                      `}
                       aria-label={`Go to slide ${idx + 1}`}
-                    >
-                      <img
-                        src={src}
-                        alt={alt}
-                        className="h-14 w-20 sm:h-16 sm:w-full object-cover"
-                        draggable={false}
-                      />
-                    </button>
-                  );
-                })}
+                      className={`
+                        flex-shrink-0 rounded-full transition-colors
+                        h-2.5 w-2.5
+                        ${idx === currentSlide ? 'bg-[rgb(74,0,255)]' : 'bg-gray-300 hover:bg-gray-400'}
+                      `}
+                    />
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>

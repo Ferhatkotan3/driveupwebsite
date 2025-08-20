@@ -5,7 +5,7 @@ import { InvestorForm } from '../components/forms/InvestorForm';
 import { HomePage } from '../components/HomePage';
 import { ProductDetailPage } from '../components/ProductDetailPage';
 import { content } from '../constants/content';
-import { staticScreenshotData } from '../constants/screenshots';
+
 import { Language, Page } from '../types';
 import { Toaster } from "../components/ui/sonner";
 import { toast } from "sonner";
@@ -59,7 +59,14 @@ export default function App() {
     setSelectedProduct(product);
     setCurrentPage('product');
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    requestAnimationFrame(() => {
+      const navEl = document.getElementById('product-nav');
+      if (navEl) {
+        navEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   }, []);
 
   const navigateToHome = useCallback(() => {
@@ -180,7 +187,7 @@ export default function App() {
       <Toaster richColors position={windowWidth < 768 ? "top-center" : "bottom-right"} />
 
       {/* Page Content */}
-      <div className={`page-content transition-all duration-300 pt-4 sm:pt-6 lg:pt-0 ${contactBannerOpen ? 'pt-6 sm:pt-8 lg:pt-16' : ''} ${mobileMenuOpen ? 'overflow-hidden' : ''}`}>
+      <div className={`page-content transition-all duration-300 ${currentPage === 'product' ? 'pt-0' : 'pt-4 sm:pt-6 lg:pt-0'} ${contactBannerOpen && currentPage !== 'product' ? 'pt-6 sm:pt-8 lg:pt-16' : ''} ${mobileMenuOpen ? 'overflow-hidden' : ''}`}>
         {currentPage === 'home' ? (
           <HomePage 
             t={t}
@@ -201,7 +208,6 @@ export default function App() {
         ) : (
           <ProductDetailPage 
             product={selectedProduct}
-            screenshots={staticScreenshotData}
             language={language}
             allProducts={t.platforms}
             onProductChange={navigateToProduct}
