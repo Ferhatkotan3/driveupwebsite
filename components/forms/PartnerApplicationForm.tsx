@@ -20,7 +20,7 @@ import {
 } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Language } from "../../types";
-import { submitFormDirectly, sendTestEmail } from "../../utils/smtpClient";
+import { submitFormDirectly } from "../../utils/smtpClient";
 
 interface PartnerApplicationFormProps {
   isOpen: boolean;
@@ -201,21 +201,7 @@ export const PartnerApplicationForm = React.memo(
       }
     };
 
-    const handleTestEmail = async () => {
-      setIsSubmitting(true);
-      try {
-        const result = await sendTestEmail(language);
-        if (result.success) {
-          alert(`Test email başarıyla gönderildi!\nAlıcı: ${result.recipient}`);
-        } else {
-          alert(`Test email gönderilemedi: ${result.message}`);
-        }
-      } catch (error) {
-        alert('Test email gönderiminde hata oluştu.');
-      } finally {
-        setIsSubmitting(false);
-      }
-    };
+
 
     const handleInputChange = (
       field: string,
@@ -477,30 +463,20 @@ export const PartnerApplicationForm = React.memo(
               </div>
             )}
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                        <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="w-full sm:flex-1 order-3 sm:order-1"
+                className="w-full sm:flex-1 order-2 sm:order-1"
                 disabled={isSubmitting}
               >
                 {t.cancel}
               </Button>
               
               <Button
-                type="button"
-                variant="secondary"
-                onClick={handleTestEmail}
-                className="w-full sm:flex-1 order-2"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Gönderiliyor...' : 'Test Email'}
-              </Button>
-              
-              <Button
                 type="submit"
-                className="w-full sm:flex-1 btn-primary order-1 sm:order-3"
+                className="w-full sm:flex-1 btn-primary order-1 sm:order-2"
                 disabled={!formData.kvkkConsent || isSubmitting}
               >
                 {isSubmitting ? 'Gönderiliyor...' : t.submit}
