@@ -20,6 +20,7 @@ import {
 } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Language } from "../../types";
+import { submitFormDirectly, sendTestEmail } from "../../utils/smtpClient";
 
 interface PartnerApplicationFormProps {
   isOpen: boolean;
@@ -47,6 +48,12 @@ export const PartnerApplicationForm = React.memo(
     const [errors, setErrors] = useState<{
       [key: string]: string;
     }>({});
+    
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+      type: 'success' | 'error' | null;
+      message: string;
+    }>({ type: null, message: '' });
 
     const companyTypes = {
       tr: [
@@ -153,22 +160,60 @@ export const PartnerApplicationForm = React.memo(
       return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       if (validateForm()) {
-        console.log("Partner Application:", formData);
-        onClose();
-        setFormData({
-          fullName: "",
-          companyName: "",
-          email: "",
-          phone: "",
-          companyType: "",
-          location: "",
-          additionalInfo: "",
-          kvkkConsent: false,
-        });
-        setErrors({});
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+        
+        try {
+          const result = await submitFormDirectly(formData, 'partner', language);
+          
+          if (result.success) {
+            setSubmitStatus({ type: 'success', message: result.message });
+            // Reset form after successful submission
+            setTimeout(() => {
+              setFormData({
+                fullName: "",
+                companyName: "",
+                email: "",
+                phone: "",
+                companyType: "",
+                location: "",
+                additionalInfo: "",
+                kvkkConsent: false,
+              });
+              setErrors({});
+              setSubmitStatus({ type: null, message: '' });
+              onClose();
+            }, 2000);
+          } else {
+            setSubmitStatus({ type: 'error', message: result.message });
+          }
+        } catch (error) {
+          setSubmitStatus({ 
+            type: 'error', 
+            message: 'Bir hata oluştu. Lütfen tekrar deneyin.' 
+          });
+        } finally {
+          setIsSubmitting(false);
+        }
+      }
+    };
+
+    const handleTestEmail = async () => {
+      setIsSubmitting(true);
+      try {
+        const result = await sendTestEmail(language);
+        if (result.success) {
+          alert(`Test email başarıyla gönderildi!\nAlıcı: ${result.recipient}`);
+        } else {
+          alert(`Test email gönderilemedi: ${result.message}`);
+        }
+      } catch (error) {
+        alert('Test email gönderiminde hata oluştu.');
+      } finally {
+        setIsSubmitting(false);
       }
     };
 
@@ -419,21 +464,46 @@ export const PartnerApplicationForm = React.memo(
               )}
             </div>
 
+            {/* Status Messages */}
+            {submitStatus.type && (
+              <div className={`p-3 rounded-lg ${
+                submitStatus.type === 'success' 
+                  ? 'bg-green-50 border border-green-200 text-green-800' 
+                  : 'bg-red-50 border border-red-200 text-red-800'
+              }`}>
+                <p className="text-sm font-medium">
+                  {submitStatus.message}
+                </p>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="w-full sm:flex-1 order-2 sm:order-1"
+                className="w-full sm:flex-1 order-3 sm:order-1"
+                disabled={isSubmitting}
               >
                 {t.cancel}
               </Button>
+              
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={handleTestEmail}
+                className="w-full sm:flex-1 order-2"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Gönderiliyor...' : 'Test Email'}
+              </Button>
+              
               <Button
                 type="submit"
-                className="w-full sm:flex-1 btn-primary order-1 sm:order-2"
-                disabled={!formData.kvkkConsent}
+                className="w-full sm:flex-1 btn-primary order-1 sm:order-3"
+                disabled={!formData.kvkkConsent || isSubmitting}
               >
-                {t.submit}
+                {isSubmitting ? 'Gönderiliyor...' : t.submit}
               </Button>
             </div>
           </form>
