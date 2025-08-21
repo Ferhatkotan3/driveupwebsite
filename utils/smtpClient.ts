@@ -34,7 +34,12 @@ export const submitFormDirectly = async (
 ): Promise<FormSubmissionResult> => {
   const baseUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:8000' // PHP built-in server port
-    : (process.env.VITE_API_URL || 'https://api.driveuptr.com'); // Production API domain
+    : 'https://api.driveuptr.com'; // Production API domain
+  
+  // Debug logging
+  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Base URL:', baseUrl);
+  console.log('Final endpoint:', `${baseUrl}/email.php`);
   
   const endpoint = `${baseUrl}/email.php`;
   
@@ -76,7 +81,12 @@ export const sendTestEmail = async (
 ): Promise<TestEmailResult> => {
   const baseUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:8000' // PHP built-in server port
-    : (process.env.VITE_API_URL || 'https://api.driveuptr.com'); // Production API domain
+    : 'https://api.driveuptr.com'; // Production API domain
+  
+  // Debug logging
+  console.log('Test Email - Environment:', process.env.NODE_ENV);
+  console.log('Test Email - Base URL:', baseUrl);
+  console.log('Test Email - Final endpoint:', `${baseUrl}/test-email.php`);
   
   const endpoint = `${baseUrl}/test-email.php`;
   

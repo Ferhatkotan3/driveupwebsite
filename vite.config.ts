@@ -52,6 +52,7 @@ export default defineConfig({
     host: true
   },
   define: {
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+    'process.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || 'https://api.driveuptr.com')
   }
 })
