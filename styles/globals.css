@@ -1,0 +1,673 @@
+@import "tailwindcss";
+@config "../tailwind.config.cjs";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Apple-style Color Palette */
+  --primary: #007AFF;
+  --primary-dark: #0056CC;
+  --accent: #30D158;
+  --secondary: #5856D6;
+  --background: #FFFFFF;
+  --background-secondary: #F2F2F7;
+  --text-primary: #1D1D1F;
+  --text-secondary: #86868B;
+  --text-tertiary: #C7C7CC;
+  --border: #D2D2D7;
+  --border-light: #F2F2F7;
+  
+  /* Minimal shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* Apple Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  
+  /* Apple Spacing */
+  --section-padding: 120px;
+  --container-padding: 1.5rem;
+  --max-width: 1280px;
+  --header-height: 64px;
+  --mobile-header-height: 56px;
+  
+  /* Smooth Transitions */
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* ShadCN Variables */
+  --font-size: 16px;
+  --foreground: var(--text-primary);
+  --card: var(--background);
+  --card-foreground: var(--text-primary);
+  --popover: var(--background);
+  --popover-foreground: var(--text-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary-foreground: #FFFFFF;
+  --muted: var(--background-secondary);
+  --muted-foreground: var(--text-secondary);
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF3B30;
+  --destructive-foreground: #FFFFFF;
+  --input: var(--background);
+  --input-background: var(--background-secondary);
+  --ring: var(--primary);
+  --radius: 12px;
+}
+
+/* Dark Mode */
+.dark {
+  --background: #000000;
+  --background-secondary: #1C1C1E;
+  --text-primary: #F2F2F7;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #48484A;
+  --border: #38383A;
+  --border-light: #2C2C2E;
+  
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  --foreground: var(--text-primary);
+  --card: var(--background);
+  --card-foreground: var(--text-primary);
+  --popover: var(--background-secondary);
+  --popover-foreground: var(--text-primary);
+  --muted: var(--background-secondary);
+  --muted-foreground: var(--text-secondary);
+  --input: var(--background-secondary);
+  --input-background: #2C2C2E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: var(--radius);
+  --radius-xl: 16px;
+}
+
+@layer base {
+  /* Complete CSS Reset */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Remove default browser spacing */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size);
+  }
+
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Remove default margins from all elements */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, blockquote, figure, figcaption {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure root container fills viewport */
+  #root {
+    min-height: 100vh;
+    background-color: var(--background);
+    position: relative;
+  }
+}
+
+/* Apple Typography System */
+@layer base {
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+  }
+
+  h4 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .text-large {
+    font-size: clamp(1rem, 2vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .text-small {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+
+  label {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+}
+
+/* Apple Button System */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 980px;
+  padding: clamp(10px, 2vw, 12px) clamp(16px, 4vw, 24px);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 980px;
+  padding: clamp(10px, 2vw, 12px) clamp(16px, 4vw, 24px);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  transform: translateY(-1px);
+}
+
+.btn-text {
+  background: none;
+  color: var(--primary);
+  border: none;
+  padding: 8px 16px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.btn-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.btn-text:hover::after {
+  transform: scaleX(1);
+}
+
+/* Card System */
+.card-minimal {
+  background: var(--background);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 3vw, 2rem);
+  transition: var(--transition);
+}
+
+.card-minimal:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.card-elevated {
+  background: var(--background);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-large);
+  transition: var(--transition);
+}
+
+/* Spacing System */
+.section-padding {
+  padding: var(--section-padding) 0;
+}
+
+.container-custom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Animation System */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, rgba(0, 122, 255, 0.02) 100%);
+}
+
+/* Glass effect (minimal) */
+.glass-minimal {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+}
+
+.dark .glass-minimal {
+  background: rgba(28, 28, 30, 0.8);
+  border: 1px solid var(--border);
+}
+
+/* Focus styles */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Mobile-optimized Responsive Breakpoints */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3.5rem;
+    --container-padding: 1rem;
+    --header-height: var(--mobile-header-height);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 3rem;
+    --container-padding: 0.75rem;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+  }
+
+  /* Better mobile scrolling */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Mobile hero section specific spacing */
+  .hero-gradient.section-padding {
+    padding-top: calc(var(--mobile-header-height) + 2rem);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+  :root {
+    --container-padding: 0.5rem;
+  }
+  
+  /* Even more spacing for very small screens */
+  .hero-gradient.section-padding {
+    padding-top: calc(var(--mobile-header-height) + 2.5rem);
+  }
+}
+
+/* Hide scrollbars for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overflow-fade {
+  position: relative;
+}
+
+.overflow-fade::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, var(--background));
+  pointer-events: none;
+}
+
+/* Fix for bottom spacing issues */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+}
+
+.page-content {
+  flex: 1;
+}
+
+/* Remove any unwanted margins/padding at bottom */
+footer {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure no extra spacing after footer */
+body::after,
+#root::after {
+  content: none;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Reduce animation on mobile for better performance */
+  .card-minimal:hover {
+    transform: none;
+  }
+  
+  /* Optimize shadows for mobile */
+  .card-elevated {
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+/* Safe area adjustments for mobile devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .page-wrapper {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  @media (max-width: 640px) {
+    .hero-gradient.section-padding {
+      padding-top: calc(0.25rem + env(safe-area-inset-top)) !important;
+    }
+  }
+}
+
+/* Mobile viewport optimizations */
+@media (max-width: 640px) {
+  /* Ensure hero content starts immediately below header */
+  .hero-gradient .container-custom {
+    min-height: auto;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Ultra compact mobile hero layout */
+  .hero-gradient .grid {
+    gap: 0.75rem !important;
+  }
+  
+  /* Minimal spacing in hero stats */
+  .hero-gradient .grid.grid-cols-2 {
+    margin-top: 0.75rem !important;
+  }
+  
+  /* Remove all extra padding from hero container */
+  .hero-gradient .max-w-4xl {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Remove any default section spacing on mobile hero specifically */
+  .hero-gradient.section-padding {
+    padding: 1.5rem 0 1.5rem 0 !important;
+  }
+}
+
+/* Better mobile header positioning */
+@media (max-width: 768px) {
+  /* Ensure fixed elements don't interfere with content */
+  .fixed {
+    z-index: 9999;
+  }
+  
+  /* Mobile header specific styles */
+  header {
+    height: var(--mobile-header-height);
+  }
+  
+  /* Content spacing for mobile */
+  .page-content {
+    margin-top: 0;
+  }
+  
+  /* Product navigation mobile spacing */
+  .sticky[style*="top"] {
+    top: var(--mobile-header-height) !important;
+  }
+
+  /* Ultra compact hero title spacing on mobile */
+  .hero-gradient h1 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-gradient p {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Reduce button group spacing */
+  .hero-gradient .flex.flex-col {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Mobile section specific overrides */
+@media (max-width: 640px) {
+  /* Hero section - ultra minimal padding to eliminate white space */
+  section.hero-gradient {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  /* Other sections maintain normal spacing */
+  section:not(.hero-gradient) {
+    padding-top: var(--section-padding);
+  }
+}
+
+/* Very small screens need ultra optimized spacing */
+@media (max-width: 375px) {
+  section.hero-gradient {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  /* Even more compact spacing for tiny screens */
+  .hero-gradient h1 {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .hero-gradient p {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .hero-gradient .flex.flex-col {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .hero-gradient .grid.grid-cols-2 {
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Mobile Dialog Select Dropdown Fix */
+@media (max-width: 768px) {
+  /* Ensure dialogs don't clip select dropdowns */
+  [data-slot="dialog-content"] {
+    overflow-y: auto !important;
+    overflow-x: visible !important;
+    -webkit-overflow-scrolling: touch;
+    max-height: 90vh;
+  }
+  
+  /* Make sure select content is above dialog on mobile */
+  [data-slot="select-content"] {
+    z-index: 9999 !important;
+    position: fixed !important;
+  }
+  
+  /* Ensure select portal renders correctly on mobile */
+  [data-radix-popper-content-wrapper] {
+    z-index: 9999 !important;
+  }
+  
+  /* Mobile touch improvements for select */
+  [data-slot="select-trigger"] {
+    min-height: 44px !important;
+    touch-action: manipulation;
+  }
+  
+  /* Prevent mobile zoom on select interaction */
+  [data-slot="select-trigger"] * {
+    font-size: 16px !important;
+  }
+}
