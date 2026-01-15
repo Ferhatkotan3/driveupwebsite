@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /php/
+Disallow: /config/
+Disallow: /api/
+
+Sitemap: https://driveuptr.com/sitemap.xml

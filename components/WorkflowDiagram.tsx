@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from './ui/card';
-import { 
-  ShoppingCart, 
-  Settings, 
-  Wrench, 
-  Car, 
+import {
+  ShoppingCart,
+  Settings,
+  Wrench,
+  Car,
   Headphones,
   ArrowRight,
   Users,
@@ -21,16 +21,6 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   const nodes = {
-    driveupgo: {
-      id: 'driveupgo',
-      title: language === 'tr' ? 'DriveUpGo' : 'DriveUpGo',
-      subtitle: language === 'tr' ? 'B2C Marketplace' : 'B2C Marketplace',
-      icon: ShoppingCart,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-      position: { x: 10, y: 20 }
-    },
     driveupmanager: {
       id: 'driveupmanager',
       title: language === 'tr' ? 'DriveUpManager' : 'DriveUpManager',
@@ -74,21 +64,18 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
   };
 
   const connections = [
-    // DriveUpGo connections
-    { from: 'driveupgo', to: 'driveupmanager', label: language === 'tr' ? 'Rezervasyonlar' : 'Bookings', type: 'primary' },
-    { from: 'driveupgo', to: 'driveupdesk', label: language === 'tr' ? 'Müşteri Desteği' : 'Customer Support', type: 'support' },
-    
+
     // DriveUpManager connections
     { from: 'driveupmanager', to: 'driveupfixer', label: language === 'tr' ? 'Bakım Talepleri' : 'Maintenance Requests', type: 'secondary' },
     { from: 'driveupmanager', to: 'driveupdesk', label: language === 'tr' ? 'Operasyon Desteği' : 'Operations Support', type: 'support' },
-    
+
     // DriveUpPro connections
     { from: 'driveuppro', to: 'driveupfixer', label: language === 'tr' ? 'Filo Bakımı' : 'Fleet Maintenance', type: 'secondary' },
     { from: 'driveuppro', to: 'driveupdesk', label: language === 'tr' ? 'Teknik Destek' : 'Technical Support', type: 'support' },
-    
+
     // DriveUpFixer connections
     { from: 'driveupfixer', to: 'driveupdesk', label: language === 'tr' ? 'Servis Koordinasyonu' : 'Service Coordination', type: 'support' },
-    
+
     // Central data flow
     { from: 'driveupdesk', to: 'driveupmanager', label: language === 'tr' ? 'Merkezi Veri' : 'Central Data', type: 'data' },
     { from: 'driveupdesk', to: 'driveuppro', label: language === 'tr' ? 'Raporlama' : 'Reporting', type: 'data' }
@@ -97,15 +84,15 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
   const getConnectionPath = (from: string, to: string) => {
     const fromNode = nodes[from as keyof typeof nodes];
     const toNode = nodes[to as keyof typeof nodes];
-    
+
     const fromX = fromNode.position.x + 10;
     const fromY = fromNode.position.y + 5;
     const toX = toNode.position.x + 10;
     const toY = toNode.position.y + 5;
-    
+
     const midX = (fromX + toX) / 2;
     const midY = (fromY + toY) / 2;
-    
+
     return `M ${fromX} ${fromY} Q ${midX} ${midY - 5} ${toX} ${toY}`;
   };
 
@@ -129,7 +116,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
               {language === 'tr' ? 'Ekosistem İş Akışı' : 'Ecosystem Workflow'}
             </h2>
             <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'DriveUp ürünleri nasıl birbirleriyle entegre çalışarak araç kiralama sektöründe kapsamlı bir çözüm sunuyor.'
                 : 'How DriveUp products work together in an integrated way to provide a comprehensive solution for the car rental industry.'
               }
@@ -142,7 +129,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
             <div className="hidden lg:block">
               <div className="relative w-full h-96 mx-auto">
                 {/* SVG for connections */}
-                <svg 
+                <svg
                   className="absolute inset-0 w-full h-full pointer-events-none z-0"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="xMidYMid meet"
@@ -160,7 +147,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       <polygon points="0 0, 6 2, 0 4" />
                     </marker>
                   </defs>
-                  
+
                   {connections.map((connection, index) => (
                     <g key={index}>
                       <path
@@ -170,7 +157,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                         fill="none"
                         strokeDasharray={connection.type === 'data' ? '3,3' : 'none'}
                         markerEnd="url(#arrowhead)"
-                        opacity={hoveredNode ? 
+                        opacity={hoveredNode ?
                           (hoveredNode === connection.from || hoveredNode === connection.to ? 1 : 0.3) : 0.7}
                       />
                     </g>
@@ -181,9 +168,8 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                 {Object.values(nodes).map((node) => (
                   <div
                     key={node.id}
-                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 ${
-                      hoveredNode === node.id ? 'scale-110' : hoveredNode ? 'scale-95 opacity-50' : 'scale-100'
-                    }`}
+                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 ${hoveredNode === node.id ? 'scale-110' : hoveredNode ? 'scale-95 opacity-50' : 'scale-100'
+                      }`}
                     style={{
                       left: `${node.position.x}%`,
                       top: `${node.position.y}%`,
@@ -197,7 +183,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                         <div className="text-center">
                           <div className="text-xs font-semibold text-foreground">
                             <span className="text-foreground">Drive</span>
-                            <span style={{color: '#4a00ff'}}>UP</span>
+                            <span style={{ color: '#4a00ff' }}>UP</span>
                             {node.title.replace('DriveUp', '')}
                           </div>
                           <div className="text-xs text-muted-foreground mt-1">
@@ -250,7 +236,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       <div>
                         <div className="font-semibold">
                           <span className="text-foreground">Drive</span>
-                          <span style={{color: '#4a00ff'}}>UP</span>Desk
+                          <span style={{ color: '#4a00ff' }}>UP</span>Desk
                         </div>
                         <div className="text-sm text-muted-foreground">
                           {language === 'tr' ? 'Merkezi Koordinasyon' : 'Central Coordination'}
@@ -266,15 +252,14 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                   <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                        <ShoppingCart className="h-4 w-4 text-blue-600" />
+                        <Users className="h-4 w-4 text-blue-600" />
                       </div>
                       <div>
                         <div className="font-medium text-sm">
-                          <span className="text-foreground">Drive</span>
-                          <span style={{color: '#4a00ff'}}>UP</span>Go
+                          Müşteri Talebi
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          {language === 'tr' ? 'Müşteri Rezervasyonu' : 'Customer Booking'}
+                          Giriş Noktası
                         </div>
                       </div>
                     </div>
@@ -286,7 +271,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       <div>
                         <div className="font-medium text-sm">
                           <span className="text-foreground">Drive</span>
-                          <span style={{color: '#4a00ff'}}>UP</span>Manager
+                          <span style={{ color: '#4a00ff' }}>UP</span>Manager
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {language === 'tr' ? 'Operasyon Yönetimi' : 'Operations Management'}
@@ -304,7 +289,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       <div>
                         <div className="font-medium text-sm">
                           <span className="text-foreground">Drive</span>
-                          <span style={{color: '#4a00ff'}}>UP</span>Pro
+                          <span style={{ color: '#4a00ff' }}>UP</span>Pro
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {language === 'tr' ? 'Filo Takibi' : 'Fleet Tracking'}
@@ -319,7 +304,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       <div>
                         <div className="font-medium text-sm">
                           <span className="text-foreground">Drive</span>
-                          <span style={{color: '#4a00ff'}}>UP</span>Fixer
+                          <span style={{ color: '#4a00ff' }}>UP</span>Fixer
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {language === 'tr' ? 'Bakım & Onarım' : 'Maintenance & Repair'}
@@ -339,13 +324,13 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {language === 'tr' 
+                      {language === 'tr'
                         ? 'Tüm platformlar arasında veri senkronizasyonu'
                         : 'Data synchronization across all platforms'
                       }
                     </p>
                   </div>
-                  
+
                   <div className="p-4 bg-accent/5 rounded-lg border border-accent/10">
                     <div className="flex items-center gap-2 mb-2">
                       <Zap className="h-4 w-4 text-accent" />
@@ -354,7 +339,7 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {language === 'tr' 
+                      {language === 'tr'
                         ? 'Süreçler arası otomatik bilgi transferi'
                         : 'Automatic information transfer between processes'
                       }
@@ -376,8 +361,8 @@ export const WorkflowDiagram = React.memo(({ language }: WorkflowDiagramProps) =
                   </h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {language === 'tr'
-                      ? 'Müşteri DriveUpGo\'da araç kiralıyor, DriveUpManager operasyonu yönetiyor, gerektiğinde DriveUpFixer bakım sağlıyor ve DriveUpDesk destek veriyor.'
-                      : 'Customer rents through DriveUpGo, DriveUpManager handles operations, DriveUpFixer provides maintenance when needed, and DriveUpDesk offers support.'
+                      ? 'Müşteri talepleri alınır, DriveUpManager operasyonu yönetiyor, gerektiğinde DriveUpFixer bakım sağlıyor ve DriveUpDesk destek veriyor.'
+                      : 'Customer requests are received, DriveUpManager handles operations, DriveUpFixer provides maintenance when needed, and DriveUpDesk offers support.'
                     }
                   </p>
                 </div>

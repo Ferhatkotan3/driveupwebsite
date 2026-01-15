@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
 import { Check, ArrowLeft } from 'lucide-react';
-import { ProductNavigation } from './ProductNavigation';
 import { ScreenshotDisplay, ScreenshotNavigation } from './ScreenshotComponents';
 import { Language, ScreenshotData } from '../types';
 import { toast } from "sonner";
@@ -13,25 +12,20 @@ import { staticScreenshotData } from '../constants/screenshots';
 import { driveupManagerScreenshotData } from '../constants/driveupManagerScreenshots';
 import { driveupDeskScreenshotData } from '../constants/driveupDeskScreenshots';
 import { driveUpProScreenshotData } from '../constants/driveUpProScreenshots';
-import { driveUpGoScreenshotData } from '../constants/driveUpGoScreenshots';
+import { driveUpStudioScreenshotData } from '../constants/driveUpStudioScreenshots';
+import { driveUpRedactScreenshotData } from '../constants/driveUpRedactScreenshots';
 
 
 interface ProductDetailPageProps {
   product: any;
   language: Language;
-  allProducts: any[];
-  onProductChange: (product: any) => void;
-  navigateToHome: () => void;
-  openPartnerForm: () => void;
+  onContact: () => void;
 }
 
-export const ProductDetailPage = React.memo(({ 
-  product, 
+export const ProductDetailPage = React.memo(({
+  product,
   language,
-  allProducts,
-  onProductChange,
-  navigateToHome,
-  openPartnerForm
+  onContact
 }: ProductDetailPageProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -45,7 +39,8 @@ export const ProductDetailPage = React.memo(({
       case 'driveupmanager': return driveupManagerScreenshotData;
       case 'driveupdesk': return driveupDeskScreenshotData;
       case 'driveuppro': return driveUpProScreenshotData;
-      case 'driveupgo': return driveUpGoScreenshotData;
+      case 'driveupstudio': return driveUpStudioScreenshotData;
+      case 'driveupredact': return driveUpRedactScreenshotData;
       default: return staticScreenshotData;
     }
   }, [product?.id]);
@@ -159,21 +154,17 @@ export const ProductDetailPage = React.memo(({
         <Button
           variant="ghost"
           size="sm"
-          onClick={navigateToHome}
+          onClick={() => {
+            // Remove hash to go back to home
+            window.location.hash = '';
+            window.history.back();
+          }}
           className="bg-background/80 backdrop-blur-sm border border-border shadow-lg"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          {language === 'tr' ? 'Ana Sayfa' : 'Home'}
+          {language === 'tr' ? 'Geri' : 'Back'}
         </Button>
       </div>
-
-      {/* Product Navigation */}
-      <ProductNavigation 
-        products={allProducts}
-        selectedProduct={product}
-        onProductChange={onProductChange}
-        language={language}
-      />
 
       {/* Main Content */}
       <section id="product-top" className="pt-8 sm:pt-14" style={{ scrollMarginTop: '112px' }}>
@@ -192,8 +183,15 @@ export const ProductDetailPage = React.memo(({
                       <h1 className="text-xl sm:text-2xl font-bold">
                         <span className="text-foreground font-bold">Drive</span>
                         <span style={{ color: PURPLE }} className="font-bold">UP</span>
-
-                        {product.title.replace('DriveUp', '')}
+                        <span className="text-[#9A17E3] font-bold">
+                          {product.id === 'driveupmanager' ? 'Manager' :
+                           product.id === 'driveupfixer' ? 'Fixer' :
+                           product.id === 'driveuppro' ? 'Pro' :
+                           product.id === 'driveupdesk' ? 'Desk' :
+                           product.id === 'driveupstudio' ? 'Studio' :
+                           product.id === 'driveupredact' ? 'Redact' :
+                           product.title.replace('DriveUp', '')}
+                        </span>
                       </h1>
                       <p className="text-muted-foreground text-sm">{product.subtitle}</p>
                     </div>
@@ -273,7 +271,7 @@ export const ProductDetailPage = React.memo(({
                     {language === 'tr' ? 'Daha Fazla Bilgi' : 'Learn More'}
                   </h3>
                   <div className="space-y-3">
-                    <Button className="w-full btn-primary" onClick={openPartnerForm}>
+                    <Button className="w-full btn-primary" onClick={onContact}>
                       {language === 'tr' ? 'Demo Talep Et' : 'Request Demo'}
                     </Button>
                     <Button variant="outline" className="w-full" onClick={handleTechnicalDocsRequest}>
@@ -283,9 +281,13 @@ export const ProductDetailPage = React.memo(({
                 </div>
 
                 <div className="xl:hidden pt-4">
-                  <Button variant="ghost" className="w-full" onClick={navigateToHome}>
+                  <Button variant="ghost" className="w-full" onClick={() => {
+                    // Remove hash to go back to home
+                    window.location.hash = '';
+                    window.history.back();
+                  }}>
                     <ArrowLeft className="h-4 w-4 mr-2" />
-                    {language === 'tr' ? 'Ana Sayfaya Dön' : 'Back to Home'}
+                    {language === 'tr' ? 'Geri Dön' : 'Go Back'}
                   </Button>
                 </div>
               </div>
@@ -301,7 +303,8 @@ export const ProductDetailPage = React.memo(({
           className="
             bg-white border-0 shadow-none p-0
             w-screen max-w-none h-[100dvh]
-            sm:h-auto sm:w-[92vw] sm:max-w-6xl
+            sm:h-[95vh] sm:w-[96vw] sm:max-w-[98vw]
+            lg:max-w-[1600px]
             [&>button]:hidden
           "
 
@@ -349,7 +352,7 @@ export const ProductDetailPage = React.memo(({
 
             {/* Image area (no overflow on mobile) */}
             <div
-              className="flex items-center justify-center px-2 sm:px-4"
+              className="flex items-center justify-center px-2 sm:px-4 overflow-auto"
               style={{ height: 'calc(100dvh - 120px)' }} // top controls + dots payı
 
               onTouchStart={onTouchStart}
@@ -358,8 +361,12 @@ export const ProductDetailPage = React.memo(({
               <img
                 src={getShotSrc(currentProductScreenshots[currentSlide])}
                 alt={getShotAlt(currentProductScreenshots[currentSlide], currentSlide)}
-                className="max-h-full max-w-[95vw] sm:max-w-full object-contain rounded-md sm:rounded-lg"
-
+                className="max-h-[calc(100dvh-140px)] w-auto max-w-[98vw] sm:max-w-[95vw] lg:max-w-[90vw] xl:max-w-[1400px] object-contain rounded-md sm:rounded-lg"
+                style={{
+                  imageRendering: 'auto',
+                  WebkitImageRendering: 'high-quality'
+                }}
+                loading="eager"
                 draggable={false}
               />
             </div>

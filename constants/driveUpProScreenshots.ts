@@ -21,136 +21,6 @@ import driveup_pro_19 from '../assets/img/DriveUpPro/19.png';
 
 export const driveUpProScreenshotData: ScreenshotData[] = [
   {
-    id: 'pro-dashboard',
-    title: {
-      tr: 'DriveUpPro Ana Dashboard',
-      en: 'DriveUpPro Main Dashboard'
-    },
-    description: {
-      tr: 'Profesyonel sürücüler için gelişmiş ana kontrol paneli',
-      en: 'Advanced main control panel for professional drivers'
-    },
-    image: driveup_pro_1,
-    features: {
-      tr: [
-        'Sürüş istatistikleri',
-        'Performans metrikleri',
-        'Hızlı eylemler',
-        'Gerçek zamanlı veriler'
-      ],
-      en: [
-        'Driving statistics',
-        'Performance metrics',
-        'Quick actions',
-        'Real-time data'
-      ]
-    }
-  },
-  {
-    id: 'pro-navigation',
-    title: {
-      tr: 'Gelişmiş Navigasyon',
-      en: 'Advanced Navigation'
-    },
-    description: {
-      tr: 'Akıllı rota planlama ve trafik analizi',
-      en: 'Smart route planning and traffic analysis'
-    },
-    image: driveup_pro_2,
-    features: {
-      tr: [
-        'Gerçek zamanlı trafik',
-        'Alternatif rotalar',
-        'Tahminli varış süresi',
-        'Sesli navigasyon'
-      ],
-      en: [
-        'Real-time traffic',
-        'Alternative routes',
-        'Estimated arrival time',
-        'Voice navigation'
-      ]
-    }
-  },
-  {
-    id: 'pro-safety',
-    title: {
-      tr: 'Güvenlik Merkezi',
-      en: 'Safety Center'
-    },
-    description: {
-      tr: 'Güvenlik protokolleri ve uyarı sistemi',
-      en: 'Safety protocols and warning system'
-    },
-    image: driveup_pro_5,
-    features: {
-      tr: [
-        'Güvenlik uyarıları',
-        'Sürüş davranış analizi',
-        'Acil durum butonları',
-        'Güvenlik raporları'
-      ],
-      en: [
-        'Safety alerts',
-        'Driving behavior analysis',
-        'Emergency buttons',
-        'Safety reports'
-      ]
-    }
-  },
-  {
-    id: 'pro-communication',
-    title: {
-      tr: 'İletişim Araçları',
-      en: 'Communication Tools'
-    },
-    description: {
-      tr: 'Müşteri ve merkez ile iletişim araçları',
-      en: 'Communication tools with customers and center'
-    },
-    image: driveup_pro_6,
-    features: {
-      tr: [
-        'Müşteri mesajlaşması',
-        'Merkez iletişimi',
-        'Sesli aramalar',
-        'Mesaj şablonları'
-      ],
-      en: [
-        'Customer messaging',
-        'Center communication',
-        'Voice calls',
-        'Message templates'
-      ]
-    }
-  },
-  {
-    id: 'pro-payments',
-    title: {
-      tr: 'Ödeme Yönetimi',
-      en: 'Payment Management'
-    },
-    description: {
-      tr: 'Ödeme işlemleri ve finansal takip',
-      en: 'Payment transactions and financial tracking'
-    },
-    image: driveup_pro_7,
-    features: {
-      tr: [
-        'Ödeme geçmişi',
-        'Komisyon hesaplama',
-        'Transfer işlemleri',
-        'Finansal raporlar'
-      ],
-      en: [
-        'Payment history',
-        'Commission calculation',
-        'Transfer operations',
-        'Financial reports'
-      ]
-    }
-  },
-  {
     id: 'pro-schedule',
     title: {
       tr: 'Program Yönetimi',
@@ -459,6 +329,136 @@ export const driveUpProScreenshotData: ScreenshotData[] = [
         'User manual',
         'FAQ',
         'Contact information'
+      ]
+    }
+  },
+  {
+    id: 'pro-communication',
+    title: {
+      tr: 'İletişim Araçları',
+      en: 'Communication Tools'
+    },
+    description: {
+      tr: 'Müşteri ve merkez ile iletişim araçları',
+      en: 'Communication tools with customers and center'
+    },
+    image: driveup_pro_6,
+    features: {
+      tr: [
+        'Müşteri mesajlaşması',
+        'Merkez iletişimi',
+        'Sesli aramalar',
+        'Mesaj şablonları'
+      ],
+      en: [
+        'Customer messaging',
+        'Center communication',
+        'Voice calls',
+        'Message templates'
+      ]
+    }
+  },
+  {
+    id: 'pro-dashboard',
+    title: {
+      tr: 'DriveUpPro Ana Dashboard',
+      en: 'DriveUpPro Main Dashboard'
+    },
+    description: {
+      tr: 'Profesyonel sürücüler için gelişmiş ana kontrol paneli',
+      en: 'Advanced main control panel for professional drivers'
+    },
+    image: driveup_pro_1,
+    features: {
+      tr: [
+        'Sürüş istatistikleri',
+        'Performans metrikleri',
+        'Hızlı eylemler',
+        'Gerçek zamanlı veriler'
+      ],
+      en: [
+        'Driving statistics',
+        'Performance metrics',
+        'Quick actions',
+        'Real-time data'
+      ]
+    }
+  },
+  {
+    id: 'pro-navigation',
+    title: {
+      tr: 'Gelişmiş Navigasyon',
+      en: 'Advanced Navigation'
+    },
+    description: {
+      tr: 'Akıllı rota planlama ve trafik analizi',
+      en: 'Smart route planning and traffic analysis'
+    },
+    image: driveup_pro_2,
+    features: {
+      tr: [
+        'Gerçek zamanlı trafik',
+        'Alternatif rotalar',
+        'Tahminli varış süresi',
+        'Sesli navigasyon'
+      ],
+      en: [
+        'Real-time traffic',
+        'Alternative routes',
+        'Estimated arrival time',
+        'Voice navigation'
+      ]
+    }
+  },
+  {
+    id: 'pro-safety',
+    title: {
+      tr: 'Güvenlik Merkezi',
+      en: 'Safety Center'
+    },
+    description: {
+      tr: 'Güvenlik protokolleri ve uyarı sistemi',
+      en: 'Safety protocols and warning system'
+    },
+    image: driveup_pro_5,
+    features: {
+      tr: [
+        'Güvenlik uyarıları',
+        'Sürüş davranış analizi',
+        'Acil durum butonları',
+        'Güvenlik raporları'
+      ],
+      en: [
+        'Safety alerts',
+        'Driving behavior analysis',
+        'Emergency buttons',
+        'Safety reports'
+      ]
+    }
+  },
+  {
+    id: 'pro-payments',
+    title: {
+      tr: 'Ödeme Yönetimi',
+      en: 'Payment Management'
+    },
+    description: {
+      tr: 'Ödeme işlemleri ve finansal takip',
+      en: 'Payment transactions and financial tracking'
+    },
+    image: driveup_pro_7,
+    features: {
+      tr: [
+        'Ödeme geçmişi',
+        'Komisyon hesaplama',
+        'Transfer işlemleri',
+        'Finansal raporlar'
+      ],
+      en: [
+        'Payment history',
+        'Commission calculation',
+        'Transfer operations',
+        'Financial reports'
       ]
     }
   }

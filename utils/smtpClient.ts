@@ -32,14 +32,16 @@ export const submitFormDirectly = async (
   language: string = 'tr',
   smtpProvider: string = 'default'
 ): Promise<FormSubmissionResult> => {
-  const baseUrl = process.env.NODE_ENV === 'development'
+  const baseUrl = import.meta.env.DEV
     ? 'http://localhost:8000' // PHP built-in server port
     : 'https://api.driveuptr.com'; // Production API domain
   
-  // Debug logging
-  console.log('Environment:', process.env.NODE_ENV);
-  console.log('Base URL:', baseUrl);
-  console.log('Final endpoint:', `${baseUrl}/email.php`);
+  // Debug logging - sadece development'ta
+  if (import.meta.env.DEV) {
+    console.log('Environment:', import.meta.env.MODE);
+    console.log('Base URL:', baseUrl);
+    console.log('Final endpoint:', `${baseUrl}/email.php`);
+  }
   
   const endpoint = `${baseUrl}/email.php`;
   
@@ -64,7 +66,10 @@ export const submitFormDirectly = async (
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error('Form submission error:', error);
+    // Error logging - sadece development'ta
+    if (import.meta.env.DEV) {
+      console.error('Form submission error:', error);
+    }
     return {
       success: false,
       message: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -79,14 +84,16 @@ export const sendTestEmail = async (
   language: string = 'tr',
   smtpProvider: string = 'default'
 ): Promise<TestEmailResult> => {
-  const baseUrl = process.env.NODE_ENV === 'development'
+  const baseUrl = import.meta.env.DEV
     ? 'http://localhost:8000' // PHP built-in server port
     : 'https://api.driveuptr.com'; // Production API domain
   
-  // Debug logging
-  console.log('Test Email - Environment:', process.env.NODE_ENV);
-  console.log('Test Email - Base URL:', baseUrl);
-  console.log('Test Email - Final endpoint:', `${baseUrl}/test-email.php`);
+  // Debug logging - sadece development'ta
+  if (import.meta.env.DEV) {
+    console.log('Test Email - Environment:', import.meta.env.MODE);
+    console.log('Test Email - Base URL:', baseUrl);
+    console.log('Test Email - Final endpoint:', `${baseUrl}/test-email.php`);
+  }
   
   const endpoint = `${baseUrl}/test-email.php`;
   
@@ -109,7 +116,10 @@ export const sendTestEmail = async (
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error('Test email error:', error);
+    // Error logging - sadece development'ta
+    if (import.meta.env.DEV) {
+      console.error('Test email error:', error);
+    }
     return {
       success: false,
       message: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -127,7 +137,10 @@ export const testSmtpConnection = async (
     const result = await sendTestEmail('tr', smtpProvider);
     return result.success;
   } catch (error) {
-    console.error('SMTP connection test failed:', error);
+    // Error logging - sadece development'ta
+    if (import.meta.env.DEV) {
+      console.error('SMTP connection test failed:', error);
+    }
     return false;
   }
 };

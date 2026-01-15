@@ -1,57 +1,382 @@
 @import "tailwindcss";
 @config "../tailwind.config.cjs";
 
-@custom-variant dark (&:is(.dark *));
+/* Stabilized Background Core */
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 20px 20px;
+  }
+
+  /* Smaller movement for stability */
+}
+
+@keyframes data-flow {
+  0% {
+    stroke-dashoffset: 100%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.2;
+  }
+
+  /* Even more subtle */
+  80% {
+    opacity: 0.2;
+  }
+
+  100% {
+    stroke-dashoffset: 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hero-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-soft {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes for Hero */
+/* Reduced Motion Backgrounds */
+.bg-grid-mesh {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(90, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(90, 0, 255, 0.05) 1px, transparent 1px);
+  animation: grid-move 40s linear infinite;
+  /* Slower = more stable */
+}
+
+.dark .bg-grid-mesh {
+  background-image:
+    linear-gradient(to right, rgba(90, 0, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(90, 0, 255, 0.15) 1px, transparent 1px);
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+  display: inline-block;
+  /* Ensure transform works */
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 1s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fade-in-up 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fade-in-up 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fade-in-up 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-4 {
+  animation: fade-in-up 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+.text-shimmer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-shimmer-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: text-shimmer 3s infinite;
+}
+
+/* Header kuyruklu yıldız animasyonları */
+@keyframes starfall-blue {
+  0% {
+    transform: translateX(-100px) translateY(-20px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 100px)) translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes starfall-green {
+  0% {
+    transform: translateX(-120px) translateY(-30px);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.5;
+  }
+
+  85% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 120px)) translateY(30px);
+    opacity: 0;
+  }
+}
+
+@keyframes starfall-red {
+  0% {
+    transform: translateX(-80px) translateY(-10px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  80% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 80px)) translateY(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes starfall-purple {
+  0% {
+    transform: translateX(-150px) translateY(-25px);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.65;
+  }
+
+  88% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 150px)) translateY(25px);
+    opacity: 0;
+  }
+}
+
+/* Morphing Menu Transition */
+.morph-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+}
+
+.morph-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.starfall-blue {
+  animation: starfall-blue 1.5s linear infinite;
+}
+
+.starfall-green {
+  animation: starfall-green 2s linear infinite;
+}
+
+.starfall-red {
+  animation: starfall-red 1s linear infinite;
+}
+
+.starfall-purple {
+  animation: starfall-purple 1.8s linear infinite;
+}
+
+/* Soft button hover scale */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.hover\:scale-101:hover {
+  transform: scale(1.01);
+}
+
+/* Kuyruklu yıldız efekti */
+.comet-tail {
+  position: relative;
+}
+
+.comet-tail::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  width: 25px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor);
+  transform: translateY(-50%);
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+.comet-tail::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 15px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+  transform: translateY(-50%);
+  opacity: 0.8;
+  border-radius: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-blob-1,
+  .animate-blob-2,
+  .animate-blob-3,
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .starfall-blue,
+  .starfall-green,
+  .starfall-red,
+  .starfall-purple {
+    animation: none;
+  }
+}
+
+/* Dark mode variant is handled by Tailwind's darkMode: 'class' configuration */
 
 :root {
-  /* Apple-style Color Palette */
-  --primary: #007AFF;
-  --primary-dark: #0056CC;
-  --accent: #30D158;
-  --secondary: #5856D6;
-  --background: #FFFFFF;
-  --background-secondary: #F2F2F7;
-  --text-primary: #1D1D1F;
-  --text-secondary: #86868B;
-  --text-tertiary: #C7C7CC;
-  --border: #D2D2D7;
-  --border-light: #F2F2F7;
-  
-  /* Minimal shadows */
-  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.12);
-  
-  /* Apple Typography */
-  --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-  
-  /* Apple Spacing */
+  /* Apple-Inspired Color Palette */
+  --primary: #4a00ff;
+  --primary-dark: #3a00cc;
+  --accent: #30d158;
+  --secondary: #5856d6;
+  --background: #fff;
+  --background-secondary: #f2f2f7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-tertiary: #c7c7cc;
+  --border: #d2d2d7;
+  --border-light: #f2f2f7;
+  --shadow-subtle: 0 1px 3px #0000001a;
+  --shadow-medium: 0 4px 16px #0000001a;
+  --shadow-large: 0 8px 32px #0000001f;
+  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   --section-padding: 120px;
   --container-padding: 1.5rem;
   --max-width: 1280px;
   --header-height: 64px;
   --mobile-header-height: 56px;
-  
-  /* Smooth Transitions */
-  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  /* ShadCN Variables */
+  --transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  --transition-fast: all .2s cubic-bezier(.25, .46, .45, .94);
+  --transition-slow: all .6s cubic-bezier(.25, .46, .45, .94);
   --font-size: 16px;
   --foreground: var(--text-primary);
   --card: var(--background);
   --card-foreground: var(--text-primary);
   --popover: var(--background);
   --popover-foreground: var(--text-primary);
-  --primary-foreground: #FFFFFF;
-  --secondary-foreground: #FFFFFF;
+  --primary-foreground: #fff;
+  --secondary-foreground: #fff;
   --muted: var(--background-secondary);
   --muted-foreground: var(--text-secondary);
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF3B30;
-  --destructive-foreground: #FFFFFF;
+  --accent-foreground: #fff;
+  --destructive: #ff3b30;
+  --destructive-foreground: #fff;
   --input: var(--background);
   --input-background: var(--background-secondary);
   --ring: var(--primary);
@@ -67,7 +392,7 @@
   --text-tertiary: #48484A;
   --border: #38383A;
   --border-light: #2C2C2E;
-  
+
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.3);
   --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -81,6 +406,27 @@
   --muted-foreground: var(--text-secondary);
   --input: var(--background-secondary);
   --input-background: #2C2C2E;
+}
+
+/* Dark mode specific styles */
+.dark .hero-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, rgba(74, 0, 255, 0.05) 100%);
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, #4a00ff, #30d158);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .glass-minimal {
+  background: rgba(28, 28, 30, 0.8);
+  border: 1px solid var(--border);
+}
+
+.dark .overflow-fade::after {
+  background: linear-gradient(transparent, var(--background));
 }
 
 @theme inline {
@@ -111,15 +457,19 @@
 }
 
 @layer base {
+
   /* Complete CSS Reset */
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   /* Remove default browser spacing */
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -144,7 +494,19 @@
   }
 
   /* Remove default margins from all elements */
-  h1, h2, h3, h4, h5, h6, p, ul, ol, li, blockquote, figure, figcaption {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  blockquote,
+  figure,
+  figcaption {
     margin: 0;
     padding: 0;
   }
@@ -323,6 +685,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -330,8 +693,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -339,6 +707,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -359,7 +728,33 @@
 
 /* Hero gradient */
 .hero-gradient {
-  background: linear-gradient(135deg, var(--background) 0%, rgba(0, 122, 255, 0.02) 100%);
+  background: linear-gradient(135deg, var(--background) 0%, rgba(74, 0, 255, 0.03) 100%);
+  position: relative;
+  overflow: visible;
+}
+
+/* Blog page specific - remove any pseudo-elements that might create white overlay */
+.blog-page section:first-of-type::before,
+.blog-page section:first-of-type::after,
+.blog-page .hero-gradient::before,
+.blog-page .hero-gradient::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Blog page hero section - transparent background */
+.blog-page section:first-of-type {
+  background: transparent !important;
+}
+
+/* Ensure blog title is always on top */
+.blog-page h1.text-gradient {
+  position: relative !important;
+  z-index: 10000 !important;
+  background: transparent !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Glass effect (minimal) */
@@ -392,7 +787,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 3.5rem;
+    --section-padding: 2.5rem;
     --container-padding: 1rem;
     --header-height: var(--mobile-header-height);
   }
@@ -400,15 +795,17 @@
 
 @media (max-width: 480px) {
   :root {
-    --section-padding: 3rem;
+    --section-padding: 2rem;
     --container-padding: 0.75rem;
   }
 }
 
 /* Mobile-specific improvements */
 @media (max-width: 640px) {
+
   /* Improve touch targets */
-  button, a {
+  button,
+  a {
     min-height: 44px;
   }
 
@@ -438,7 +835,7 @@
   :root {
     --container-padding: 0.5rem;
   }
-  
+
   /* Even more spacing for very small screens */
   .hero-gradient.section-padding {
     padding-top: calc(var(--mobile-header-height) + 2.5rem);
@@ -507,15 +904,33 @@ body::after,
   * {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* Reduce animation on mobile for better performance */
   .card-minimal:hover {
     transform: none;
   }
-  
+
   /* Optimize shadows for mobile */
   .card-elevated {
     box-shadow: var(--shadow-medium);
+  }
+
+  /* Mobile card optimizations */
+  .card-mobile-optimized {
+    padding: 1rem !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Mobile button optimizations */
+  .btn-mobile {
+    min-height: 48px !important;
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Mobile text optimizations */
+  .text-mobile {
+    line-height: 1.5 !important;
   }
 }
 
@@ -524,7 +939,7 @@ body::after,
   .page-wrapper {
     padding-top: env(safe-area-inset-top);
   }
-  
+
   @media (max-width: 640px) {
     .hero-gradient.section-padding {
       padding-top: calc(0.25rem + env(safe-area-inset-top)) !important;
@@ -534,29 +949,30 @@ body::after,
 
 /* Mobile viewport optimizations */
 @media (max-width: 640px) {
+
   /* Ensure hero content starts immediately below header */
   .hero-gradient .container-custom {
     min-height: auto;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  
+
   /* Ultra compact mobile hero layout */
   .hero-gradient .grid {
     gap: 0.75rem !important;
   }
-  
+
   /* Minimal spacing in hero stats */
   .hero-gradient .grid.grid-cols-2 {
     margin-top: 0.75rem !important;
   }
-  
+
   /* Remove all extra padding from hero container */
   .hero-gradient .max-w-4xl {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  
+
   /* Remove any default section spacing on mobile hero specifically */
   .hero-gradient.section-padding {
     padding: 1.5rem 0 1.5rem 0 !important;
@@ -565,21 +981,22 @@ body::after,
 
 /* Better mobile header positioning */
 @media (max-width: 768px) {
+
   /* Ensure fixed elements don't interfere with content */
   .fixed {
     z-index: 9999;
   }
-  
+
   /* Mobile header specific styles */
   header {
     height: var(--mobile-header-height);
   }
-  
+
   /* Content spacing for mobile */
   .page-content {
     margin-top: 0;
   }
-  
+
   /* Product navigation mobile spacing */
   .sticky[style*="top"] {
     top: var(--mobile-header-height) !important;
@@ -589,11 +1006,11 @@ body::after,
   .hero-gradient h1 {
     margin-bottom: 0.5rem !important;
   }
-  
+
   .hero-gradient p {
     margin-bottom: 1rem !important;
   }
-  
+
   /* Reduce button group spacing */
   .hero-gradient .flex.flex-col {
     margin-bottom: 1rem !important;
@@ -602,12 +1019,13 @@ body::after,
 
 /* Mobile section specific overrides */
 @media (max-width: 640px) {
+
   /* Hero section - ultra minimal padding to eliminate white space */
   section.hero-gradient {
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
   }
-  
+
   /* Other sections maintain normal spacing */
   section:not(.hero-gradient) {
     padding-top: var(--section-padding);
@@ -620,20 +1038,20 @@ body::after,
     padding-top: 0.75rem !important;
     padding-bottom: 0.75rem !important;
   }
-  
+
   /* Even more compact spacing for tiny screens */
   .hero-gradient h1 {
     margin-bottom: 0.25rem !important;
   }
-  
+
   .hero-gradient p {
     margin-bottom: 0.75rem !important;
   }
-  
+
   .hero-gradient .flex.flex-col {
     margin-bottom: 0.75rem !important;
   }
-  
+
   .hero-gradient .grid.grid-cols-2 {
     margin-top: 0.5rem !important;
   }
@@ -641,6 +1059,7 @@ body::after,
 
 /* Mobile Dialog Select Dropdown Fix */
 @media (max-width: 768px) {
+
   /* Ensure dialogs don't clip select dropdowns */
   [data-slot="dialog-content"] {
     overflow-y: auto !important;
@@ -648,24 +1067,24 @@ body::after,
     -webkit-overflow-scrolling: touch;
     max-height: 90vh;
   }
-  
+
   /* Make sure select content is above dialog on mobile */
   [data-slot="select-content"] {
     z-index: 9999 !important;
     position: fixed !important;
   }
-  
+
   /* Ensure select portal renders correctly on mobile */
   [data-radix-popper-content-wrapper] {
     z-index: 9999 !important;
   }
-  
+
   /* Mobile touch improvements for select */
   [data-slot="select-trigger"] {
     min-height: 44px !important;
     touch-action: manipulation;
   }
-  
+
   /* Prevent mobile zoom on select interaction */
   [data-slot="select-trigger"] * {
     font-size: 16px !important;

@@ -1,0 +1,12 @@
+export { ContactPage } from './ContactPage';
+export { HomePage } from './HomePage';
+export { ProductsPage } from './ProductsPage';
+export { WhatWeDoPage } from './WhatWeDoPage';
+export { AboutPage } from './AboutPage';
+export { TechnologyPage } from './TechnologyPage';
+export { BlogPage } from './BlogPage';
+export { GDPRPage } from './GDPRPage';
+export { PrivacyPolicyPage } from './PrivacyPolicyPage';
+export { TermsOfUsePage } from './TermsOfUsePage';
+export { CookiePolicyPage } from './CookiePolicyPage';
+export { KVKKPage } from './KVKKPage';

@@ -43,12 +43,12 @@ export default defineConfig({
     assetsInlineLimit: 4096,
   },
   server: {
-    port: 3000,
+    port: 5174,
     host: true,
     open: true
   },
   preview: {
-    port: 3000,
+    port: 5174,
     host: true
   },
   define: {
