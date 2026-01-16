@@ -364,8 +364,9 @@ export const ProductDetailPage = React.memo(({
                 className="max-h-[calc(100dvh-140px)] w-auto max-w-[98vw] sm:max-w-[95vw] lg:max-w-[90vw] xl:max-w-[1400px] object-contain rounded-md sm:rounded-lg"
                 style={{
                   imageRendering: 'auto',
+                  // @ts-ignore - Webkit specific property
                   WebkitImageRendering: 'high-quality'
-                }}
+                } as React.CSSProperties}
                 loading="eager"
                 draggable={false}
               />

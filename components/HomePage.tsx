@@ -206,7 +206,7 @@ const ParticleBackground = () => {
 export const HomePage = React.memo(({
   t,
   navigateToProduct,
-  scrollToSection,
+  scrollToSection: _scrollToSection,
   expandedFAQ,
   setExpandedFAQ,
   currentSlide,
@@ -215,7 +215,7 @@ export const HomePage = React.memo(({
   nextSlide,
   prevSlide,
   language,
-  openPartnerForm,
+  openPartnerForm: _openPartnerForm,
   windowWidth,
   onContact
 }: HomePageProps) => {
@@ -223,9 +223,6 @@ export const HomePage = React.memo(({
   const maxSlides = Math.max(0, t.platforms.length - slidesPerView);
   const isMobile = windowWidth < 768;
 
-  const handleNavigation = (sectionId: string) => {
-    scrollToSection(sectionId);
-  };
 
   return (
     <>

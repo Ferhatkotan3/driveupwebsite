@@ -8,7 +8,7 @@ interface AboutPageProps {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ 
   t, 
-  onContactClick,
+  onContactClick: _onContactClick,
   language = 'tr'
 }) => {
   useEffect(() => {

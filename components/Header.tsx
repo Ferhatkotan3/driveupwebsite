@@ -32,7 +32,7 @@ export const Header = React.memo(({
   currentPage,
   navigateToHome,
   onContactClick,
-  onNavigateService,
+  onNavigateService: _onNavigateService,
   onNavigatePage,
   onNavigateProduct
 }: HeaderProps) => {
@@ -263,7 +263,7 @@ export const Header = React.memo(({
                     { id: 'arac-gorsellestirme', label: 'Araç Görselleştirme' },
                     { id: 'goruntu-guvenligi', label: 'Görüntü Güvenliği ve Gizlilik' },
                     { id: 'arac-degerlendirme', label: 'Araç Değerlendirme' }
-                  ]).map((service: any, index: number) => (
+                  ]).map((service: any) => (
                     <div key={service.id} className="px-4 py-1.5">
                       <button
                         onClick={() => handleServiceClick(service.id)}

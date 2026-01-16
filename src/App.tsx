@@ -6,7 +6,6 @@ import { ProductDetailPage } from '../components/ProductDetailPage';
 import ServiceDetailPage from '../components/ServiceDetailPage';
 import { PartnerApplicationForm } from '../components/forms/PartnerApplicationForm';
 import { content } from '../constants/content';
-import { productPages } from '../components/products';
 import { Language } from '../types';
 import { ThemeProvider } from '../components/ui/theme-provider';
 import { AboutPage, TechnologyPage, BlogPage, ContactPage } from '../components/pages';
@@ -303,13 +302,6 @@ export default function App() {
     setShowPartnerForm(false);
   };
 
-  const handleBack = () => {
-    // Remove hash to go back to home
-    window.location.hash = '';
-    setCurrentPage('home');
-    setSelectedProduct(null);
-  };
-
   const changeLanguage = (newLanguage: Language) => {
     setLanguage(newLanguage);
     // Save to localStorage
@@ -380,7 +372,7 @@ export default function App() {
             onBack={() => setCurrentPage('home')} 
           />
         ) : (
-          <ServicesPage />
+          <ServicesPage t={t} onContactClick={handleContact} />
         );
       case 'about':
         return <AboutPage t={t} onContactClick={handleContact} language={language} />;

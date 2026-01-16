@@ -12,7 +12,7 @@ import {
   Loader2,
   AlertCircle
 } from 'lucide-react';
-import { sendContactEmail, ContactFormData } from '../../utils/emailService';
+import { sendContactEmail } from '../../utils/emailService';
 
 interface ContactPageProps {
   t: any;

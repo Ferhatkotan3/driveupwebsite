@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateProduct, t
             <div>
               <h3 className="text-lg font-semibold mb-6 text-white">{t?.footer?.quickLinks || (language === 'en' ? 'Quick Links' : 'Hızlı Linkler')}</h3>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
+                {quickLinks.map((link: { name: string; page: string }) => (
                   <li key={link.name}>
                     <button
                       onClick={() => {
@@ -140,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateProduct, t
             <div>
               <h3 className="text-lg font-semibold mb-6 text-white">{t?.footer?.products || (language === 'en' ? 'Our Products' : 'Ürünlerimiz')}</h3>
               <ul className="space-y-3">
-                {products.map((product) => {
+                {products.map((product: { name: string; description: string }) => {
                   // Ürün ismini product ID'sine çevir
                   const productNameToId: { [key: string]: string } = {
                     'DriveUpFixer': 'driveupfixer',

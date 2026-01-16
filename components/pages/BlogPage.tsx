@@ -8,7 +8,7 @@ interface BlogPageProps {
   onNavigateToArticle?: (articleId: string) => void;
 }
 
-export const BlogPage: React.FC<BlogPageProps> = ({ t, onContactClick, onNavigateToArticle }) => {
+export const BlogPage: React.FC<BlogPageProps> = ({ t, onContactClick: _onContactClick, onNavigateToArticle }) => {
   // Scroll to top when page loads
   useEffect(() => {
     // Force scroll to top immediately

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 interface ServicesPageProps {
   t: any;
   onContactClick: () => void;
 }
 
-export const ServicesPage = ({ t, onContactClick }: ServicesPageProps) => {
+export const ServicesPage = ({ t: _t, onContactClick }: ServicesPageProps) => {
   useEffect(() => {
     // Force scroll to top immediately
     window.scrollTo(0, 0);
