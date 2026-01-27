@@ -477,7 +477,7 @@ export const content: ContentType = {
             namePlaceholder: 'Adınız ve soyadınız',
             emailPlaceholder: 'ornek@email.com',
             companyPlaceholder: 'Şirket adınız',
-            phonePlaceholder: '0552 415 0255',
+            phonePlaceholder: '+90 552 415 0255',
             messagePlaceholder: 'Mesajınızı buraya yazın...',
             submit: 'Mesaj Gönder'
           },
