@@ -224,9 +224,9 @@ export const Header = React.memo(({
               className="flex items-start text-2xl lg:text-3xl font-bold"
             >
               <div className="flex items-baseline">
-                <span className="text-gray-900 dark:text-gray-100">Drive</span>
-                <span className="text-[#5A00FF]">UP</span>
-                <span className="text-[10px] lg:text-xs text-[#5A00FF] font-bold ml-0.5 self-start mt-1">®</span>
+                <span className="text-[#111111] dark:text-[#FFFFFF]">Drive</span>
+                <span className="text-[#1F5ED9]">UP</span>
+                <span className="text-[10px] lg:text-xs text-[#1F5ED9] font-bold ml-0.5 self-start mt-1">®</span>
               </div>
             </button>
 
@@ -324,8 +324,8 @@ export const Header = React.memo(({
                         className="group relative flex items-center w-full text-left px-5 py-4 bg-gray-50 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 hover:text-[#5A00FF] dark:hover:text-white transition-all duration-300 rounded-xl font-bold animate-border-spin-products overflow-hidden"
                       >
                         <span className="flex items-center flex-1 transition-transform duration-300 group-hover:translate-x-1">
-                          <span className="text-[#000000] dark:text-[#FFFFFF]">Drive</span>
-                          <span className="text-[#0003bd]">Up</span>
+                          <span className="text-[#111111] dark:text-[#FFFFFF]">Drive</span>
+                          <span className="text-[#1F5ED9]">Up</span>
                           <span className="text-[#9A17E3] ml-1">{product.name}</span>
                         </span>
                         <span className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 text-[#9A17E3]">
@@ -362,7 +362,7 @@ export const Header = React.memo(({
 
             {/* Right Side */}
             <div className="flex items-center space-x-4">
-              <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+              <div className="hidden lg:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
                 <button
                   onClick={handleLanguageToggle}
                   className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${language === 'tr'
@@ -385,10 +385,12 @@ export const Header = React.memo(({
 
               <Button
                 onClick={onContactClick}
-                className="inline-flex bg-[#5A00FF] hover:bg-[#4A00E6] text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm sm:text-base"
+                className="hidden lg:inline-flex bg-[#5A00FF] hover:bg-[#4A00E6] text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm sm:text-base"
               >
                 {t.nav.getStarted}
               </Button>
+
+
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -514,7 +516,27 @@ export const Header = React.memo(({
                   {t.nav.blog}
                 </button>
 
-                <div className="pt-4">
+                <div className="pt-4 flex flex-col gap-4">
+                  <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1 w-full">
+                    <button
+                      onClick={handleLanguageToggle}
+                      className={`flex-1 px-3 py-2 text-sm font-bold rounded-md transition-all ${language === 'tr'
+                        ? 'bg-white dark:bg-gray-700 text-[#5A00FF] shadow-sm'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-[#5A00FF]'
+                        }`}
+                    >
+                      TR
+                    </button>
+                    <button
+                      onClick={handleLanguageToggle}
+                      className={`flex-1 px-3 py-2 text-sm font-bold rounded-md transition-all ${language === 'en'
+                        ? 'bg-white dark:bg-gray-700 text-[#5A00FF] shadow-sm'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-[#5A00FF]'
+                        }`}
+                    >
+                      EN
+                    </button>
+                  </div>
                   <Button
                     onClick={() => {
                       onContactClick();

@@ -12,10 +12,10 @@ interface DriveUpManagerPageProps {
   onContact: () => void;
 }
 
-export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({ 
-  language, 
-  onBack, 
-  onContact 
+export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({
+  language,
+  onBack,
+  onContact
 }) => {
   const content = driveUpManagerContent[language];
 
@@ -31,26 +31,27 @@ export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({
               </div>
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-foreground">Drive</span>
-                  <span style={{color: '#4a00ff'}}>UP</span>
-                  <span className="text-foreground">Manager</span>
+                  <span className="text-[#111111] dark:text-white">Drive</span>
+                  <span style={{ color: '#1F5ED9' }}>UP</span>
+                  <span style={{ color: '#1F5ED9', fontSize: '0.5em', verticalAlign: 'top', marginLeft: '2px', alignSelf: 'start', marginTop: '10px' }}>®</span>
+                  <span className="text-[#111111] dark:text-white ml-2">Manager</span>
                 </h1>
                 <Badge variant="outline" className="mt-2">{content.subtitle}</Badge>
               </div>
             </div>
-            
+
             <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-3xl mx-auto">
               {content.description}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
+              <Button
                 className="btn-primary px-8 py-3 text-lg"
                 onClick={onContact}
               >
                 {language === 'tr' ? 'Demo Talep Edin' : 'Request Demo'}
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 className="px-8 py-3 text-lg"
                 onClick={onBack}
@@ -140,7 +141,7 @@ export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({
               {language === 'tr' ? 'Hedef Müşteriler' : 'Target Customers'}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'DriveUpManager hangi işletmeler için uygun?'
                 : 'Which businesses is DriveUpManager suitable for?'
               }
@@ -271,7 +272,7 @@ export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="mb-6">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'Operasyonlarınızı Dijitalleştirin'
                 : 'Digitalize Your Operations'
               }
@@ -282,7 +283,7 @@ export const DriveUpManagerPage: React.FC<DriveUpManagerPageProps> = ({
                 : 'Take your car rental business to the next level with DriveUpManager.'
               }
             </p>
-            <Button 
+            <Button
               className="btn-primary px-8 py-3 text-lg"
               onClick={onContact}
             >

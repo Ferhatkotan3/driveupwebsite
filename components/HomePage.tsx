@@ -93,34 +93,34 @@ const ParticleBackground = () => {
       }
 
       update(time: number) {
+        // Return to base position (Elastic effect)
+        // This ensures particles always try to go back home, preventing them from getting stuck in a circle
+        let returnSpeed = 0.1;
+        this.x += (this.baseX - this.x) * returnSpeed;
+        this.y += (this.baseY - this.y) * returnSpeed;
+
         let dx = mouse.x - this.x;
         let dy = mouse.y - this.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Wave effect
-        const wave = Math.sin(time * 0.002 + distance * 0.02) * 2;
-
         if (distance < mouse.radius) {
-          let forceDirectionX = dx / distance;
-          let forceDirectionY = dy / distance;
-          let maxDistance = mouse.radius;
-          let force = (maxDistance - distance) / maxDistance;
-          let directionX = forceDirectionX * force * this.density;
-          let directionY = forceDirectionY * force * this.density;
+          const maxDistance = mouse.radius;
+          const force = (maxDistance - distance) / maxDistance;
+          const angle = Math.atan2(dy, dx);
 
-          this.x -= directionX + (forceDirectionX * wave);
-          this.y -= directionY + (forceDirectionY * wave);
-          this.size = 2.5; // Pulse when active
+          // Continuous wave effect
+          // Using a sine wave based on time ensures movement even when mouse is static
+          const wave = Math.sin(time * 0.003 + distance * 0.05);
+          const strength = force * 30; // Amplitude of the wave
+
+          // Apply wave force
+          // This oscillates the particles towards and away from the mouse
+          this.x -= Math.cos(angle) * strength * wave;
+          this.y -= Math.sin(angle) * strength * wave;
+
+          this.size = 2.5; // Pulse size
         } else {
           this.size = 1.8;
-          if (this.x !== this.baseX) {
-            let dx = this.x - this.baseX;
-            this.x -= dx / 15;
-          }
-          if (this.y !== this.baseY) {
-            let dy = this.y - this.baseY;
-            this.y -= dy / 15;
-          }
         }
       }
     }

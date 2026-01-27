@@ -74,12 +74,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateProduct, t
               <div className="flex items-center gap-2 mb-6">
                 <span className="text-2xl font-bold flex items-baseline">
                   <span className="text-white">Drive</span>
-                  <span className="text-[#5A00FF]">UP</span>
-                  <span className="text-[10px] text-[#5A00FF] ml-0.5 self-start mt-0.5">®</span>
+                  <span className="text-[#1F5ED9]">UP</span>
+                  <span className="text-[10px] text-[#1F5ED9] ml-0.5 self-start mt-0.5">®</span>
                 </span>
               </div>
               <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-                {t?.footer?.description || (language === 'en' 
+                {t?.footer?.description || (language === 'en'
                   ? 'Manage your vehicle, maintenance, repair, and rental processes on a single platform with fleet management software. Optimize your operations with modern technology.'
                   : 'Filo yönetimi yazılımları ile araç, bakım, onarım ve kiralama süreçlerinizi tek platformda yönetin. Modern teknoloji ile operasyonlarınızı optimize edin.')}
               </p>
@@ -152,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateProduct, t
                   };
 
                   const productId = productNameToId[product.name];
-                  
+
                   const handleProductClick = () => {
                     if (productId && t?.platforms && onNavigateProduct) {
                       const foundProduct = t.platforms.find((p: any) => p.id === productId);

@@ -12,10 +12,10 @@ interface DriveUpDeskPageProps {
   onContact: () => void;
 }
 
-export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({ 
-  language, 
-  onBack, 
-  onContact 
+export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
+  language,
+  onBack,
+  onContact
 }) => {
   const content = driveUpDeskContent[language];
 
@@ -31,9 +31,10 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
               </div>
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-foreground">Drive</span>
-                  <span style={{color: '#4a00ff'}}>UP</span>
-                  <span className="text-foreground">Desk</span>
+                  <span className="text-[#111111] dark:text-white">Drive</span>
+                  <span style={{ color: '#1F5ED9' }}>UP</span>
+                  <span style={{ color: '#1F5ED9', fontSize: '0.5em', verticalAlign: 'top', marginLeft: '2px', alignSelf: 'start', marginTop: '10px' }}>®</span>
+                  <span className="text-[#111111] dark:text-white ml-2">Desk</span>
                 </h1>
                 <Badge variant="outline" className="mt-2">{content.subtitle}</Badge>
                 <Badge variant="secondary" className="mt-2 ml-2">
@@ -41,19 +42,19 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
                 </Badge>
               </div>
             </div>
-            
+
             <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-3xl mx-auto">
               {content.description}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
+              <Button
                 className="btn-primary px-8 py-3 text-lg"
                 onClick={onContact}
               >
                 {language === 'tr' ? 'Bilgi Alın' : 'Get Information'}
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 className="px-8 py-3 text-lg"
                 onClick={onBack}
@@ -143,7 +144,7 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
               {language === 'tr' ? 'Hedef Kullanıcılar' : 'Target Users'}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'DriveUpDesk kimler için tasarlandı?'
                 : 'Who is DriveUpDesk designed for?'
               }
@@ -217,7 +218,7 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="mb-6">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'Müşteri Deneyimini Dönüştürün'
                 : 'Transform Customer Experience'
               }
@@ -228,7 +229,7 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
                 : 'Professionalize your customer support and increase satisfaction with DriveUpDesk.'
               }
             </p>
-            <Button 
+            <Button
               className="btn-primary px-8 py-3 text-lg"
               onClick={onContact}
             >

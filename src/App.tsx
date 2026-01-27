@@ -37,7 +37,7 @@ export default function App() {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   const [showPartnerForm, setShowPartnerForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const t = content[language];
@@ -91,7 +91,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.substring(1);
-      
+
       // Check if it's a product hash
       if (hash.startsWith('product-')) {
         const productId = hashToProductId(hash);
@@ -111,7 +111,7 @@ export default function App() {
           return;
         }
       }
-      
+
       // Check if it's a standard page (contact, about, blog, etc.)
       if (hash && ['contact', 'about', 'blog', 'services', 'gdpr', 'privacy-policy', 'terms-of-use', 'cookie-policy', 'kvkk'].includes(hash)) {
         setCurrentPage(hash as Page);
@@ -120,7 +120,7 @@ export default function App() {
         setSelectedService(null);
         return;
       }
-      
+
       // Check if it's a service page
       if (hash && ['filo-yonetimi', 'ozmal-arac', 'arac-takip', 'bakim-onarim', 'gunluk-kiralama', 'kiralama-sirketleri', 'cagri-merkezi', 'arac-gorsellestirme', 'goruntu-guvenligi', 'arac-degerlendirme'].includes(hash)) {
         setCurrentPage(hash as Page);
@@ -128,7 +128,7 @@ export default function App() {
         setSelectedArticle(null);
         return;
       }
-      
+
       // Check if it's blog article
       if (hash.startsWith('blog-article-')) {
         const articleId = hash.replace('blog-article-', '');
@@ -137,7 +137,7 @@ export default function App() {
         setSelectedProduct(null);
         return;
       }
-      
+
       // If no hash, go to home
       if (!hash) {
         setCurrentPage('home');
@@ -145,7 +145,7 @@ export default function App() {
         setSelectedArticle(null);
         return;
       }
-      
+
       // If unrecognized hash, clear it and go to home
       if (hash && !hash.startsWith('product-') && !hash.startsWith('blog-article-') && !['contact', 'about', 'blog', 'services', 'gdpr', 'privacy-policy', 'terms-of-use', 'cookie-policy', 'kvkk', 'filo-yonetimi', 'ozmal-arac', 'arac-takip', 'bakim-onarim', 'gunluk-kiralama', 'kiralama-sirketleri', 'cagri-merkezi', 'arac-gorsellestirme', 'goruntu-guvenligi', 'arac-degerlendirme'].includes(hash)) {
         window.location.hash = '';
@@ -316,14 +316,14 @@ export default function App() {
     if (currentPage === 'home') {
       return;
     }
-    
+
     // Force scroll to top immediately for all page changes
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     // Also try with instant behavior
     window.scrollTo({ top: 0, behavior: 'instant' });
-    
+
     // Additional scroll after a small delay to ensure it works
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -367,9 +367,9 @@ export default function App() {
         return <ServicesPage t={t} onContactClick={handleContact} />;
       case 'service-detail':
         return selectedService ? (
-          <ServiceDetailPage 
-            serviceId={selectedService} 
-            onBack={() => setCurrentPage('home')} 
+          <ServiceDetailPage
+            serviceId={selectedService}
+            onBack={() => setCurrentPage('home')}
           />
         ) : (
           <ServicesPage t={t} onContactClick={handleContact} />
@@ -385,8 +385,8 @@ export default function App() {
         }} />;
       case 'blog-article':
         return selectedArticle ? (
-          <BlogArticlePage 
-            articleId={selectedArticle} 
+          <BlogArticlePage
+            articleId={selectedArticle}
             onBack={() => {
               setCurrentPage('blog');
               setSelectedArticle(null);
@@ -459,7 +459,7 @@ export default function App() {
   };
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="driveup-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="driveup-ui-theme-fixed">
       <div className="min-h-screen bg-background">
 
         <Header
@@ -476,18 +476,18 @@ export default function App() {
           onNavigatePage={handleNavigation}
           onNavigateProduct={navigateToProduct}
         />
-        
+
         <main className="pt-16">
           {renderPage()}
         </main>
-        
-            <Footer
-              onNavigate={handleNavigation}
-              onContact={handleContact}
-              onNavigateProduct={navigateToProduct}
-              t={t}
-              language={language}
-            />
+
+        <Footer
+          onNavigate={handleNavigation}
+          onContact={handleContact}
+          onNavigateProduct={navigateToProduct}
+          t={t}
+          language={language}
+        />
 
         {/* Forms */}
         {showPartnerForm && (
@@ -497,7 +497,7 @@ export default function App() {
             language={language}
           />
         )}
-        
+
       </div>
     </ThemeProvider>
   );

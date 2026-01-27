@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import { 
-  Menu, 
-  X, 
+import {
+  Menu,
+  X,
   ChevronDown,
   Phone,
   Mail
@@ -14,10 +14,10 @@ interface NavbarProps {
   currentPage: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ 
-  onNavigate, 
-  onContact, 
-  currentPage 
+export const Navbar: React.FC<NavbarProps> = ({
+  onNavigate,
+  onContact,
+  currentPage
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
@@ -48,13 +48,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
+          <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNavigation('home')}
           >
             <span className="text-xl font-bold">
-              <span className="text-foreground">Drive</span>
-              <span className="text-primary">UP</span>
+              <span className="text-[#111111] dark:text-white">Drive</span>
+              <span className="text-[#1F5ED9]">UP</span>
+              <span className="text-[#1F5ED9] text-[10px] ml-0.5 self-start mt-1">®</span>
             </span>
           </div>
 
@@ -63,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navigation.map((item) => (
               <div key={item.name} className="relative">
                 {item.hasDropdown ? (
-                  <div 
+                  <div
                     className="flex items-center gap-1 cursor-pointer hover:text-primary transition-colors"
                     onMouseEnter={() => setIsProductsOpen(true)}
                     onMouseLeave={() => setIsProductsOpen(false)}
@@ -74,9 +75,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 ) : (
                   <button
                     onClick={() => handleNavigation(item.page)}
-                    className={`hover:text-primary transition-colors ${
-                      currentPage === item.page ? 'text-primary' : 'text-foreground'
-                    }`}
+                    className={`hover:text-primary transition-colors ${currentPage === item.page ? 'text-primary' : 'text-foreground'
+                      }`}
                   >
                     {item.name}
                   </button>
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Products Dropdown */}
                 {item.hasDropdown && isProductsOpen && (
-                  <div 
+                  <div
                     className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg p-4"
                     onMouseEnter={() => setIsProductsOpen(true)}
                     onMouseLeave={() => setIsProductsOpen(false)}
@@ -109,8 +109,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={onContact}
               className="btn-secondary"
@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Phone className="mr-2 h-4 w-4" />
               Ara
             </Button>
-            <Button 
+            <Button
               size="sm"
               onClick={onContact}
               className="btn-primary"
@@ -154,9 +154,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                         className="flex items-center justify-between w-full py-2 text-left hover:text-primary transition-colors"
                       >
                         <span>{item.name}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform ${
-                          isProductsOpen ? 'rotate-180' : ''
-                        }`} />
+                        <ChevronDown className={`h-4 w-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''
+                          }`} />
                       </button>
                       {isProductsOpen && (
                         <div className="ml-4 mt-2 space-y-2">
@@ -175,19 +174,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ) : (
                     <button
                       onClick={() => handleNavigation(item.page)}
-                      className={`block w-full text-left py-2 hover:text-primary transition-colors ${
-                        currentPage === item.page ? 'text-primary' : 'text-foreground'
-                      }`}
+                      className={`block w-full text-left py-2 hover:text-primary transition-colors ${currentPage === item.page ? 'text-primary' : 'text-foreground'
+                        }`}
                     >
                       {item.name}
                     </button>
                   )}
                 </div>
               ))}
-              
+
               <div className="pt-4 border-t border-border space-y-2">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   onClick={onContact}
                   className="w-full btn-secondary"
@@ -195,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Phone className="mr-2 h-4 w-4" />
                   Ara
                 </Button>
-                <Button 
+                <Button
                   size="sm"
                   onClick={onContact}
                   className="w-full btn-primary"

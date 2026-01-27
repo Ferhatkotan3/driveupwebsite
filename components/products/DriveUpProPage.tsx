@@ -12,10 +12,10 @@ interface DriveUpProPageProps {
   onContact: () => void;
 }
 
-export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({ 
-  language, 
-  onBack, 
-  onContact 
+export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
+  language,
+  onBack,
+  onContact
 }) => {
   const content = driveUpProContent[language];
 
@@ -31,9 +31,10 @@ export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
               </div>
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-foreground">Drive</span>
-                  <span style={{color: '#4a00ff'}}>UP</span>
-                  <span className="text-foreground">Pro</span>
+                  <span className="text-[#111111] dark:text-white">Drive</span>
+                  <span style={{ color: '#1F5ED9' }}>UP</span>
+                  <span style={{ color: '#1F5ED9', fontSize: '0.5em', verticalAlign: 'top', marginLeft: '2px', alignSelf: 'start', marginTop: '10px' }}>®</span>
+                  <span className="text-[#111111] dark:text-white ml-2">Pro</span>
                 </h1>
                 <Badge variant="outline" className="mt-2">{content.subtitle}</Badge>
                 <Badge variant="secondary" className="mt-2 ml-2">
@@ -41,19 +42,19 @@ export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
                 </Badge>
               </div>
             </div>
-            
+
             <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-3xl mx-auto">
               {content.description}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
+              <Button
                 className="btn-primary px-8 py-3 text-lg"
                 onClick={onContact}
               >
                 {language === 'tr' ? 'Erken Erişim Talep Edin' : 'Request Early Access'}
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 className="px-8 py-3 text-lg"
                 onClick={onBack}
@@ -143,7 +144,7 @@ export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
               {language === 'tr' ? 'Hedef Şirketler' : 'Target Companies'}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'DriveUpPro hangi şirketler için uygun?'
                 : 'Which companies is DriveUpPro suitable for?'
               }
@@ -241,7 +242,7 @@ export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="mb-6">
-              {language === 'tr' 
+              {language === 'tr'
                 ? 'Filonuzu Akıllı Yönetin'
                 : 'Manage Your Fleet Intelligently'
               }
@@ -252,7 +253,7 @@ export const DriveUpProPage: React.FC<DriveUpProPageProps> = ({
                 : 'Increase your fleet efficiency and optimize your costs with DriveUpPro.'
               }
             </p>
-            <Button 
+            <Button
               className="btn-primary px-8 py-3 text-lg"
               onClick={onContact}
             >
