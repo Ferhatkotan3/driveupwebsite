@@ -222,10 +222,11 @@ export const Header = React.memo(({
             <button
               onClick={navigateToHome}
               className="flex items-start text-2xl lg:text-3xl font-bold"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               <div className="flex items-baseline">
-                <span className="text-[#111111] dark:text-[#FFFFFF]">Drive</span>
-                <span className="text-[#1F5ED9]">UP</span>
+                <span className="text-[#111111] dark:text-[#FFFFFF]" style={{ fontWeight: 700 }}>Drive</span>
+                <span className="text-[#1F5ED9]" style={{ fontWeight: 700 }}>UP</span>
                 <span className="text-[10px] lg:text-xs text-[#1F5ED9] font-bold ml-0.5 self-start mt-1">®</span>
               </div>
             </button>
