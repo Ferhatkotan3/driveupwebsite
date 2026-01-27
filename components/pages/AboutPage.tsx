@@ -37,11 +37,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               {/* LOGO */}
               <div style={{ fontSize: '80px', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1, fontFamily: 'Montserrat, sans-serif' }} className="mb-4">
                 <span style={{ color: '#000000', fontWeight: 700 }}>Drive</span>
-                <span style={{ color: '#0003bd', fontWeight: 700 }}>UP</span>
-                <span style={{ color: '#0003bd', fontSize: '28px', verticalAlign: 'super', marginLeft: '4px' }}>®</span>
+                <span style={{ color: '#1F5ED9', fontWeight: 700 }}>UP</span>
+                <span style={{ color: '#1F5ED9', fontSize: '28px', verticalAlign: 'super', marginLeft: '4px' }}>®</span>
               </div>
 
-              <div className="w-24 h-1 bg-gradient-to-r from-[#0003bd] to-[#9A17E3] mx-auto rounded-full mb-10"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#1F5ED9] to-[#9A17E3] mx-auto rounded-full mb-10"></div>
 
               <h2 className="text-2xl font-semibold text-black mb-8">{t?.about?.title || (language === 'en' ? 'About Us' : 'Hakkımızda')}</h2>
             </div>
