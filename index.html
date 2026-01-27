@@ -85,17 +85,24 @@
         "logo": "https://driveuptr.com/logo.png",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+90-212-555-0123",
+          "telephone": "+372-552-415-0255",
           "contactType": "Customer Service",
           "email": "info@driveuptr.com",
-          "availableLanguage": "Turkish"
+          "availableLanguage": ["Turkish", "English"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
         },
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "TR",
-          "addressLocality": "İstanbul",
-          "addressRegion": "İstanbul",
-          "streetAddress": "Maslak Mahallesi, Büyükdere Caddesi No: 123"
+          "addressCountry": "EE",
+          "addressLocality": "Tallinn",
+          "addressRegion": "Harju maakond",
+          "postalCode": "10111",
+          "streetAddress": "Viru väljak 2, 3. korrus, Kesklinna linnaosa"
         },
         "sameAs": [
           "https://www.linkedin.com/company/driveuptr/"
