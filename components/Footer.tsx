@@ -72,9 +72,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateProduct, t
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-6">
-                <span className="text-2xl font-bold flex items-baseline">
-                  <span className="text-white">Drive</span>
-                  <span className="text-[#1F5ED9]">UP</span>
+                <span className="text-2xl font-bold flex items-baseline" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  <span className="text-white" style={{ fontWeight: 700 }}>Drive</span>
+                  <span className="text-[#1F5ED9]" style={{ fontWeight: 700 }}>UP</span>
                   <span className="text-[10px] text-[#1F5ED9] ml-0.5 self-start mt-0.5">®</span>
                 </span>
               </div>

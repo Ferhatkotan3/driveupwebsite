@@ -52,9 +52,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNavigation('home')}
           >
-            <span className="text-xl font-bold">
-              <span className="text-[#111111] dark:text-white">Drive</span>
-              <span className="text-[#1F5ED9]">UP</span>
+            <span className="text-xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <span className="text-[#111111] dark:text-white" style={{ fontWeight: 700 }}>Drive</span>
+              <span className="text-[#1F5ED9]" style={{ fontWeight: 700 }}>UP</span>
               <span className="text-[#1F5ED9] text-[10px] ml-0.5 self-start mt-1">®</span>
             </span>
           </div>

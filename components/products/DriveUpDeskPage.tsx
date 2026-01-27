@@ -30,9 +30,9 @@ export const DriveUpDeskPage: React.FC<DriveUpDeskPageProps> = ({
                 <content.icon className={`h-8 w-8 ${content.color}`} />
               </div>
               <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-[#111111] dark:text-white">Drive</span>
-                  <span style={{ color: '#1F5ED9' }}>UP</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  <span className="text-[#111111] dark:text-white" style={{ fontWeight: 700 }}>Drive</span>
+                  <span style={{ color: '#1F5ED9', fontWeight: 700 }}>UP</span>
                   <span style={{ color: '#1F5ED9', fontSize: '0.5em', verticalAlign: 'top', marginLeft: '2px', alignSelf: 'start', marginTop: '10px' }}>®</span>
                   <span className="text-[#111111] dark:text-white ml-2">Desk</span>
                 </h1>

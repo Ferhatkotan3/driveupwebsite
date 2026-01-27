@@ -324,9 +324,9 @@ export const Header = React.memo(({
                         onClick={() => handleProductClick(product.id)}
                         className="group relative flex items-center w-full text-left px-5 py-4 bg-gray-50 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 hover:text-[#5A00FF] dark:hover:text-white transition-all duration-300 rounded-xl font-bold animate-border-spin-products overflow-hidden"
                       >
-                        <span className="flex items-center flex-1 transition-transform duration-300 group-hover:translate-x-1">
-                          <span className="text-[#111111] dark:text-[#FFFFFF]">Drive</span>
-                          <span className="text-[#1F5ED9]">Up</span>
+                        <span className="flex items-center flex-1 transition-transform duration-300 group-hover:translate-x-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                          <span className="text-[#111111] dark:text-[#FFFFFF]" style={{ fontWeight: 700 }}>Drive</span>
+                          <span className="text-[#1F5ED9]" style={{ fontWeight: 700 }}>Up</span>
                           <span className="text-[#9A17E3] ml-1">{product.name}</span>
                         </span>
                         <span className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 text-[#9A17E3]">

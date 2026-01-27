@@ -6,8 +6,8 @@ interface AboutPageProps {
   language?: 'tr' | 'en';
 }
 
-export const AboutPage: React.FC<AboutPageProps> = ({ 
-  t, 
+export const AboutPage: React.FC<AboutPageProps> = ({
+  t,
   onContactClick: _onContactClick,
   language = 'tr'
 }) => {
@@ -35,9 +35,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               className="text-center mb-16 animate-fadeInUp"
             >
               {/* LOGO */}
-              <div style={{ fontSize: '80px', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }} className="mb-4">
-                <span style={{ color: '#000000' }}>Drive</span>
-                <span style={{ color: '#0003bd' }}>UP</span>
+              <div style={{ fontSize: '80px', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1, fontFamily: 'Montserrat, sans-serif' }} className="mb-4">
+                <span style={{ color: '#000000', fontWeight: 700 }}>Drive</span>
+                <span style={{ color: '#0003bd', fontWeight: 700 }}>UP</span>
                 <span style={{ color: '#0003bd', fontSize: '28px', verticalAlign: 'super', marginLeft: '4px' }}>®</span>
               </div>
 
