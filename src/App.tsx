@@ -369,7 +369,7 @@ export default function App() {
         return selectedService ? (
           <ServiceDetailPage
             serviceId={selectedService}
-            onBack={() => setCurrentPage('home')}
+            onBack={() => handleNavigation('home')}
           />
         ) : (
           <ServicesPage t={t} onContactClick={handleContact} />
@@ -423,19 +423,19 @@ export default function App() {
       case 'arac-degerlendirme':
         return <AracDegerlendirmePage language={language} t={t} />;
       case 'gdpr':
-        return <GDPRPage language={language} onBack={() => setCurrentPage('home')} t={t} />;
+        return <GDPRPage language={language} onBack={() => handleNavigation('home')} t={t} />;
       case 'privacy-policy':
-        return <PrivacyPolicyPage language={language} onBack={() => setCurrentPage('home')} t={t} />;
+        return <PrivacyPolicyPage language={language} onBack={() => handleNavigation('home')} t={t} />;
       case 'terms-of-use':
-        return <TermsOfUsePage language={language} onBack={() => setCurrentPage('home')} t={t} />;
+        return <TermsOfUsePage language={language} onBack={() => handleNavigation('home')} t={t} />;
       case 'cookie-policy':
-        return <CookiePolicyPage language={language} onBack={() => setCurrentPage('home')} t={t} />;
+        return <CookiePolicyPage language={language} onBack={() => handleNavigation('home')} t={t} />;
       case 'kvkk':
-        return <KVKKPage language={language} onBack={() => setCurrentPage('home')} t={t} />;
+        return <KVKKPage language={language} onBack={() => handleNavigation('home')} t={t} />;
       default:
         // Check if it's an unknown hash/page
         if (window.location.hash && window.location.hash !== '') {
-          return <NotFoundPage language={language} onNavigateHome={() => setCurrentPage('home')} />;
+          return <NotFoundPage language={language} onNavigateHome={() => handleNavigation('home')} />;
         }
         return (
           <HomePage
@@ -470,7 +470,7 @@ export default function App() {
           scrollToSection={scrollToSection}
           t={t}
           currentPage={currentPage}
-          navigateToHome={() => setCurrentPage('home')}
+          navigateToHome={() => handleNavigation('home')}
           onContactClick={handleContact}
           onNavigateService={navigateToService}
           onNavigatePage={handleNavigation}

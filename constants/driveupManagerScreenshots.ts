@@ -1,25 +1,25 @@
 import { ScreenshotData } from '../types';
 
 // Import DriveupManager images from assets/img/DriveupManager folder
-import driveup_manager_1 from '../assets/img/DriveupManager/Driveup_manager_1.png';
-import driveup_manager_2 from '../assets/img/DriveupManager/Driveup_manager_2.png';
-import driveup_manager_3 from '../assets/img/DriveupManager/Driveup_manager_3.png';
-import driveup_manager_4 from '../assets/img/DriveupManager/Driveup_manager_4.png';
-import driveup_manager_5 from '../assets/img/DriveupManager/Driveup_manager_5.png';
-import driveup_manager_6 from '../assets/img/DriveupManager/Driveup_manager_6.png';
-import driveup_manager_7 from '../assets/img/DriveupManager/Driveup_manager_7.png';
-import driveup_manager_8 from '../assets/img/DriveupManager/Driveup_manager_8.png';
-import driveup_manager_9 from '../assets/img/DriveupManager/Driveup_manager_9.png';
-import driveup_manager_10 from '../assets/img/DriveupManager/Driveup_manager_10.png';
-import driveup_manager_11 from '../assets/img/DriveupManager/Driveup_manager_11.png';
-import driveup_manager_12 from '../assets/img/DriveupManager/Driveup_manager_12.png';
-import driveup_manager_13 from '../assets/img/DriveupManager/Driveup_manager_13.png';
-import driveup_manager_14 from '../assets/img/DriveupManager/Driveup_manager_14.png';
-import driveup_manager_15 from '../assets/img/DriveupManager/Driveup_manager_15.png';
-import driveup_manager_16 from '../assets/img/DriveupManager/Driveup_manager_16.png';
-import driveup_manager_17 from '../assets/img/DriveupManager/Driveup_manager_17.png';
-import driveup_manager_18 from '../assets/img/DriveupManager/Driveup_manager_18.png';
-import driveup_manager_19 from '../assets/img/DriveupManager/Driveup_manager_19.png';
+import driveup_manager_1 from '../assets/img/DriveupManager/Driveup_manager_1.webp';
+import driveup_manager_2 from '../assets/img/DriveupManager/Driveup_manager_2.webp';
+import driveup_manager_3 from '../assets/img/DriveupManager/Driveup_manager_3.webp';
+import driveup_manager_4 from '../assets/img/DriveupManager/Driveup_manager_4.webp';
+import driveup_manager_5 from '../assets/img/DriveupManager/Driveup_manager_5.webp';
+import driveup_manager_6 from '../assets/img/DriveupManager/Driveup_manager_6.webp';
+import driveup_manager_7 from '../assets/img/DriveupManager/Driveup_manager_7.webp';
+import driveup_manager_8 from '../assets/img/DriveupManager/Driveup_manager_8.webp';
+import driveup_manager_9 from '../assets/img/DriveupManager/Driveup_manager_9.webp';
+import driveup_manager_10 from '../assets/img/DriveupManager/Driveup_manager_10.webp';
+import driveup_manager_11 from '../assets/img/DriveupManager/Driveup_manager_11.webp';
+import driveup_manager_12 from '../assets/img/DriveupManager/Driveup_manager_12.webp';
+import driveup_manager_13 from '../assets/img/DriveupManager/Driveup_manager_13.webp';
+import driveup_manager_14 from '../assets/img/DriveupManager/Driveup_manager_14.webp';
+import driveup_manager_15 from '../assets/img/DriveupManager/Driveup_manager_15.webp';
+import driveup_manager_16 from '../assets/img/DriveupManager/Driveup_manager_16.webp';
+import driveup_manager_17 from '../assets/img/DriveupManager/Driveup_manager_17.webp';
+import driveup_manager_18 from '../assets/img/DriveupManager/Driveup_manager_18.webp';
+import driveup_manager_19 from '../assets/img/DriveupManager/Driveup_manager_19.webp';
 
 export const driveupManagerScreenshotData: ScreenshotData[] = [
   {

@@ -1,8 +1,8 @@
 import { ScreenshotData } from '../types';
 
 // Import DriveupDesk images from assets/img/DriveupDesk folder
-import driveup_desk_1 from '../assets/img/DriveupDesk/1.png';
-import driveup_desk_2 from '../assets/img/DriveupDesk/2.png';
+import driveup_desk_1 from '../assets/img/DriveupDesk/1.webp';
+import driveup_desk_2 from '../assets/img/DriveupDesk/2.webp';
 
 export const driveupDeskScreenshotData: ScreenshotData[] = [
   {

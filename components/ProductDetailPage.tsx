@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
-import { Check, ArrowLeft } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { ScreenshotDisplay, ScreenshotNavigation } from './ScreenshotComponents';
 import { Language, ScreenshotData } from '../types';
 import { toast } from "sonner";
@@ -149,22 +149,7 @@ export const ProductDetailPage = React.memo(({
 
   return (
     <div className="min-h-screen bg-background pt-14 sm:pt-16">
-      {/* Back Button - Fixed Position for mobile */}
-      <div className="fixed top-16 sm:top-18 left-4 z-40 lg:hidden">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => {
-            // Remove hash to go back to home
-            window.location.hash = '';
-            window.history.back();
-          }}
-          className="bg-background/80 backdrop-blur-sm border border-border shadow-lg"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          {language === 'tr' ? 'Geri' : 'Back'}
-        </Button>
-      </div>
+
 
       {/* Main Content */}
       <section id="product-top" className="pt-8 sm:pt-14" style={{ scrollMarginTop: '112px' }}>
@@ -185,12 +170,12 @@ export const ProductDetailPage = React.memo(({
                         <span style={{ color: PURPLE }} className="font-bold">UP</span>
                         <span className="text-[#9A17E3] font-bold">
                           {product.id === 'driveupmanager' ? 'Manager' :
-                           product.id === 'driveupfixer' ? 'Fixer' :
-                           product.id === 'driveuppro' ? 'Pro' :
-                           product.id === 'driveupdesk' ? 'Desk' :
-                           product.id === 'driveupstudio' ? 'Studio' :
-                           product.id === 'driveupredact' ? 'Redact' :
-                           product.title.replace('DriveUp', '')}
+                            product.id === 'driveupfixer' ? 'Fixer' :
+                              product.id === 'driveuppro' ? 'Pro' :
+                                product.id === 'driveupdesk' ? 'Desk' :
+                                  product.id === 'driveupstudio' ? 'Studio' :
+                                    product.id === 'driveupredact' ? 'Redact' :
+                                      product.title.replace('DriveUp', '')}
                         </span>
                       </h1>
                       <p className="text-muted-foreground text-sm">{product.subtitle}</p>
@@ -280,16 +265,7 @@ export const ProductDetailPage = React.memo(({
                   </div>
                 </div>
 
-                <div className="xl:hidden pt-4">
-                  <Button variant="ghost" className="w-full" onClick={() => {
-                    // Remove hash to go back to home
-                    window.location.hash = '';
-                    window.history.back();
-                  }}>
-                    <ArrowLeft className="h-4 w-4 mr-2" />
-                    {language === 'tr' ? 'Geri Dön' : 'Go Back'}
-                  </Button>
-                </div>
+
               </div>
             </div>
           </div>

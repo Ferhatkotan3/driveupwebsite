@@ -1,23 +1,23 @@
 import { ScreenshotData } from '../types';
 
 // Import DriveUpPro images from assets/img/DriveUpPro folder
-import driveup_pro_1 from '../assets/img/DriveUpPro/1.png';
-import driveup_pro_2 from '../assets/img/DriveUpPro/2.png';
-import driveup_pro_5 from '../assets/img/DriveUpPro/5.png';
-import driveup_pro_6 from '../assets/img/DriveUpPro/6.png';
-import driveup_pro_7 from '../assets/img/DriveUpPro/7.png';
-import driveup_pro_8 from '../assets/img/DriveUpPro/8.png';
-import driveup_pro_9 from '../assets/img/DriveUpPro/9.png';
-import driveup_pro_10 from '../assets/img/DriveUpPro/10.png';
-import driveup_pro_11 from '../assets/img/DriveUpPro/11.png';
-import driveup_pro_12 from '../assets/img/DriveUpPro/12.png';
-import driveup_pro_13 from '../assets/img/DriveUpPro/13.png';
-import driveup_pro_14 from '../assets/img/DriveUpPro/14.png';
-import driveup_pro_15 from '../assets/img/DriveUpPro/15.png';
-import driveup_pro_16 from '../assets/img/DriveUpPro/16.png';
-import driveup_pro_17 from '../assets/img/DriveUpPro/17.png';
-import driveup_pro_18 from '../assets/img/DriveUpPro/18.png';
-import driveup_pro_19 from '../assets/img/DriveUpPro/19.png';
+import driveup_pro_1 from '../assets/img/DriveUpPro/1.webp';
+import driveup_pro_2 from '../assets/img/DriveUpPro/2.webp';
+import driveup_pro_5 from '../assets/img/DriveUpPro/5.webp';
+import driveup_pro_6 from '../assets/img/DriveUpPro/6.webp';
+import driveup_pro_7 from '../assets/img/DriveUpPro/7.webp';
+import driveup_pro_8 from '../assets/img/DriveUpPro/8.webp';
+import driveup_pro_9 from '../assets/img/DriveUpPro/9.webp';
+import driveup_pro_10 from '../assets/img/DriveUpPro/10.webp';
+import driveup_pro_11 from '../assets/img/DriveUpPro/11.webp';
+import driveup_pro_12 from '../assets/img/DriveUpPro/12.webp';
+import driveup_pro_13 from '../assets/img/DriveUpPro/13.webp';
+import driveup_pro_14 from '../assets/img/DriveUpPro/14.webp';
+import driveup_pro_15 from '../assets/img/DriveUpPro/15.webp';
+import driveup_pro_16 from '../assets/img/DriveUpPro/16.webp';
+import driveup_pro_17 from '../assets/img/DriveUpPro/17.webp';
+import driveup_pro_18 from '../assets/img/DriveUpPro/18.webp';
+import driveup_pro_19 from '../assets/img/DriveUpPro/19.webp';
 
 export const driveUpProScreenshotData: ScreenshotData[] = [
   {

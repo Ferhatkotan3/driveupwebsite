@@ -1,12 +1,12 @@
 import { ScreenshotData } from '../types';
 
-import redact_1 from '../assets/img/DriveUpRedact/redact_1.png';
-import redact_2 from '../assets/img/DriveUpRedact/redact_2.png';
-import redact_3 from '../assets/img/DriveUpRedact/redact_3.png';
-import redact_4 from '../assets/img/DriveUpRedact/redact_4.png';
-import redact_5 from '../assets/img/DriveUpRedact/redact_5.png';
-import redact_6 from '../assets/img/DriveUpRedact/redact_6.png';
-import redact_7 from '../assets/img/DriveUpRedact/redact_7.png';
+import redact_1 from '../assets/img/DriveUpRedact/redact_1.webp';
+import redact_2 from '../assets/img/DriveUpRedact/redact_2.webp';
+import redact_3 from '../assets/img/DriveUpRedact/redact_3.webp';
+import redact_4 from '../assets/img/DriveUpRedact/redact_4.webp';
+import redact_5 from '../assets/img/DriveUpRedact/redact_5.webp';
+import redact_6 from '../assets/img/DriveUpRedact/redact_6.webp';
+import redact_7 from '../assets/img/DriveUpRedact/redact_7.webp';
 
 export const driveUpRedactScreenshotData: ScreenshotData[] = [
   {

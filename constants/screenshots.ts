@@ -1,35 +1,35 @@
 import { ScreenshotData } from '../types';
 
 // Import Driveupfixer images from assets/img/Driveupfixer folder
-import driveupfixer_1 from '../assets/img/Driveupfixer/driveupfixer_1.png';
-import driveupfixer_2 from '../assets/img/Driveupfixer/driveupfixer_2.png';
-import driveupfixer_3 from '../assets/img/Driveupfixer/driveupfixer_3.png';
-import driveupfixer_4 from '../assets/img/Driveupfixer/driveupfixer_4.png';
-import driveupfixer_5 from '../assets/img/Driveupfixer/driveupfixer_5.png';
-import driveupfixer_6 from '../assets/img/Driveupfixer/driveupfixer_6.png';
-import driveupfixer_7 from '../assets/img/Driveupfixer/driveupfixer_7.png';
-import driveupfixer_8 from '../assets/img/Driveupfixer/driveupfixer_8.png';
-import driveupfixer_9 from '../assets/img/Driveupfixer/driveupfixer_9.png';
-import driveupfixer_10 from '../assets/img/Driveupfixer/driveupfixer_10.png';
-import driveupfixer_11 from '../assets/img/Driveupfixer/driveupfixer_11.png';
-import driveupfixer_12 from '../assets/img/Driveupfixer/driveupfixer_12.png';
-import driveupfixer_13 from '../assets/img/Driveupfixer/driveupfixer_13.png';
-import driveupfixer_14 from '../assets/img/Driveupfixer/driveupfixer_14.png';
-import driveupfixer_15 from '../assets/img/Driveupfixer/driveupfixer_15.png';
-import driveupfixer_16 from '../assets/img/Driveupfixer/driveupfixer_16.png';
-import driveupfixer_17 from '../assets/img/Driveupfixer/driveupfixer_17.png';
-import driveupfixer_18 from '../assets/img/Driveupfixer/driveupfixer_18.png';
-import driveupfixer_19 from '../assets/img/Driveupfixer/driveupfixer_19.png';
-import driveupfixer_20 from '../assets/img/Driveupfixer/driveupfixer_20.png';
-import driveupfixer_21 from '../assets/img/Driveupfixer/driveupfixer_21.png';
-import driveupfixer_22 from '../assets/img/Driveupfixer/driveupfixer_22.png';
-import driveupfixer_23 from '../assets/img/Driveupfixer/driveupfixer_23.png';
-import driveupfixer_24 from '../assets/img/Driveupfixer/driveupfixer_24.png';
-import driveupfixer_25 from '../assets/img/Driveupfixer/driveupfixer_25.png';
-import driveupfixer_26 from '../assets/img/Driveupfixer/driveupfixer_26.png';
-import driveupfixer_27 from '../assets/img/Driveupfixer/driveupfixer_27.png';
-import driveupfixer_28 from '../assets/img/Driveupfixer/driveupfixer_28.png';
-import driveupfixer_29 from '../assets/img/Driveupfixer/driveupfixer_29.png';
+import driveupfixer_1 from '../assets/img/Driveupfixer/driveupfixer_1.webp';
+import driveupfixer_2 from '../assets/img/Driveupfixer/driveupfixer_2.webp';
+import driveupfixer_3 from '../assets/img/Driveupfixer/driveupfixer_3.webp';
+import driveupfixer_4 from '../assets/img/Driveupfixer/driveupfixer_4.webp';
+import driveupfixer_5 from '../assets/img/Driveupfixer/driveupfixer_5.webp';
+import driveupfixer_6 from '../assets/img/Driveupfixer/driveupfixer_6.webp';
+import driveupfixer_7 from '../assets/img/Driveupfixer/driveupfixer_7.webp';
+import driveupfixer_8 from '../assets/img/Driveupfixer/driveupfixer_8.webp';
+import driveupfixer_9 from '../assets/img/Driveupfixer/driveupfixer_9.webp';
+import driveupfixer_10 from '../assets/img/Driveupfixer/driveupfixer_10.webp';
+import driveupfixer_11 from '../assets/img/Driveupfixer/driveupfixer_11.webp';
+import driveupfixer_12 from '../assets/img/Driveupfixer/driveupfixer_12.webp';
+import driveupfixer_13 from '../assets/img/Driveupfixer/driveupfixer_13.webp';
+import driveupfixer_14 from '../assets/img/Driveupfixer/driveupfixer_14.webp';
+import driveupfixer_15 from '../assets/img/Driveupfixer/driveupfixer_15.webp';
+import driveupfixer_16 from '../assets/img/Driveupfixer/driveupfixer_16.webp';
+import driveupfixer_17 from '../assets/img/Driveupfixer/driveupfixer_17.webp';
+import driveupfixer_18 from '../assets/img/Driveupfixer/driveupfixer_18.webp';
+import driveupfixer_19 from '../assets/img/Driveupfixer/driveupfixer_19.webp';
+import driveupfixer_20 from '../assets/img/Driveupfixer/driveupfixer_20.webp';
+import driveupfixer_21 from '../assets/img/Driveupfixer/driveupfixer_21.webp';
+import driveupfixer_22 from '../assets/img/Driveupfixer/driveupfixer_22.webp';
+import driveupfixer_23 from '../assets/img/Driveupfixer/driveupfixer_23.webp';
+import driveupfixer_24 from '../assets/img/Driveupfixer/driveupfixer_24.webp';
+import driveupfixer_25 from '../assets/img/Driveupfixer/driveupfixer_25.webp';
+import driveupfixer_26 from '../assets/img/Driveupfixer/driveupfixer_26.webp';
+import driveupfixer_27 from '../assets/img/Driveupfixer/driveupfixer_27.webp';
+import driveupfixer_28 from '../assets/img/Driveupfixer/driveupfixer_28.webp';
+import driveupfixer_29 from '../assets/img/Driveupfixer/driveupfixer_29.webp';
 
 export const staticScreenshotData: ScreenshotData[] = [
   {

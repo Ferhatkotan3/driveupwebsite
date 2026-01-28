@@ -1,20 +1,20 @@
 import { ScreenshotData } from '../types';
 
 // Import all Studio images
-import studio_1 from '../assets/img/DriveUpStudio/1.png';
-import studio_2 from '../assets/img/DriveUpStudio/2.png';
-import studio_3 from '../assets/img/DriveUpStudio/3.png';
-import studio_4 from '../assets/img/DriveUpStudio/4.png';
-import studio_5 from '../assets/img/DriveUpStudio/5.png';
-import studio_6 from '../assets/img/DriveUpStudio/6.png';
-import studio_7 from '../assets/img/DriveUpStudio/7.png';
-import studio_8 from '../assets/img/DriveUpStudio/8.png';
-import studio_9 from '../assets/img/DriveUpStudio/9.png';
-import studio_10 from '../assets/img/DriveUpStudio/10.png';
-import studio_11 from '../assets/img/DriveUpStudio/11.png';
-import studio_12 from '../assets/img/DriveUpStudio/12.png';
-import studio_13 from '../assets/img/DriveUpStudio/13.png';
-import studio_14 from '../assets/img/DriveUpStudio/14.png';
+import studio_1 from '../assets/img/DriveUpStudio/1.webp';
+import studio_2 from '../assets/img/DriveUpStudio/2.webp';
+import studio_3 from '../assets/img/DriveUpStudio/3.webp';
+import studio_4 from '../assets/img/DriveUpStudio/4.webp';
+import studio_5 from '../assets/img/DriveUpStudio/5.webp';
+import studio_6 from '../assets/img/DriveUpStudio/6.webp';
+import studio_7 from '../assets/img/DriveUpStudio/7.webp';
+import studio_8 from '../assets/img/DriveUpStudio/8.webp';
+import studio_9 from '../assets/img/DriveUpStudio/9.webp';
+import studio_10 from '../assets/img/DriveUpStudio/10.webp';
+import studio_11 from '../assets/img/DriveUpStudio/11.webp';
+import studio_12 from '../assets/img/DriveUpStudio/12.webp';
+import studio_13 from '../assets/img/DriveUpStudio/13.webp';
+import studio_14 from '../assets/img/DriveUpStudio/14.webp';
 
 export const driveUpStudioScreenshotData: ScreenshotData[] = [
   {

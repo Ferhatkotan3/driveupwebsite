@@ -336,7 +336,7 @@ export const HomePage = React.memo(({
                       <ArrowPathIcon className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
-                      <div className="text-[10px] font-bold text-[#9A17E3] uppercase tracking-tighter">{t?.hero?.productBadges?.fixer?.name || 'Fixer'}</div>
+                      <div className="text-[10px] font-bold text-[#9A17E3] tracking-tighter">FIXER</div>
                       <div className="text-xs font-bold text-blue-600 dark:text-blue-400">{t?.hero?.productBadges?.fixer?.desc || 'Bakım & Servis'}</div>
                     </div>
                   </div>
@@ -391,7 +391,7 @@ export const HomePage = React.memo(({
             <div className="lg:hidden w-full mt-8">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {[
-                  { id: 'fixer', icon: ArrowPathIcon, color: 'emerald', name: t?.hero?.productBadges?.fixer?.name || 'Fixer', desc: t?.hero?.productBadges?.fixer?.desc || 'Bakım & Servis' },
+                  { id: 'fixer', icon: ArrowPathIcon, color: 'emerald', name: 'FIXER', desc: t?.hero?.productBadges?.fixer?.desc || 'Bakım & Servis' },
                   { id: 'studio', icon: PhotoIcon, color: 'indigo', name: t?.hero?.productBadges?.studio?.name || 'Studio', desc: t?.hero?.productBadges?.studio?.desc || 'AI Görselleme' },
                   { id: 'pro', icon: RocketLaunchIcon, color: 'blue', name: t?.hero?.productBadges?.pro?.name || 'Pro', desc: t?.hero?.productBadges?.pro?.desc || 'İleri Analiz' },
                   { id: 'manager', icon: SquaresPlusIcon, color: 'purple', name: t?.hero?.productBadges?.manager?.name || 'Manager', desc: t?.hero?.productBadges?.manager?.desc || 'Entegre Yönetim' },
@@ -417,7 +417,7 @@ export const HomePage = React.memo(({
                           <IconComponent className="w-5 h-5" />
                         </div>
                         <div>
-                          <div className="text-[10px] font-bold text-[#9A17E3] uppercase tracking-tighter">{product.name}</div>
+                          <div className={`text-[10px] font-bold text-[#9A17E3] tracking-tighter ${product.id === 'fixer' ? '' : 'uppercase'}`}>{product.name}</div>
                           <div className="text-[10px] font-medium text-blue-600 dark:text-blue-400 mt-0.5">{product.desc}</div>
                         </div>
                       </div>

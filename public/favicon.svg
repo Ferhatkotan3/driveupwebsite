@@ -5,8 +5,8 @@
       <stop offset="100%" stop-color="#007aff"/>
     </linearGradient>
   </defs>
-  <rect rx="12" width="64" height="64" fill="url(#g)"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#ffffff">DU</text>
+  <circle cx="32" cy="32" r="32" fill="url(#g)"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">DU</text>
   <title>DriveUp</title>
 </svg>
 
